@@ -29,5 +29,6 @@
   * [🍔 Fast Food Pack](props/fast-food-pack.md)
   * [🍣 Sushi Pack](props/sushi-pack.md)
   * [🎃 Halloween Food Pack](props/halloween-food-pack.md)
+  * [🎃 Halloween Pack](props/halloween-pack.md)
   * [🥤 Fast Food Pack 2](props/fast-food-pack-2.md)
   * [🎃 Halloween Free Pack](props/halloween-free-pack.md)
