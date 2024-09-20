@@ -2,7 +2,7 @@
 hidden: true
 ---
 
-# 🥤 Copy of Fast Food Pack 2
+# 🥤 Fast Food Pack 2
 
 
 
