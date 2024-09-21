@@ -1,7 +1,3 @@
----
-hidden: true
----
-
 # 🥤 Fast Food Pack 2
 
 
