@@ -1,7 +1,3 @@
----
-hidden: true
----
-
 # 🎃 Halloween Food Pack
 
 
