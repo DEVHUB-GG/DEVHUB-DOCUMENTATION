@@ -28,6 +28,7 @@
 * [♟️ Props](props/README.md)
   * [🍔 Fast Food Pack](props/fast-food-pack.md)
   * [🥤 Fast Food Pack 2](props/fast-food-pack-2.md)
+  * [🍉 Fruits Food Pack 2](props/fruits-food-pack-2.md)
   * [🍣 Sushi Pack](props/sushi-pack.md)
   * [🎃 Halloween Food Pack](props/halloween-food-pack.md)
   * [🎃 Halloween Pack](props/halloween-pack.md)
