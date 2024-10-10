@@ -33,6 +33,7 @@
   * [🎃 Halloween Food Pack](props/halloween-food-pack.md)
   * [🎃 Halloween Pack](props/halloween-pack.md)
   * [🍎 Fruits Food Pack](props/fruits-food-pack.md)
+  * [🖼️ Paintings Pack](props/paintings-pack.md)
   * [🚑 Pharmacy](props/pharmacy.md)
   * [🥥 Fruits Food Pack 3](props/fruits-food-pack-3.md)
   * [🎃 Halloween Free Pack](props/halloween-free-pack.md)
