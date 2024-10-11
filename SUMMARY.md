@@ -19,6 +19,7 @@
     * [client.lua](miner-job/configuration/client.lua.md)
     * [shared.lua](miner-job/configuration/shared.lua.md)
     * [server.lua](miner-job/configuration/server.lua.md)
+    * [skillTree.lua](miner-job/configuration/skilltree.lua.md)
 * [🚙 CAR DANCING](car-dancing/README.md)
   * [💻 Installation](car-dancing/installation.md)
   * [🛠️ Configuration](car-dancing/configuration/README.md)
