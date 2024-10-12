@@ -32,6 +32,7 @@
     * [Exports](skill-tree/development/exports.md)
     * [Example skill](skill-tree/development/example-skill.md)
   * [⚙️ Skill Generator](skill-tree/skill-generator.md)
+  * [🎨 UI Color Customization](skill-tree/ui-color-customization.md)
 * [♟️ Props](props/README.md)
   * [🍔 Fast Food Pack](props/fast-food-pack.md)
   * [🥤 Fast Food Pack 2](props/fast-food-pack-2.md)
