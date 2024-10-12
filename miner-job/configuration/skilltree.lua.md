@@ -4,6 +4,15 @@ description: Documentation for skillTree.lua Configuration
 
 # skillTree.lua
 
+**XP for Finishing a Job**
+
+```lua
+Shared.XPForFinishedJob = 30
+```
+
+* **Description**: Specifies the amount of XP awarded to the skill tree when a player completes a job.
+* **Example**: `30` XP is granted upon finishing a job.
+
 **Skills List**
 
 ```lua

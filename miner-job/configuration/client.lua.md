@@ -24,6 +24,15 @@ Config.drillingTime = 8000
 * **Description**: Specifies the time (in milliseconds) required to drill an ore.
 * **Example**: `8000` equals 8 seconds of drilling time.
 
+**Smelting Time**
+
+```lua
+Config.SmeltingTime = 30000
+```
+
+* **Description**: Defines the time (in milliseconds) required to smelt ore.
+* **Example**: `30000` means it will take 30 seconds to smelt ores.
+
 **Main Ped Configuration**
 
 ```lua

@@ -22,6 +22,22 @@ Config.DeleteOreChance = 10
 * **Description**: Sets the probability (in percentage) that an ore will be removed after a successful drill.
 * **Example**: `10` means there is a 10% chance of the ore disappearing post-drilling.
 
+**Money Type for Jobs and Quests**
+
+```lua
+Config.MoneyType = "cash"
+```
+
+* **Description**: Determines whether the player receives job payment as cash or bank balance.
+* **Options**: `"cash"` or `"bank"`
+
+```lua
+Config.MoneyTypeQuest = "cash"
+```
+
+* **Description**: Specifies the method of payment (cash or bank) for completing quests.
+* **Options**: `"cash"` or `"bank"`
+
 **Webhook Configuration**
 
 ```lua
