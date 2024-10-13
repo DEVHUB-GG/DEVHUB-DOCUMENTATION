@@ -6,6 +6,8 @@
 [dh\_lib-needed-for-each-script](../scripts/dh\_lib-needed-for-each-script/)
 {% endcontent-ref %}
 
+### **Download and ensure** [**xsound**](https://github.com/Xogy/xsound/archive/refs/tags/1.4.3.zip)
+
 ### **Installation:**
 
 * Download the MULTIPLAYER MINER JOB script file from keymaster.&#x20;
