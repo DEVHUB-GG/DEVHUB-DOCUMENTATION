@@ -4,7 +4,7 @@ description: Documentation for client.lua Configuration
 
 # client.lua
 
-####
+
 
 **Ore Spawn Distance**
 
