@@ -35,7 +35,7 @@ If you are editing the primary color, we recommend changing it in two locations!
 
 #### Examples of color changes
 
-<div data-full-width="true">
+<div data-full-width="false">
 
 <figure><img src="../.gitbook/assets/image (309).png" alt=""><figcaption></figcaption></figure>
 
