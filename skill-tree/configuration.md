@@ -5,6 +5,8 @@
 ```lua
 Config.MenuCommand = "skill" -- string or false
 Config.Keybind = "F7" -- string or false
+Config.Item = false -- string or false | update 1.0.6
+-- client event | dh_skillTree:client:openSkillTree
 
 Config.XpBoost = 1.0 -- float
 
@@ -25,23 +27,38 @@ Config.EarnXp = {
     -- if you want to disable option , just remove it
     ['running'] = {
         xp = 5, -- int | Xp given for each tick
-        timeout = 3000 -- int | Timeout in ms , cooldown for receiving xp
+        timeout = 3000, -- int | Timeout in ms , cooldown for receiving xp
+        addTo = { -- table | Add xp to specific skill | update 1.0.6
+            ['personal'] = true,
+        }
     },
     ['swimming'] = {
         xp = 5,
-        timeout = 3000
+        timeout = 3000,
+        addTo = {
+            ['personal'] = true,
+        }
     },
     ['melee'] = {
         xp = 5,
-        timeout = 3000
+        timeout = 3000,
+        addTo = {
+            ['personal'] = true,
+        }
     },
     ['shooting'] = {
         xp = 5,
-        timeout = 3000
+        timeout = 3000,
+        addTo = {
+            ['personal'] = true,
+        }
     },
     ['driving'] = {
         xp = 5,
-        timeout = 3000
+        timeout = 3000,
+        addTo = {
+            ['personal'] = true,
+        }
     },
 }
 
