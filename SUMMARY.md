@@ -20,6 +20,7 @@
     * [shared.lua](miner-job/configuration/shared.lua.md)
     * [server.lua](miner-job/configuration/server.lua.md)
     * [skillTree.lua](miner-job/configuration/skilltree.lua.md)
+  * [🎨 UI Color Customization](miner-job/ui-color-customization.md)
 * [🚙 CAR DANCING](car-dancing/README.md)
   * [💻 Installation](car-dancing/installation.md)
   * [🛠️ Configuration](car-dancing/configuration/README.md)

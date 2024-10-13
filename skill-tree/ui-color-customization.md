@@ -4,7 +4,7 @@
 2. Enter `html` folder
 3. Open the `colors.css` file
 
-The code looks like this
+#### The code looks like this
 
 ```css
 /* YOU CAN'T USE A COMMA BETWEEN RGB */
@@ -27,8 +27,16 @@ The code looks like this
 --grid-dark-rgba: 11, 19, 32; /* #0b1320 */
 ```
 
-To customize the UI for yourself, simply edit the RGB color.
+#### To customize the UI for yourself, simply edit the RGB color.
 
 {% hint style="danger" %}
-
+If you are editing the primary color, we recommend changing it in two locations!
 {% endhint %}
+
+#### Examples of color changes
+
+<div data-full-width="true">
+
+<figure><img src="../.gitbook/assets/image (310).png" alt=""><figcaption></figcaption></figure>
+
+</div>
