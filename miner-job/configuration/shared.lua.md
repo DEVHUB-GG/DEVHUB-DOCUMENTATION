@@ -29,10 +29,43 @@ Shared.Economy = {
 * **money**: Money earned per finished job.
 * **mulitplerPerLevel**: Additional reward percentage per player level.
 
+### Extra Rewards Configuration
+
+The Extra Rewards feature allows players to receive additional items during mining and smelting. To enable or disable this feature, modify the `Shared.ExtraRewardsEnabled` value.
+
+#### Configuration Example
+
+```lua
+Shared.ExtraRewardsEnabled = false
+```
+
+* **Description**: Enables or disables the extra rewards feature.
+* **Values**: Set to `true` to enable or `false` to disable.
+
+#### Reward Settings
+
+```lua
+Shared.ExtraRewards = {
+    {
+        itemName = "ore", -- The item the player receives during mining
+        mineAmount = 1, -- The amount of items the player receives during mining
+        smeltingRewardItem = "ingot", -- The item the player receives during smelting
+        smeltingAmount = 1, -- The amount of items the player receives during smelting
+        smeltingChance = 50 -- The chance (in %) to receive the item during smelting, item from mining will be removed
+    },
+}
+```
+
+* **itemName**: The item that the player receives during mining.
+* **mineAmount**: The number of items received during mining.
+* **smeltingRewardItem**: The item that the player receives during smelting.
+* **smeltingAmount**: The number of items received during smelting.
+* **smeltingChance**: The percentage chance to receive the smelted item, removing the item obtained from mining.
+
 **Skill Tree Integration**
 
 ```lua
-Shared.Enable_SkillTree = true
+Shared.SkillTreeEnabled = false
 ```
 
 * **Description**: Enables or disables the skill tree feature.
