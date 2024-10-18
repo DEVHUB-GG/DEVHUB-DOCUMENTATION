@@ -29,6 +29,15 @@ Shared.Economy = {
 * **money**: Money earned per finished job.
 * **mulitplerPerLevel**: Additional reward percentage per player level.
 
+#### Job Requirement Configuration
+
+```lua
+Shared.JobRequired = false
+```
+
+**Description**: Specifies if a specific job is required to perform mining tasks.\
+**Values**: Set to the job name (e.g., "miner") to require it, or `false` to allow all players.
+
 ### Extra Rewards Configuration
 
 The Extra Rewards feature allows players to receive additional items during mining and smelting. To enable or disable this feature, modify the `Shared.ExtraRewardsEnabled` value.
@@ -53,6 +62,7 @@ Shared.SkillTreeEnabled = false
 **Quest Configuration**
 
 ```lua
+Shared.QuestsEnabled = true
 Shared.Quests = {
     {
         uid = "diamond",
