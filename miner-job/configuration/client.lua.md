@@ -123,6 +123,11 @@ Config.Clothing = {
 
 ```lua
 Config.Vehicles = {
+    --{ -- use it if you want to disable vehicle
+    --    model = "none",
+    --    price = 0,
+    --    img = "https://cfx-nui-dh_miner/html/host/none.png",
+    --},
     {
         model = "bodhi2",
         price = 100,
@@ -135,6 +140,8 @@ Config.Vehicles = {
     },
 }
 ```
+
+<mark style="color:red;">If you want to turn off the work vehicle, use the example at the very top</mark>
 
 * **Description**: Configures available rental vehicles.
 * **Model**: Vehicle model name.
