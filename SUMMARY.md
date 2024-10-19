@@ -33,6 +33,7 @@
     * [shared.lua](miner-job/configuration/shared.lua.md)
     * [server.lua](miner-job/configuration/server.lua.md)
     * [skillTree.lua](miner-job/configuration/skilltree.lua.md)
+    * [config.js](miner-job/configuration/config.js.md)
   * [🎨 UI Color Customization](miner-job/ui-color-customization.md)
 * [♟️ Props](props/README.md)
   * [🍔 Fast Food Pack](props/fast-food-pack.md)
