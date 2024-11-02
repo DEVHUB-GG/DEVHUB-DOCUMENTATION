@@ -1,6 +1,6 @@
 # Exports
 
-**CLIENT / SERVER**
+<mark style="color:yellow;">**CLIENT / SERVER**</mark>
 
 ```lua
 exports['dh_skillTree']:hasUnlockedSkill(skill ,uid ,source)
@@ -47,3 +47,70 @@ Arguments:&#x20;
 * uid - skill uid
 
 Returns: effect from config **or** 0
+
+
+
+<mark style="color:yellow;">**SERVER ONLY**</mark>
+
+```lua
+exports['dh_skillTree']:getPlayerLevel(skill ,source)
+```
+
+Arguments:&#x20;
+
+* skill
+* source
+
+Returns: level or 0
+
+
+
+```lua
+exports['dh_skillTree']:getPlayerXp(skill ,source)
+```
+
+Arguments:
+
+* skill
+* source
+
+Returns: xp or 0
+
+
+
+```lua
+exports['dh_skillTree']:getPlayerPoints(skill ,source)
+```
+
+Arguments:
+
+* skill
+* source
+
+Returns: points or 0
+
+
+
+```lua
+exports['dh_skillTree']:getPlayerTotalXp(skill ,source)
+```
+
+Arguments:
+
+* skill
+* source
+
+Returns: totalXp or 0
+
+
+
+```lua
+exports['dh_skillTree']:getPlayerGlobalStats(source)
+```
+
+Arguments:&#x20;
+
+* source
+
+Returns: globalStats or { totalXp = 0, totalLevel = 0, usedPoints = 0, unlockedSkills = 0, }
+
