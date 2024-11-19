@@ -17,14 +17,17 @@ Shared.XPForFinishedJob = 30
 
 ```lua
 Shared.SkillsList = {
-    ["miner"] = {
+    ["herbalAlchemist"] = {
         {
-            uid = "cash_boost_4",
-            title = "Golden Touch IV",
-            description = "Increases cash earned by 5%.",
-            effect = 5,
+            index = 24,
+            uid = "better_flower_quality_3",
+            title = "Superior Flower Quality III",
+            icon = "fas fa-flower",
             points = 1,
-            index = 9,
+            lines = { rightBottom = false },
+            img = "https://upload.devhub.gg/dh_upload/alchemy_2.gif",
+            description = "Increases flower quality by 5%.",
+            effect = 5,
         },
         -- Additional skills...
     },

@@ -10,14 +10,14 @@
 
 ### **Installation:**
 
-* Download the MULTIPLAYER MINER JOB script file from keymaster.&#x20;
-* Download the MULTIPLAYER MINER JOB ASSETS script file from keymaster.&#x20;
+* Download the <mark style="color:red;">MULTIPLAYER HERBAL ALCHEMIST JOB</mark> script file from keymaster.&#x20;
+* Download the <mark style="color:red;">MULTIPLAYER HERBAL ALCHEMIST JOB ASSETS</mark> script file from keymaster.&#x20;
 
 {% content-ref url="../download-purchased-assets.md" %}
 [download-purchased-assets.md](../download-purchased-assets.md)
 {% endcontent-ref %}
 
 * Move the files to the `resources` folder on your server.
-* Add `ensure dh_miner_assets` to your `server.cfg` file.
-* Add `ensure dh_miner` to your `server.cfg` file.
+* Add `ensure devhub_herbalAlchemist_assets` to your `server.cfg` file.
+* Add `ensure devhub_herbalAlchemist` to your `server.cfg` file.
 * Restart your server.

@@ -1,3 +1,7 @@
+---
+hidden: true
+---
+
 # 🍔 Fast Food Pack
 
 

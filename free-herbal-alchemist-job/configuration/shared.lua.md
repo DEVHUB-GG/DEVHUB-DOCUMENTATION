@@ -4,69 +4,134 @@ description: Documentation for shared.lua Configuration
 
 # shared.lua
 
-**XP Calculation Function**
+**1. General Configuration**
+
+**`Shared.CalculateNeedXP(level)`**
+
+Defines the XP required to reach a specific level using a scaling formula.
+
+* Formula: `100 * (level ^ 1.5)` (rounded down to the nearest integer).
+
+**Example:**
 
 ```lua
 Shared.CalculateNeedXP = function(level)
     return math.floor(100 * (level ^ 1.5))
 end
+-- Level 5: Shared.CalculateNeedXP(5) returns 223
 ```
 
-* **Description**: Determines the XP required for a given level.
-* **Formula**: `100 * (level ^ 1.5)`, rounded down.
+**`Shared.Economy`**
 
-**Economy Configuration**
+Controls economy-related settings.
+
+* `xp`: Base XP reward per task.
+* `money`: Base monetary reward per task.
+* `multiplierPerLevel`: Percentage increase in rewards per player level.
+
+**Example:**
 
 ```lua
 Shared.Economy = {
     xp = 100,
     money = 250,
-    mulitplerPerLevel = 0.01,
+    multiplierPerLevel = 0.01, -- 1% increase per level
+}
+-- At level 10, rewards are XP: 110, Money: 275
+```
+
+***
+
+**2. Herb Collection**
+
+**`Shared.HerbsTypePerTask`**
+
+* `0`: Determines the types of herbs required per task.
+  * If `0`, the script uses half of all available herb types.
+  * Any other number specifies the exact number of types per task.
+
+**Example:**
+
+```lua
+Shared.HerbsTypePerTask = 2 -- Each task will require 2 herb types
+```
+
+**`Shared.Herbs`**
+
+Defines each herb's properties, location, and collection behavior.
+
+**Structure:**
+
+* `name`: Internal name of the herb.
+* `label`: Display name of the herb.
+* `Blip`: Map marker settings.
+  * `sprite`: Icon used for the map blip.
+  * `color`: Color of the blip.
+  * `scale`: Size of the blip.
+  * `coords`: Location of the herb spawn area.
+* `amountOnMap`: Maximum number of herb instances on the map.
+* `chanceToDrop`: Percentage chance of a successful herb collection.
+* `maxInQuest`: Maximum number of this herb type required in a quest.
+* `props`: List of prop models used to represent the herb in the game world.
+* `coords`: Array of locations where the herb spawns.
+
+**Example:**
+
+```lua
+Shared.Herbs = {
+    {
+        name = "rose",
+        label = "Rose",
+        Blip = {
+            sprite = 140,
+            color = 5,
+            scale = 0.5,
+            coords = vec3(400.8, 752.0, 189.0),
+        },
+        amountOnMap = 40,
+        chanceToDrop = 75,
+        maxInQuest = 1,
+        props = { 'dh_plant_rose' },
+        coords = {
+            vec3(400.8, 752.0, 189.0),
+            vec3(396.7, 756.3, 187.9),
+        },
+    },
 }
 ```
 
-* **xp**: XP earned per finished job.
-* **money**: Money earned per finished job.
-* **mulitplerPerLevel**: Additional reward percentage per player level.
+***
 
-#### Job Requirement Configuration
+**3. Skill Tree Integration**
 
-```lua
-Shared.JobRequired = false
-```
+**`Shared.SkillTreeEnabled`**
 
-**Description**: Specifies if a specific job is required to perform mining tasks.\
-**Values**: Set to the job name (e.g., "miner") to require it, or `false` to allow all players.
+* `true`: Enables the skill tree system (requires `dh_skillTree`).
+* `false`: Disables skill tree functionality.
 
-### Extra Rewards Configuration
-
-The Extra Rewards feature allows players to receive additional items during mining and smelting. To enable or disable this feature, modify the `Shared.ExtraRewardsEnabled` value.
+**Example:**
 
 ```lua
-Shared.ExtraRewardsEnabled = false
+Shared.SkillTreeEnabled = true
 ```
 
-* **Description**: Enables or disables the extra rewards feature.
-* **Values**: Set to `true` to enable or `false` to disable.
+***
 
-**Skill Tree Integration**
+**4. Quest System**
 
-```lua
-Shared.SkillTreeEnabled = false
-```
+**`Shared.QuestsEnabled`**
 
-* **Description**: Enables or disables the skill tree feature.
-* YOU NEED SKILL TREE SCRIPT, [NORMAL](https://store.devhub.gg/package/6438994) OR [EXCLUSIVE](https://store.devhub.gg/package/6441349)&#x20;
-* **Note**: Must ensure the script is loaded after `dh_skillTree`.
+* `true`: Enables quests for the Herbal Alchemist job.
+* `false`: Disables quests.
 
-**Quest Configuration**
+**Example:**
 
 ```lua
 Shared.QuestsEnabled = true
 Shared.Quests = {
     {
-        uid = "diamond",
-        description = "Collect diamonds",
+        uid = "rose",
+        description = "Collect Roses",
         value = 2,
         reward = {
             xp = 1000,
@@ -75,78 +140,23 @@ Shared.Quests = {
         rewardMultiplerPerLevel = 0.1,
         questMultiplerPerLevel = 0.8,
     },
-    -- Additional quests...
 }
 ```
 
-* **uid**: Unique identifier for the quest.
-* **description**: Describes the quest objective.
-* **value**: Number of items or actions required to complete the quest.
-* **reward**: XP and money granted upon completion.
-* **rewardMultiplerPerLevel**: Multiplier applied to rewards based on player level.
-* **questMultiplerPerLevel**: Adjusts the difficulty based on player level.
+***
 
-**Ore Configuration**
+**5. Language Strings**
 
-```lua
-Shared.Ores = {
-    {
-        props = {
-            "dh_miner_ore_diamond1",
-            "dh_miner_ore_diamond3",
-        },
-        item = "diamond",
-        label = "Diamond",
-        maxInQuest = 3,
-        amountOnMap = 5,
-        chanceToDrop = 80,
-        coords = {
-            vec3(2928.759033, 2745.326660, 53.625084),
-            -- Additional coordinates...
-        },
-        extraRewards = {
-        {
-            itemName = "ore", -- The item the player receives during mining
-            mineAmount = 1, -- The amount of items the player receives during mining
-            smeltingRewardItem = "ingot", -- The item the player receives during smelting
-            smeltingAmount = 1, -- The amount of items the player receives during smelting
-            smeltingChance = 50 -- The chance (in %) to receive the item during smelting, item from mining will be removed
-        },
-    },
-    -- Additional ores...
-}
-```
+**`Shared.Lang`**
 
-* **props**: Defines the models used for the ore.
-* **item**: Item name corresponding to the collected ore.
-* **label**: Display name for the ore.
-* **maxInQuest**: Maximum quantity that can be collected during a quest.
-* **amountOnMap**: Number of ore entities that spawn on the map.
-* **chanceToDrop**: Probability (in percentage) of successfully collecting the ore.
-* **coords**: Positions where ores can be found.
+Defines the text displayed to players in various parts of the script.
 
-<mark style="color:yellow;">extraRewards:</mark>
-
-* **itemName**: The item that the player receives during mining.
-* **mineAmount**: The number of items received during mining.
-* **smeltingRewardItem**: The item that the player receives during smelting.
-* **smeltingAmount**: The number of items received during smelting.
-* **smeltingChance**: The percentage chance to receive the smelted item, removing the item obtained from mining.
-
-**Language Configuration**
+**Example:**
 
 ```lua
 Shared.Lang = {
-    ['Your'] = "Your",
-    ['Mission'] = "Mission",
-    ['Minigame'] = "Minigame",
-    ['Time'] = "Time",
-    ['JobName'] = "Miner",
-    ['JobDescription'] = "As a miner, your job is to extract raw ores from designated mining areas...",
-    -- Additional language entries...
+    ['JobName'] = "Herbal Alchemist",
+    ['JobDescription'] = "Your task is to pick specific flowers marked on the map, brew potions, and sell them.",
+    ['Rewards'] = "Rewards",
 }
 ```
-
-* **Description**: Customizes text used throughout the script's UI.
-* **Usage**: Adjust the right-side values to localize or customize messages.
-* **Note**: Keep `${value}` format unchanged to ensure dynamic values work correctly.

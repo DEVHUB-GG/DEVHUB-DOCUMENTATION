@@ -4,29 +4,6 @@ description: Documentation for server.lua Configuration
 
 # server.lua
 
-**Drill Item Configuration**
-
-```lua
-Config.MenuItem = "dh_drill"
-```
-
-* **Description**: Specifies the item required to initiate the drilling process.
-* **Example**: `"dh_drill"` means players need this item to start drilling.
-
-{% hint style="danger" %}
-Dont forget to add the item <mark style="color:blue;">**dh\_drill**</mark> to the item list. An example of how to add to \
-<mark style="color:purple;">qb-inventory</mark> and <mark style="color:purple;">ox-inventory</mark> can be found in the <mark style="color:red;">items.lua</mark> file
-{% endhint %}
-
-**Ore Deletion Chance**
-
-```lua
-Config.DeleteOreChance = 10
-```
-
-* **Description**: Sets the probability (in percentage) that an ore will be removed after a successful drill.
-* **Example**: `10` means there is a 10% chance of the ore disappearing post-drilling.
-
 **Money Type for Jobs and Quests**
 
 ```lua
