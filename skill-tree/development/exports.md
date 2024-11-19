@@ -112,5 +112,12 @@ Arguments:&#x20;
 
 * source
 
-Returns: globalStats or { totalXp = 0, totalLevel = 0, usedPoints = 0, unlockedSkills = 0, }
+Returns: globalStats or { totalXp = 0, totalLevel = 0, usedPoints = 0, unlockedSkills = 0, }\
+\
+<mark style="color:yellow;">**CLIENT ONLY**</mark>
 
+```lua
+exports['dh_skillTree']:reloadDefaultSkills()
+```
+
+Some people might need that for their ambulance scripts

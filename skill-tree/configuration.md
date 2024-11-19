@@ -93,6 +93,47 @@ Config.SkillLoadingOrder = {
     -- ['fasterReload_2'] = 4,
 }
 
+-- update 1.0.9
+
+Config.MeleeWeapons = { -- used in personal skill tree, uid: meleeDamageMultiplier
+    ["weapon_hammer"] = true,
+    ["weapon_wrench"] = true,
+    ["weapon_stungun"] = true,
+    ["weapon_nightstick"] = true,
+    ["weapon_bat"] = true,
+    ["weapon_bottle"] = true,
+    ["weapon_flashlight"] = true,
+    ["weapon_golfclub"] = true,
+    ["weapon_hatchet"] = true,
+    ["weapon_knuckle"] = true,
+    ["weapon_crowbar"] = true,
+    ["weapon_knife"] = true,
+    ["weapon_machete"] = true,
+    ["weapon_switchblade"] = true,
+    ["weapon_battleaxe"] = true,
+    ["weapon_poolcue"] = true,
+    ["weapon_stone_hatchet"] = true, 
+}
+
+Config.SkillDefaultValues = { -- values that will be applied if player has not skill and is base for further calculations
+    ['moreStamina'] = 100.0,
+    ['moreMaxHp'] = 200,
+    ['timeUnderwater'] = 10.0,
+}
+
+-- If you removed skill from personal category and you dont want default effect to by applied, set it to true 
+-- Why only this skills? Because only this apply default value no matter if you have skill or not
+-- DO NOT CHANGE THIS IF YOU HAVE NOT REMOVED A CORRESPONDING SKILL FROM "personal" CATEGORY
+Config.DisableDefaultSkillEffects = { 
+    ['runFaster'] = false,
+    ['swimFaster'] = false,
+    ['moreStamina'] = false,
+    ['timeUnderwater'] = false,
+    ['moreMaxHp'] = false,
+}
+
+Config.DisableRefreshOnPedOrPidChanged = false -- bool | Disable refreshing some player skills on ped change or pid change
+
 ```
 
 * **Config.MenuCommand**: The command used to open the menu.\
@@ -123,6 +164,15 @@ Config.SkillLoadingOrder = {
   **Type**:  `object`
 * **Config.SkillLoadingOrder:** Define the skill loading order during the player loaded event\
   **Type**:  `object`
+* **Config.MeleeWeapons:** used in personal skill tree, uid: meleeDamageMultiplie\
+  **Type**:  `object`
+* **Config.SkillDefaultValues:** values that will be applied if player has not skill and is base for further calculations\
+  **Type**: object
+* **Config.DisableDefaultSkillEffects:** \
+  If you removed skill from personal category and you dont want default effect to by applied, set it to true \
+  **Type**: object
+* **Config.DisableRefreshOnPedOrPidChanged:** Disable refreshing some player skills on ped change or pid change\
+  **Type**: `bool`
 
 **configs/sh.lang.lua**
 
