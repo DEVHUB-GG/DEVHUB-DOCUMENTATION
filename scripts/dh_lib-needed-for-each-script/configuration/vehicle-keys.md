@@ -21,7 +21,7 @@ devhub_lib/client/c.functions.lua
 Find the function named `Core.SpawnVehicle`.
 
 * It is located approximately at **line 110**.\
-  &#xNAN;_(Note: The exact line number may vary based on your script.)_
+  &#xNAN;_(Note: The exact line number may vary based on our changes.)_
 
 ***
 
