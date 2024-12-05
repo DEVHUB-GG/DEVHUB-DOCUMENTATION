@@ -2,6 +2,6 @@
 
 
 
-{% content-ref url="configuration.md" %}
-[configuration.md](configuration.md)
+{% content-ref url="configuration/" %}
+[configuration](configuration/)
 {% endcontent-ref %}
