@@ -1,12 +1,12 @@
 # ⚙️ Configuration
 
-1. Download resource from our [github](https://github.com/DEVHUB-GG/dh\_lib)
+1. Download resource from our [github](https://github.com/DEVHUB-GG/dh_lib)
 2. Open shared.lua
 3. Adjust script to server frameworks
 
 {% code title="shared.lua" %}
 ```lua
--- This module contains shared configuration settings for the dh_lib.
+-- This module contains shared configuration settings for the devhub_lib.
 -- vRP support is currently in beta. Please report any issues you encounter, check before using in production environments.
 
 -- The framework being used. Possible frameworks: "AUTO DETECT", "ESX", "QBCore", "QBOX" , "VRP" , "custom"
@@ -25,4 +25,8 @@ Shared.CompatibilityTest = true -- Enable compatibility tests for the selected f
 -- 7. Check the server console for the test results
 ```
 {% endcode %}
+
+
+
+
 

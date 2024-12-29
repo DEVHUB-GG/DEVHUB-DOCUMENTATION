@@ -5,9 +5,9 @@
 
 ## 💾 SCRIPTS
 
-* [📗 DH\_LIB (NEEDED FOR EACH SCRIPT!)](scripts/dh_lib-needed-for-each-script/README.md)
-  * [⚙️ Configuration](scripts/dh_lib-needed-for-each-script/configuration/README.md)
-    * [Vehicle keys](scripts/dh_lib-needed-for-each-script/configuration/vehicle-keys.md)
+* [📗 Devhub\_lib (NEEDED FOR EACH SCRIPT!)](scripts/devhub_lib-needed-for-each-script/README.md)
+  * [⚙️ Configuration](scripts/devhub_lib-needed-for-each-script/configuration/README.md)
+    * [Vehicle keys](scripts/devhub_lib-needed-for-each-script/configuration/vehicle-keys.md)
 
 ***
 

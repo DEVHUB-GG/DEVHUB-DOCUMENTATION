@@ -2,8 +2,8 @@
 
 ### Download the lib first.
 
-{% content-ref url="../scripts/dh_lib-needed-for-each-script/" %}
-[dh\_lib-needed-for-each-script](../scripts/dh\_lib-needed-for-each-script/)
+{% content-ref url="../scripts/devhub_lib-needed-for-each-script/" %}
+[devhub\_lib-needed-for-each-script](../scripts/devhub_lib-needed-for-each-script/)
 {% endcontent-ref %}
 
 ### **Download and ensure** [**xsound**](https://github.com/Xogy/xsound/archive/refs/tags/1.4.3.zip)
