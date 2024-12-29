@@ -32,7 +32,7 @@ description: >-
 
 <details>
 
-<summary>In the standard version can I add new skills via config without using generaor ?</summary>
+<summary>In the standard version can I add new skills via config without using generator ?</summary>
 
 **NO , the ability to add your own skill tree via config or generator is only available in the&#x20;**<mark style="color:yellow;">**exclusive**</mark>**&#x20;version.**
 
