@@ -1,14 +1,14 @@
 # 💻 Installation
 
-
-
 {% content-ref url="../download-purchased-assets.md" %}
 [download-purchased-assets.md](../download-purchased-assets.md)
 {% endcontent-ref %}
 
-### Installation
+***
 
-#### 1. Install devhub\_lib
+## <mark style="color:yellow;">Installation</mark>
+
+### 1. Install devhub\_lib
 
 Download and install the required library:
 
@@ -20,7 +20,9 @@ git clone https://github.com/DEVHUB-GG/devhub_lib.git
 
 Configure it according to your framework.
 
-#### 2. Configure server.cfg
+***
+
+### 2. Configure server.cfg
 
 Add the following lines to your server.cfg in the correct order:
 
@@ -29,21 +31,27 @@ ensure devhub_lib        # Must be loaded before devhub_skillTree
 ensure devhub_skillTree  # Main resource
 ```
 
-#### 3. Database Setup
+***
+
+### 3. Database Setup
 
 Import the `sql.sql` file into your database.
 
-### Configuration
+***
+
+## <mark style="color:yellow;">Configuration</mark>
 
 The configuration files can be found in the `configs` folder:
 
-### Versions
+***
 
-#### Standard Version
+## <mark style="color:yellow;">Versions</mark>
+
+### Standard Version
 
 Basic installation as described above.
 
-#### Exclusive Version
+### Exclusive Version
 
 For the exclusive version, add this line before `ensure devhub_skillTree`:
 
@@ -51,7 +59,7 @@ For the exclusive version, add this line before `ensure devhub_skillTree`:
 ensure devhub_skillTree_generator
 ```
 
-
+***
 
 {% hint style="danger" %}
 DO NOT CHANGE RESOURCE NAME

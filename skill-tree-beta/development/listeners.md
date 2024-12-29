@@ -1,10 +1,8 @@
 # Listeners
 
-## DEVHUB Skill Tree - Event Listeners Documentation
+## <mark style="color:yellow;">Client Events</mark>
 
-### Client Events
-
-#### Skill Unlock Event
+### Skill Unlock Event
 
 Triggered when a player unlocks a new skill and after player is loaded first time to server. This should be used if you have skill which apply effect one time, its good for optimalization.
 
@@ -25,7 +23,9 @@ end)
 * `categoryUid` (string): Category name (e.g., 'personal')
 * `skillUid` (string): Unique identifier of the unlocked skill
 
-#### XP Gain Event
+***
+
+### XP Gain Event
 
 Triggered when a player receives new XP.
 
@@ -44,7 +44,9 @@ end)
 * `categoryUid` (string): Category name (e.g., 'personal')
 * `amount` (number): Amount of XP received
 
-#### Skill Reset Event
+***
+
+### Skill Reset Event
 
 Triggered when a player resets their skills in a category.
 

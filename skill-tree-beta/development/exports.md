@@ -1,10 +1,6 @@
 # Exports
 
-## DEVHUB Skill Tree - Exports Documentation
-
-
-
-### Parameter Types
+## <mark style="color:yellow;">Parameter Types</mark>
 
 Common parameters used across exports:
 
@@ -13,29 +9,37 @@ Common parameters used across exports:
 * `source` (number): Player server ID (required for server-side)
 * `amount` (number): Numeric value for XP/points
 
-### Client Side Exports
+***
 
-#### `reloadDefaultSkills()`
+## <mark style="color:yellow;">Client Side Exports</mark>
 
-Reloads all skills in the 'personal' category to their default states.
+### Reload Default Skills
+
+Reloads all skills in the 'personal' category to their default states. Can be useful for some people after ambulance respawn.
 
 ```lua
--- Example: Reload all default skills (can be useful for some people after ambulance respawn)
 exports['devhub_skillTree']:reloadDefaultSkills()
 ```
 
-#### `closeSkillTree()`
+***
+
+### Close Skill  Tree
 
 Programmatically closes the skill tree UI.
 
 ```lua
--- Example: Close skill tree UI
 exports['devhub_skillTree']:closeSkillTree()
 ```
 
-#### `getConfig()`
+***
+
+### Get Config
 
 Returns current configuration of skills and categories.
+
+```lua
+exports['devhub_skillTree']:getConfig()
+```
 
 **Returns:**
 
@@ -46,11 +50,17 @@ Returns current configuration of skills and categories.
 }
 ```
 
-### Server Side Exports
+***
 
-#### `getPlayerLevel(categoryUid, source)`
+## <mark style="color:yellow;">Server Side Exports</mark>
+
+### Get Player Level
 
 Gets the player's level in a specific skill category.
+
+```lua
+exports['devhub_skillTree']:getPlayerLevel(categoryUid, source)
+```
 
 **Parameters:**
 
@@ -59,15 +69,22 @@ Gets the player's level in a specific skill category.
 
 **Returns:** Current level (number) or 0 if not found
 
+**Example**
+
 ```lua
--- Example: Get player's personal skill level
 local level = exports['devhub_skillTree']:getPlayerLevel('personal', source)
 print('Player level:', level)
 ```
 
-#### `getPlayerXp(categoryUid, source)`
+***
+
+### Get Player Xp
 
 Gets the player's current XP in a specific skill.
+
+```lua
+exports['devhub_skillTree']:getPlayerXp(categoryUid, source)
+```
 
 **Parameters:**
 
@@ -76,15 +93,22 @@ Gets the player's current XP in a specific skill.
 
 **Returns:** Current XP (number) or 0 if not found
 
+**Example**
+
 ```lua
--- Example: Get player's current XP
 local xp = exports['devhub_skillTree']:getPlayerXp('personal', source)
 print('Current XP:', xp)
 ```
 
-#### `getPlayerPoints(categoryUid, source)`
+***
+
+### Get Player Points
 
 Gets the player's available points for a specific skill.
+
+```lua
+exports['devhub_skillTree']:getPlayerPoints(categoryUid, source)
+```
 
 **Parameters:**
 
@@ -93,15 +117,22 @@ Gets the player's available points for a specific skill.
 
 **Returns:** Available points (number) or 0 if not found
 
+**Example**
+
 ```lua
--- Example: Check if player has points available
 local points = exports['devhub_skillTree']:getPlayerPoints('personal', source)
 print('Available points:', points)
 ```
 
-#### `getPlayerTotalXp(categoryUid, source)`
+***
+
+### Get Player Total Xp
 
 Gets the player's total accumulated XP in a specific skill.
+
+```lua
+exports['devhub_skillTree']:getPlayerTotalXp(categoryUid, source)
+```
 
 **Parameters:**
 
@@ -110,15 +141,22 @@ Gets the player's total accumulated XP in a specific skill.
 
 **Returns:** Total XP (number) or 0 if not found
 
+**Example**
+
 ```lua
--- Example: Get total XP earned
 local totalXp = exports['devhub_skillTree']:getPlayerTotalXp('personal', source)
 print('Total XP earned:', totalXp)
 ```
 
-#### `getPlayerGlobalStats(source)`
+***
+
+### Get Player Global Stats
 
 Gets the player's global statistics across all skills.
+
+```lua
+exports['devhub_skillTree']:getPlayerGlobalStats(source)
+```
 
 **Parameters:**
 
@@ -135,15 +173,22 @@ Gets the player's global statistics across all skills.
 }
 ```
 
+**Example**
+
 ```lua
--- Example: Get player's global stats
 local stats = exports['devhub_skillTree']:getPlayerGlobalStats(source)
 print('Total levels:', stats.totalLevel)
 ```
 
-#### `getUnlockedSkills(source)`
+***
+
+### Get Unlocked Skills
 
 Gets all skills unlocked by the player.
+
+```lua
+exports['devhub_skillTree']:getUnlockedSkills(source)
+```
 
 **Parameters:**
 
@@ -151,8 +196,9 @@ Gets all skills unlocked by the player.
 
 **Returns:** Table of unlocked skills or false if player not found
 
+**Example**
+
 ```lua
--- Example: Check unlocked skills
 local unlockedSkills = exports['devhub_skillTree']:getUnlockedSkills(source)
 if unlockedSkills then
     for skill, _ in pairs(unlockedSkills) do
@@ -161,13 +207,19 @@ if unlockedSkills then
 end
 ```
 
-### Shared Exports
+***
+
+## <mark style="color:yellow;">Shared Exports</mark>
 
 These exports work on both client and server side.
 
-#### `hasUnlockedSkill(categoryUid, skillUid, [source])`
+### Has Unlocked Skill
 
 Checks if a player has unlocked a specific skill.
+
+```lua
+exports['devhub_skillTree']:hasUnlockedSkill(categoryUid, skillUid, source)
+```
 
 **Parameters:**
 
@@ -177,6 +229,8 @@ Checks if a player has unlocked a specific skill.
 
 **Returns:** `true` if unlocked, `nil` otherwise
 
+**Example**
+
 ```lua
 -- Client side example
 local hasSkill = exports['devhub_skillTree']:hasUnlockedSkill('personal', 'swimming_1')
@@ -185,15 +239,23 @@ local hasSkill = exports['devhub_skillTree']:hasUnlockedSkill('personal', 'swimm
 local hasSkill = exports['devhub_skillTree']:hasUnlockedSkill('personal', 'swimming_1', source)
 ```
 
-#### `addXp(categoryUid, amount, [source])`
+***
+
+### Add Xp
 
 Adds XP to a specific skill.
+
+```etlua
+exports['devhub_skillTree']:addXp(categoryUid, amount, source)
+```
 
 **Parameters:**
 
 * `categoryUid` (string): Skill category name
 * `amount` (number): Amount of XP to add
 * `source` (number): Player server ID (server-side only)
+
+**Example**
 
 ```lua
 -- Client side example
@@ -203,15 +265,23 @@ exports['devhub_skillTree']:addXp('personal', 100)
 exports['devhub_skillTree']:addXp('personal', 100, source)
 ```
 
-#### `addPoints(categoryUid, amount, [source])`
+***
+
+### Add Points
 
 Adds skill points to a specific category.
+
+```lua
+exports['devhub_skillTree']:addPoints(categoryUid, amount, source)
+```
 
 **Parameters:**
 
 * `categoryUid` (string): Skill category name
 * `amount` (number): Amount of points to add
 * `source` (number): Player server ID (server-side only)
+
+**Example**
 
 ```lua
 -- Client side example
@@ -221,9 +291,15 @@ exports['devhub_skillTree']:addPoints('personal', 1)
 exports['devhub_skillTree']:addPoints('personal', 1, source)
 ```
 
-#### `getSkillEffect(categoryUid, skillUid)`
+***
+
+### Get Skill Effect
 
 Gets the effect value of a specific skill.
+
+```lua
+exports['devhub_skillTree']:getSkillEffect(categoryUid, skillUid)
+```
 
 **Parameters:**
 
@@ -231,6 +307,8 @@ Gets the effect value of a specific skill.
 * `skillUid` (string): Unique identifier of the skill
 
 **Returns:** Effect value (number) or 5 if not found
+
+**Example**
 
 ```lua
 -- Example: Get skill effect value

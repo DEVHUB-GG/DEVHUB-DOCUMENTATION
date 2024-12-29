@@ -1,10 +1,8 @@
 # 🛠️ Configuration
 
-## Configuration Documentation
+## <mark style="color:yellow;">Main Configuration (sh.main.lua)</mark>
 
-### Main Configuration (sh.main.lua)
-
-#### Basic Settings
+### Basic Settings
 
 ```lua
 Config.MenuCommand = "skill"  // Command to open menu (string or false)
@@ -12,7 +10,7 @@ Config.Keybind = "F7"        // Keybind to open menu (string or false)
 Config.Item = false          // Item required to open menu (string or false)
 ```
 
-#### XP Settings
+### XP Settings
 
 ```lua
 Config.XpBoost = 1.0         // XP multiplier
@@ -21,7 +19,7 @@ Config.LevelBasedXp = 50     // Additional XP per level
 Config.PointsPerLevel = 1    // Skill points awarded per level
 ```
 
-#### System Settings
+### System Settings
 
 ```lua
 Config.CloseUiOnDeath = true         // Close UI on player death
@@ -30,7 +28,7 @@ Config.EnableGenerator = true         // Enable skill tree generator (Exclusive 
 Config.EarnXpTick = 1000             // XP earn check interval (ms)
 ```
 
-#### XP Earning Activities
+### XP Earning Activities
 
 ```lua
 Config.EarnXp = {
@@ -45,7 +43,7 @@ Config.EarnXp = {
 }
 ```
 
-#### Reset System
+### Reset System
 
 ```lua
 Config.SkillReset = {
@@ -59,7 +57,7 @@ Config.SkillReset = {
 }
 ```
 
-#### Level & Skills Configuration
+### Level & Skills Configuration
 
 ```lua
 Config.MaxLevel = {
@@ -94,7 +92,9 @@ Config.DisableDefaultSkillEffects = {
 Config.DisableRefreshOnPedOrPidChanged = false
 ```
 
-### Language Configuration (sh.lang.lua)
+***
+
+## <mark style="color:yellow;">Language Configuration (sh.lang.lua)</mark>
 
 The language file contains all text strings used in the UI. Each string can be customized:
 
@@ -106,7 +106,9 @@ Config.Lang = {
 }
 ```
 
-### Server Configuration (s.main.lua)
+***
+
+## <mark style="color:yellow;">Server Configuration (s.main.lua)</mark>
 
 Category visibility can be controlled server-side:
 
@@ -117,9 +119,12 @@ Config.CategoryVisibilityHandler = {
         return true
     end,
 }
+
 ```
 
-### Skills Configuration (sh.skills.lua)
+***
+
+## <mark style="color:yellow;">Skills Configuration (sh.skills.lua)</mark>
 
 The skills configuration defines all available skills and their properties. Each skill is defined with:
 
