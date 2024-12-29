@@ -6,47 +6,15 @@ description: >-
 
 # 💪 SKILL TREE BETA
 
-## **Version Comparison**
+## <mark style="color:yellow;">**Version Comparison**</mark>
 
-**Standard Version**
-
-* **Predefined Skills**: Use the character skill tree we created.
-* **Fixed Skill Trees**: Limited to the default configurations.
-
-[<mark style="color:yellow;">**Exclusive Version**</mark>](https://store.devhub.gg/package/6441349)
-
-* **Custom Skills**: Add and define your own skills.
-* **Skill Tree Configurator**: Access a powerful tool to create and modify skill trees to fit your server and scripts.
+<table><thead><tr><th width="440" align="center">Functionality</th><th width="160" align="center">Standard</th><th align="center">Exclusive </th></tr></thead><tbody><tr><td align="center">15 pre-made skills</td><td align="center">✅</td><td align="center">✅</td></tr><tr><td align="center">Advance Configs</td><td align="center">✅</td><td align="center">✅</td></tr><tr><td align="center">Support</td><td align="center">✅</td><td align="center">✅</td></tr><tr><td align="center">Ultrawide support</td><td align="center">✅</td><td align="center">✅</td></tr><tr><td align="center">New pre-made skills for devhub scripts</td><td align="center">✅</td><td align="center">✅</td></tr><tr><td align="center">Skill Tree Generator</td><td align="center">❌</td><td align="center">✅</td></tr><tr><td align="center">Create custom Skill Trees</td><td align="center">❌</td><td align="center">✅</td></tr></tbody></table>
 
 ***
 
-### **Small FAQ**
+## <mark style="color:yellow;">Pre made skills</mark>
 
-<details>
-
-<summary>In the standard version can I use skills from other DEVHUB scripts ?</summary>
-
-**YES , both version can do it.**
-
-</details>
-
-<details>
-
-<summary>In the standard version can I add new skills via config without using generator ?</summary>
-
-**NO , the ability to add your own skill tree via config or generator is only available in the&#x20;**<mark style="color:yellow;">**exclusive**</mark>**&#x20;version.**
-
-</details>
-
-<details>
-
-<summary>I want to upgrade the standard to <a href="https://store.devhub.gg/package/6441349"><mark style="color:yellow;">exclusive</mark></a> version, can I get a discount?</summary>
-
-**SURE, Create a ticket on our discord and we will give you a discount code for the&#x20;**<mark style="color:yellow;">**exclusive**</mark>**&#x20;version.**
-
-</details>
-
-### The following skills are available in the personal pre-made category:
+The following skills are available in the personal pre-made category:
 
 1. Run Faster
 2. Swim Faster

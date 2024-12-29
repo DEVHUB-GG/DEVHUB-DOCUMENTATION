@@ -1,15 +1,21 @@
+---
+description: >-
+  The skill generator and adding your own skills is only available in the
+  exclusive version
+---
+
 # ⚙️ Skill Generator
 
-**The skill generator and adding your own skills is only available in the** [<mark style="color:yellow;">**exclusive**</mark>](https://store.devhub.gg/package/6441349) **version**
-
-### **Installation**
+## <mark style="color:yellow;">**Installation**</mark>
 
 1.  Before ensure dh\_skillTree add following line:\
 
 
     `ensure dh_skillTree_generator`
 
-### **Usage**
+***
+
+## <mark style="color:yellow;">**Usage**</mark>
 
 1. Open configs/sh.main.lua
 2. Change <mark style="color:blue;">Config.EnableGenerator</mark> to <mark style="color:blue;">true</mark>

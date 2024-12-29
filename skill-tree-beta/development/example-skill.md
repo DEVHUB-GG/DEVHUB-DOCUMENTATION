@@ -1,14 +1,14 @@
 # Example skill
 
-## DEVHUB Skill Tree - Code Examples
-
-### Adding a New Skill Tree Category
+## <mark style="color:yellow;">Adding a New Skill Tree Category</mark>
 
 To add a new skill tree category via generator (Exclusive version only):
 
-### Adding XP to Skills
+***
 
-#### From Client Side
+## <mark style="color:yellow;">Adding XP to Skills</mark>
+
+### From Client Side
 
 ```lua
 -- Add XP to specific category
@@ -20,7 +20,9 @@ RegisterNetEvent('minigame:lockpickSuccess', function()
 end)
 ```
 
-#### From Server Side
+***
+
+### From Server Side
 
 ```lua
 -- Add XP to player's skill
@@ -34,9 +36,11 @@ RegisterNetEvent('inventory:sellItems', function(items)
 end)
 ```
 
-### Checking Skill Status
+***
 
-#### Client Side
+## <mark style="color:yellow;">Checking Skill Status</mark>
+
+### Client Side
 
 ```lua
 -- Check if player has unlocked specific skill
@@ -50,11 +54,11 @@ print('Speed boost multiplier:', effect)
 
 ```
 
-### Examples
+***
 
-### Event Listeners
+## <mark style="color:yellow;">Event Listeners</mark>
 
-#### Basic Health Boost System
+### Basic Health Boost System
 
 ```lua
 RegisterNetEvent('devhub_skillTree:client:listener:skillUnlocked', function(skill, uid)
@@ -67,7 +71,9 @@ RegisterNetEvent('devhub_skillTree:client:listener:skillUnlocked', function(skil
 end)
 ```
 
-#### Progressive Running Speed System
+***
+
+### Progressive Running Speed System
 
 ```lua
 local baseSpeed = 1.0
@@ -82,9 +88,11 @@ RegisterNetEvent('devhub_skillTree:client:listener:skillUnlocked', function(skil
 end)
 ```
 
-### Skill Checks
+***
 
-#### Basic Bank Access
+## <mark style="color:yellow;">Skill Checks</mark>
+
+### Basic Bank Access
 
 ```lua
 RegisterCommand('bank', function()
@@ -97,9 +105,11 @@ RegisterCommand('bank', function()
 end)
 ```
 
-### XP and Points
+***
 
-#### XP Reward System
+## <mark style="color:yellow;">XP and Points</mark>
+
+### XP Reward System
 
 ```lua
 -- Reward XP for successful robberies
@@ -116,7 +126,9 @@ RegisterNetEvent('robbery:completed', function(difficulty)
 end)
 ```
 
-#### Points Distribution System
+***
+
+### Points Distribution System
 
 ```lua
 -- Award skill points for completing missions
@@ -132,9 +144,13 @@ RegisterNetEvent('mission:completed', function(missionType)
 end)
 ```
 
-### Complete Systems
+***
 
-#### Progressive Weapon Handling System Using Listener
+## <mark style="color:yellow;">Complete Systems</mark>
+
+### Using Listener
+
+Progressive Weapon Handling System&#x20;
 
 ```lua
 local weaponSkills = {
@@ -163,7 +179,11 @@ function UpdateWeaponHandling()
 end
 ```
 
-#### Swimming Skill Progression System Using Exports
+***
+
+### Using Exports
+
+Swimming Skill Progression System&#x20;
 
 ```lua
 local swimLevel = 0

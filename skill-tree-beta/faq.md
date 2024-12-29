@@ -1,8 +1,6 @@
 # ❔ FAQ
 
-## DEVHUB Skill Tree - Frequently Asked Questions
-
-### General Questions
+## <mark style="color:yellow;">General Questions</mark>
 
 <details>
 
@@ -54,7 +52,31 @@ A: Yes, if enabled in the configuration. The reset can be:
 
 </details>
 
-### Technical Questions
+<details>
+
+<summary>Q: In the standard version can I use skills from other DEVHUB scripts ?</summary>
+
+A: YES , both version can do it.
+
+</details>
+
+<details>
+
+<summary>Q: In the standard version can I add new skills via config without using generator ?</summary>
+
+A: NO , the ability to add your own skill tree via config or generator is only available in the <mark style="color:green;">**exclusive version**</mark>.
+
+</details>
+
+<details>
+
+<summary>Q: I want to upgrade the standard to exclusive version, can I get a discount?</summary>
+
+A: SURE, Create a ticket on our discord and we will give you a discount code for the exclusive version.
+
+</details>
+
+## <mark style="color:yellow;">Technical Questions</mark>
 
 <details>
 
@@ -128,7 +150,7 @@ This feature is useful for creating mutually exclusive skill paths or preventing
 
 </details>
 
-### Common Issues
+## <mark style="color:yellow;">Common Issues</mark>
 
 <details>
 
@@ -183,7 +205,7 @@ Config.CategoryVisibilityHandler = {
 
 </details>
 
-### Performance Questions
+## <mark style="color:yellow;">Performance Questions</mark>
 
 <details>
 
@@ -214,7 +236,7 @@ A: Yes, through devhub\_lib which provides framework configuration. Configure yo
 
 </details>
 
-### Support
+## <mark style="color:yellow;">Support</mark>
 
 <details>
 
