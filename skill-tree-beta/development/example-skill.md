@@ -1,0 +1,210 @@
+# Example skill
+
+## DEVHUB Skill Tree - Code Examples
+
+### Adding a New Skill Tree Category
+
+To add a new skill tree category via generator (Exclusive version only):
+
+### Adding XP to Skills
+
+#### From Client Side
+
+```lua
+-- Add XP to specific category
+exports['devhub_skillTree']:addXp('personal', 100)
+
+-- Add XP on action
+RegisterNetEvent('minigame:lockpickSuccess', function()
+    exports['devhub_skillTree']:addXp('thief', 50)
+end)
+```
+
+#### From Server Side
+
+```lua
+-- Add XP to player's skill
+exports['devhub_skillTree']:addXp('personal', 100, source)
+
+-- Example: Add XP when player sells items
+RegisterNetEvent('inventory:sellItems', function(items)
+    local src = source
+    local xpGain = #items * 10
+    exports['devhub_skillTree']:addXp('thief', xpGain, src)
+end)
+```
+
+### Checking Skill Status
+
+#### Client Side
+
+```lua
+-- Check if player has unlocked specific skill
+if exports['devhub_skillTree']:hasUnlockedSkill('personal', 'runFaster_1') then
+    -- Apply speed boost
+end
+
+-- Get skill effect value
+local effect = exports['devhub_skillTree']:getSkillEffect('personal', 'runFaster_1')
+print('Speed boost multiplier:', effect)
+
+```
+
+### Examples
+
+### Event Listeners
+
+#### Basic Health Boost System
+
+```lua
+RegisterNetEvent('devhub_skillTree:client:listener:skillUnlocked', function(skill, uid)
+    if skill == 'test' and uid == 'more_hp' then
+        local moreHp = 200
+        local effect = exports['devhub_skillTree']:getSkillEffect(skill, uid) or 0
+        moreHp = moreHp + effect
+        SetEntityMaxHealth(PlayerPedId(), moreHp)
+    end
+end)
+```
+
+#### Progressive Running Speed System
+
+```lua
+local baseSpeed = 1.0
+local currentSpeedBoost = 0.0
+
+RegisterNetEvent('devhub_skillTree:client:listener:skillUnlocked', function(skill, uid)
+    if skill == 'personal' and string.find(uid, 'runFaster_') then
+        local effect = exports['devhub_skillTree']:getSkillEffect(skill, uid) or 0
+        currentSpeedBoost = currentSpeedBoost + (effect * 0.1) -- 10% per level
+        SetRunSprintMultiplierForPlayer(PlayerId(), baseSpeed + currentSpeedBoost)
+    end
+end)
+```
+
+### Skill Checks
+
+#### Basic Bank Access
+
+```lua
+RegisterCommand('bank', function()
+    local isAllowed = exports['devhub_skillTree']:hasUnlockedSkill('test', 'bank_access') or false
+    if isAllowed then
+        print('SKILL UNLOCKED')
+    else
+        print('DO NOT HAVE SKILL')
+    end
+end)
+```
+
+### XP and Points
+
+#### XP Reward System
+
+```lua
+-- Reward XP for successful robberies
+RegisterNetEvent('robbery:completed', function(difficulty)
+    local baseXP = 100
+    local xpMultiplier = {
+        ['easy'] = 1,
+        ['medium'] = 2,
+        ['hard'] = 3
+    }
+
+    local xpAmount = baseXP * (xpMultiplier[difficulty] or 1)
+    exports['devhub_skillTree']:addXp('criminal', xpAmount)
+end)
+```
+
+#### Points Distribution System
+
+```lua
+-- Award skill points for completing missions
+RegisterNetEvent('mission:completed', function(missionType)
+    local pointRewards = {
+        ['heist'] = 2,
+        ['delivery'] = 1,
+        ['assassination'] = 3
+    }
+
+    local points = pointRewards[missionType] or 1
+    exports['devhub_skillTree']:addPoints('personal', points)
+end)
+```
+
+### Complete Systems
+
+#### Progressive Weapon Handling System Using Listener
+
+```lua
+local weaponSkills = {
+    accuracy = 0,
+}
+
+-- Listen for skill unlocks
+RegisterNetEvent('devhub_skillTree:client:listener:skillUnlocked', function(skill, uid)
+    if skill ~= 'combat' then return end
+
+    if uid == 'accuracy_master' then
+        local effect = exports['devhub_skillTree']:getSkillEffect(skill, uid)
+        weaponSkills.accuracy = effect
+    end
+
+    UpdateWeaponHandling()
+end)
+
+-- Apply weapon handling modifications
+function UpdateWeaponHandling()
+    local ped = PlayerPedId()
+    local weapon = GetSelectedPedWeapon(ped)
+
+    -- Apply accuracy bonus
+    SetPedAccuracy(ped, 100 - weaponSkills.accuracy)
+end
+```
+
+#### Swimming Skill Progression System Using Exports
+
+```lua
+local swimLevel = 0
+local xpGainTimeout = false
+
+-- Check for swimming and award XP
+CreateThread(function()
+    while true do
+        local ped = PlayerPedId()
+
+        if IsPedSwimming(ped) then
+            -- Check if player has unlocked swimming skills
+            local hasBasicSwim = exports['devhub_skillTree']:hasUnlockedSkill('personal', 'swim_basic')
+            local hasAdvancedSwim = exports['devhub_skillTree']:hasUnlockedSkill('personal', 'swim_advanced')
+
+            if hasBasicSwim and not xpGainTimeout then
+                -- Award XP for swimming
+                exports['devhub_skillTree']:addXp('personal', 5)
+
+                -- Set cooldown
+                xpGainTimeout = true
+                SetTimeout(10000, function()
+                    xpGainTimeout = false
+                end)
+
+                -- Apply swimming speed boost based on skills
+                local swimSpeed = 1.0
+                if hasBasicSwim then
+                    local basicEffect = exports['devhub_skillTree']:getSkillEffect('personal', 'swim_basic')
+                    swimSpeed = swimSpeed + (basicEffect/100)
+                end
+                if hasAdvancedSwim then
+                    local advancedEffect = exports['devhub_skillTree']:getSkillEffect('personal', 'swim_advanced')
+                    swimSpeed = swimSpeed + (advancedEffect/100)
+                end
+
+                SetSwimMultiplierForPlayer(PlayerId(), swimSpeed)
+            end
+        end
+
+        Wait(1000)
+    end
+end)
+```
