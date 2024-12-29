@@ -12,7 +12,7 @@
 
 Download and install the required library:
 
-Visit https://github.com/DEVHUB-GG/devhub\_lib and download or
+Visit [https://github.com/DEVHUB-GG/devhub\_lib ](https://github.com/DEVHUB-GG/devhub_lib)and download or
 
 ```bash
 git clone https://github.com/DEVHUB-GG/devhub_lib.git

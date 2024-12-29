@@ -8,7 +8,11 @@ description: >-
 
 ## <mark style="color:yellow;">**Version Comparison**</mark>
 
-<table><thead><tr><th width="440" align="center">Functionality</th><th width="160" align="center">Standard</th><th align="center">Exclusive </th></tr></thead><tbody><tr><td align="center">15 pre-made skills</td><td align="center">✅</td><td align="center">✅</td></tr><tr><td align="center">Advance Configs</td><td align="center">✅</td><td align="center">✅</td></tr><tr><td align="center">Support</td><td align="center">✅</td><td align="center">✅</td></tr><tr><td align="center">Ultrawide support</td><td align="center">✅</td><td align="center">✅</td></tr><tr><td align="center">New pre-made skills for devhub scripts</td><td align="center">✅</td><td align="center">✅</td></tr><tr><td align="center">Skill Tree Generator</td><td align="center">❌</td><td align="center">✅</td></tr><tr><td align="center">Create custom Skill Trees</td><td align="center">❌</td><td align="center">✅</td></tr></tbody></table>
+<table><thead><tr><th width="440">Functionality</th><th width="160" align="center">Standard</th><th align="center">Exclusive </th></tr></thead><tbody><tr><td>15 pre-made skills</td><td align="center">✅</td><td align="center">✅</td></tr><tr><td>Advance Configs</td><td align="center">✅</td><td align="center">✅</td></tr><tr><td>Support</td><td align="center">✅</td><td align="center">✅</td></tr><tr><td>Ultrawide support</td><td align="center">✅</td><td align="center">✅</td></tr><tr><td>New pre-made skills for devhub scripts</td><td align="center">✅</td><td align="center">✅</td></tr><tr><td>Skill Tree Generator</td><td align="center">❌</td><td align="center">✅</td></tr><tr><td>Create custom Skill Trees</td><td align="center">❌</td><td align="center">✅</td></tr></tbody></table>
+
+SKILL TREE - EXCLUSIVE VERSION [Tebex](https://store.devhub.gg/product/6440792-1)
+
+SKILL TREE - STANDARD VERSION [Tebex](https://store.devhub.gg/product/6438994)
 
 ***
 
