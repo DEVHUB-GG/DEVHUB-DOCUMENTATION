@@ -4,9 +4,9 @@ description: Documentation for shared.lua Configuration
 
 # shared.lua
 
-**1. General Configuration**
+## <mark style="color:yellow;">**General Configuration**</mark>
 
-**`Shared.CalculateNeedXP(level)`**
+### **`Shared.CalculateNeedXP(level)`**
 
 Defines the XP required to reach a specific level using a scaling formula.
 
@@ -21,7 +21,9 @@ end
 -- Level 5: Shared.CalculateNeedXP(5) returns 223
 ```
 
-**`Shared.Economy`**
+***
+
+### **`Shared.Economy`**
 
 Controls economy-related settings.
 
@@ -42,9 +44,9 @@ Shared.Economy = {
 
 ***
 
-**2. Herb Collection**
+## <mark style="color:yellow;">**Herb Collection**</mark>
 
-**`Shared.HerbsTypePerTask`**
+### **`Shared.HerbsTypePerTask`**
 
 * `0`: Determines the types of herbs required per task.
   * If `0`, the script uses half of all available herb types.
@@ -56,7 +58,9 @@ Shared.Economy = {
 Shared.HerbsTypePerTask = 2 -- Each task will require 2 herb types
 ```
 
-**`Shared.Herbs`**
+***
+
+### **`Shared.Herbs`**
 
 Defines each herb's properties, location, and collection behavior.
 
@@ -102,11 +106,11 @@ Shared.Herbs = {
 
 ***
 
-**3. Skill Tree Integration**
+## <mark style="color:yellow;">**Skill Tree Integration**</mark>
 
-**`Shared.SkillTreeEnabled`**
+### **`Shared.SkillTreeEnabled`**
 
-* `true`: Enables the skill tree system (requires `dh_skillTree`).
+* `true`: Enables the skill tree system (requires `devhub_skillTree`).
 * `false`: Disables skill tree functionality.
 
 **Example:**
@@ -117,9 +121,9 @@ Shared.SkillTreeEnabled = true
 
 ***
 
-**4. Quest System**
+## <mark style="color:yellow;">**Quest System**</mark>
 
-**`Shared.QuestsEnabled`**
+### **`Shared.QuestsEnabled`**
 
 * `true`: Enables quests for the Herbal Alchemist job.
 * `false`: Disables quests.
@@ -145,9 +149,9 @@ Shared.Quests = {
 
 ***
 
-**5. Language Strings**
+## <mark style="color:yellow;">**Language Strings**</mark>
 
-**`Shared.Lang`**
+### **`Shared.Lang`**
 
 Defines the text displayed to players in various parts of the script.
 

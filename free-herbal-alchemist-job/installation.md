@@ -1,6 +1,6 @@
 # 💻 Installation
 
-### Download the lib first.
+## <mark style="color:yellow;">Download the lib first.</mark>
 
 {% content-ref url="../scripts/devhub_lib-needed-for-each-script/" %}
 [devhub\_lib-needed-for-each-script](../scripts/devhub_lib-needed-for-each-script/)

@@ -1,6 +1,6 @@
 # 🎨 UI Color Customization
 
-## Usage
+## <mark style="color:yellow;">Usage</mark>
 
 1. Enter the folder with the script
 2. Enter `html` folder
@@ -35,6 +35,6 @@
 If you are editing the primary color, we recommend changing it in two locations!
 {% endhint %}
 
-## Examples of color changes
+## <mark style="color:yellow;">Examples of color changes</mark>
 
 <div data-full-width="false"><figure><img src="../.gitbook/assets/image (309).png" alt=""><figcaption></figcaption></figure></div>

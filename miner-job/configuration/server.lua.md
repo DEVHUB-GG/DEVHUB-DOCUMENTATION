@@ -4,7 +4,7 @@ description: Documentation for server.lua Configuration
 
 # server.lua
 
-## **Drill Item Configuration**
+## <mark style="color:yellow;">**Drill Item Configuration**</mark>
 
 ```lua
 Config.MenuItem = "dh_drill"
@@ -20,7 +20,7 @@ Dont forget to add the item <mark style="color:blue;">**dh\_drill**</mark> to th
 
 ***
 
-## **Ore Deletion Chance**
+## <mark style="color:yellow;">**Ore Deletion Chance**</mark>
 
 ```lua
 Config.DeleteOreChance = 10
@@ -31,7 +31,7 @@ Config.DeleteOreChance = 10
 
 ***
 
-## **Money Type for Jobs and Quests**
+## <mark style="color:yellow;">**Money Type for Jobs and Quests**</mark>
 
 ```lua
 Config.MoneyType = "cash"
@@ -49,7 +49,7 @@ Config.MoneyTypeQuest = "cash"
 
 ***
 
-## **Webhook Configuration**
+## <mark style="color:yellow;">**Webhook Configuration**</mark>
 
 ```lua
 Config.Webhook = "https://discord.com/api/webhooks/890000000000000000/"

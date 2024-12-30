@@ -1,8 +1,32 @@
 # 🎨 UI Color Customization
 
+## <mark style="color:yellow;">Usage</mark>
+
 1. Enter the folder with the script
 2. Enter `html` folder
-3. Open the `colors.css` file
+3. Open the `colors.css` file'
+
+{% stepper %}
+{% step %}
+Enter the folder with the script
+
+
+{% endstep %}
+
+{% step %}
+Enter `html` folder
+
+
+{% endstep %}
+
+{% step %}
+Open the `colors.css` file'
+
+
+{% endstep %}
+{% endstepper %}
+
+
 
 #### The code looks like this
 
@@ -33,10 +57,6 @@
 If you are editing the primary color, we recommend changing it in two locations!
 {% endhint %}
 
-#### Examples of color changes
+## <mark style="color:yellow;">Examples of color changes</mark>
 
-<div data-full-width="false">
-
-<figure><img src="../.gitbook/assets/image (309).png" alt=""><figcaption></figcaption></figure>
-
-</div>
+<div data-full-width="false"><figure><img src="../.gitbook/assets/image (309).png" alt=""><figcaption></figcaption></figure></div>

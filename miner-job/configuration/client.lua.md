@@ -4,7 +4,7 @@ description: Documentation for client.lua Configuration
 
 # client.lua
 
-## **Ore Spawn Distance**
+## <mark style="color:yellow;">**Ore Spawn Distance**</mark>
 
 ```lua
 Config.OreSpawnDistance = 150.0
@@ -15,7 +15,7 @@ Config.OreSpawnDistance = 150.0
 
 ***
 
-## **Drilling Time**
+## <mark style="color:yellow;">**Drilling Time**</mark>
 
 ```lua
 Config.drillingTime = 8000
@@ -26,7 +26,7 @@ Config.drillingTime = 8000
 
 ***
 
-## **Smelting Time**
+## <mark style="color:yellow;">**Smelting Time**</mark>
 
 ```lua
 Config.SmeltingTime = 30000
@@ -37,7 +37,7 @@ Config.SmeltingTime = 30000
 
 ***
 
-## **Main Ped Configuration**
+## <mark style="color:yellow;">**Main Ped Configuration**</mark>
 
 ```lua
 Config.MainPed = {
@@ -60,7 +60,7 @@ Config.MainPed = {
 
 ***
 
-## **Smelting Configuration**
+## <mark style="color:yellow;">**Smelting Configuration**</mark>
 
 ```lua
 Config.Smelting = {
@@ -82,7 +82,7 @@ Config.Smelting = {
 
 ***
 
-## **Selling Configuration**
+## <mark style="color:yellow;">**Selling Configuration**</mark>
 
 ```lua
 Config.Selling = {
@@ -104,7 +104,7 @@ Config.Selling = {
 
 ***
 
-## **Clothing Configuration**
+## <mark style="color:yellow;">**Clothing Configuration**</mark>
 
 ```lua
 Config.Clothing = {
@@ -131,7 +131,7 @@ Config.Clothing = {
 
 ***
 
-## **Vehicle Configuration**
+## <mark style="color:yellow;">**Vehicle Configuration**</mark>
 
 ```lua
 Config.Vehicles = {
@@ -162,7 +162,7 @@ Config.Vehicles = {
 
 ***
 
-## **Vehicle Spawn Points**
+## <mark style="color:yellow;">**Vehicle Spawn Points**</mark>
 
 ```lua
 Config.VehiclesSpawnPoints = {
@@ -177,7 +177,7 @@ Config.VehiclesSpawnPoints = {
 
 ***
 
-## **Notification Types**
+## <mark style="color:yellow;">**Notification Types**</mark>
 
 ```lua
 Config.NotificationsTypes = {
@@ -192,7 +192,7 @@ Config.NotificationsTypes = {
 
 ***
 
-## **HUD Placement**
+## <mark style="color:yellow;">**HUD Placement**</mark>
 
 ```lua
 Config.HudPlacement = "bottom-right"

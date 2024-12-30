@@ -8,7 +8,7 @@ window.config = {
 };
 ```
 
-**priceFormatting**
+## <mark style="color:yellow;">**Price Formatting**</mark>
 
 Currency at the end \[/(\d)$/, '$1$'] to change currency symbol \[/(\d)$/, '$1€']
 

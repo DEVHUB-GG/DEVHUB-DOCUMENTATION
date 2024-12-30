@@ -4,7 +4,7 @@ description: Documentation for client.lua Configuration
 
 # client.lua
 
-**Herbs Spawn Distance**
+## <mark style="color:yellow;">**Herbs Spawn Distance**</mark>
 
 ```lua
 Config.HerbsSpawnDistance = 45.0
@@ -18,7 +18,7 @@ A value of `45.0` means herbs can spawn within a 45-meter radius of the player.
 
 ***
 
-**Clothing Configuration**
+## <mark style="color:yellow;">**Clothing Configuration**</mark>
 
 ```lua
 Config.Clothing = {
@@ -61,7 +61,7 @@ Allows up to 3 clothing sets per gender. Each set includes a preview image and d
 
 ***
 
-**Vehicle Configuration**
+## <mark style="color:yellow;">**Vehicle Configuration**</mark>
 
 ```lua
 Config.Vehicles = {
@@ -93,7 +93,8 @@ Configures up to two rental vehicles. If you prefer not to use vehicles at all, 
 * **Price:** Cost of renting the vehicle.
 * **Image:** URL for the vehicle's preview image displayed in the menu.
 
-**To Disable Vehicles:**\
+### **Disable Vehicles**
+
 Uncomment the following block:
 
 ```lua
@@ -108,7 +109,7 @@ This will remove vehicles from the system entirely.
 
 ***
 
-**Vehicle Spawn Points**
+## <mark style="color:yellow;">**Vehicle Spawn Points**</mark>
 
 ```lua
 Config.VehiclesSpawnPoints = {
@@ -131,7 +132,7 @@ Defines the spawn points for rented vehicles. Each point includes coordinates (X
 
 ***
 
-**Main Ped Configuration**
+## <mark style="color:yellow;">**Main Ped Configuration**</mark>
 
 ```lua
 Config.MainPed = {
@@ -159,7 +160,7 @@ Defines the main NPC for the Herbal Alchemist job.
 
 ***
 
-**Alchemy Tables**
+## <mark style="color:yellow;">**Alchemy Tables**</mark>
 
 ```lua
 Config.Tables = {
@@ -187,7 +188,7 @@ Defines the locations of alchemy tables for processing herbs.
 
 ***
 
-**Delivery Points**
+## <mark style="color:yellow;">**Delivery Points**</mark>
 
 ```lua
 Config.Delivery = {
@@ -209,7 +210,7 @@ Lists delivery locations for transporting finished products.
 
 ***
 
-**Notification Types**
+## <mark style="color:yellow;">**Notification Types**</mark>
 
 ```lua
 Config.NotificationsTypes = {
@@ -230,7 +231,7 @@ Specifies icons for different notification types.
 
 ***
 
-**HUD Placement**
+## <mark style="color:yellow;">**HUD Placement**</mark>
 
 ```lua
 Config.HudPlacement = "bottom-right"

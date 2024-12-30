@@ -4,7 +4,7 @@ description: Documentation for skillTree.lua Configuration
 
 # skillTree.lua
 
-## **XP for Finishing a Job**
+## <mark style="color:yellow;">**XP for Finishing a Job**</mark>
 
 ```lua
 Shared.XPForFinishedJob = 30
@@ -15,7 +15,7 @@ Shared.XPForFinishedJob = 30
 
 ***
 
-## **Skills List**
+## <mark style="color:yellow;">**Skills List**</mark>
 
 ```lua
 Shared.SkillsList = {

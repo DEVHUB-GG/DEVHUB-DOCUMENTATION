@@ -4,7 +4,7 @@ description: Documentation for shared.lua Configuration
 
 # shared.lua
 
-## **XP Calculation Function**
+## <mark style="color:yellow;">**XP Calculation Function**</mark>
 
 ```lua
 Shared.CalculateNeedXP = function(level)
@@ -17,7 +17,7 @@ end
 
 ***
 
-## **Economy Configuration**
+## <mark style="color:yellow;">**Economy Configuration**</mark>
 
 ```lua
 Shared.Economy = {
@@ -33,7 +33,7 @@ Shared.Economy = {
 
 ***
 
-## Job Requirement Configuration
+## <mark style="color:yellow;">Job Requirement Configuration</mark>
 
 ```lua
 Shared.JobRequired = false
@@ -44,7 +44,7 @@ Shared.JobRequired = false
 
 ***
 
-## Extra Rewards Configuration
+## <mark style="color:yellow;">Extra Rewards Configuration</mark>
 
 The Extra Rewards feature allows players to receive additional items during mining and smelting. To enable or disable this feature, modify the `Shared.ExtraRewardsEnabled` value.
 
@@ -57,7 +57,7 @@ Shared.ExtraRewardsEnabled = false
 
 ***
 
-## **Skill Tree Integration**
+## <mark style="color:yellow;">**Skill Tree Integration**</mark>
 
 ```lua
 Shared.SkillTreeEnabled = false
@@ -69,7 +69,7 @@ Shared.SkillTreeEnabled = false
 
 ***
 
-## **Quest Configuration**
+## <mark style="color:yellow;">**Quest Configuration**</mark>
 
 ```lua
 Shared.QuestsEnabled = true
@@ -98,7 +98,7 @@ Shared.Quests = {
 
 ***
 
-## **Ore Configuration**
+## <mark style="color:yellow;">**Ore Configuration**</mark>
 
 ```lua
 Shared.Ores = {
@@ -137,7 +137,7 @@ Shared.Ores = {
 * **chanceToDrop**: Probability (in percentage) of successfully collecting the ore.
 * **coords**: Positions where ores can be found.
 
-### <mark style="color:yellow;">extraRewards:</mark>
+### Extra Rewards:
 
 * **itemName**: The item that the player receives during mining.
 * **mineAmount**: The number of items received during mining.
@@ -147,7 +147,7 @@ Shared.Ores = {
 
 ***
 
-## **Language Configuration**
+## <mark style="color:yellow;">**Language Configuration**</mark>
 
 ```lua
 Shared.Lang = {
