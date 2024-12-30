@@ -1,12 +1,12 @@
 # Vehicle keys
 
-#### Vehicle Keys Configuration Guide
+## <mark style="color:yellow;">Vehicle Keys Configuration Guide</mark>
 
 To integrate vehicle keys functionality into your script, follow these steps:
 
 ***
 
-**1. Open the File**
+### **1. Open the File**
 
 Navigate to the following file in your project:
 
@@ -16,7 +16,7 @@ devhub_lib/client/c.functions.lua
 
 ***
 
-**2. Locate the Function**
+### **2. Locate the Function**
 
 Find the function named `Core.SpawnVehicle`.
 
@@ -25,7 +25,7 @@ Find the function named `Core.SpawnVehicle`.
 
 ***
 
-**3. Add the Code**
+### **3. Add the Code**
 
 After the line:
 
@@ -41,7 +41,7 @@ local plate = GetVehicleNumberPlateText(vehicle)
 
 ***
 
-**4. Add Your Key Export**
+### **4. Add Your Key Export**
 
 Directly below the code above, add your key export, for example:
 
@@ -52,7 +52,7 @@ exports['your_key_resource']:GiveKeys(plate) -- ITS JUST EXAMPLE!!
 
 ***
 
-**Final Example**
+### **Final Example**
 
 Your function should look like this after the modifications:
 
