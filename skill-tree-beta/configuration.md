@@ -10,6 +10,8 @@ Config.Keybind = "F7"        // Keybind to open menu (string or false)
 Config.Item = false          // Item required to open menu (string or false)
 ```
 
+***
+
 ### XP Settings
 
 ```lua
@@ -19,6 +21,8 @@ Config.LevelBasedXp = 50     // Additional XP per level
 Config.PointsPerLevel = 1    // Skill points awarded per level
 ```
 
+***
+
 ### System Settings
 
 ```lua
@@ -27,6 +31,8 @@ Config.HpRegenerationTimeout = 5000   // HP regen cooldown (ms)
 Config.EnableGenerator = true         // Enable skill tree generator (Exclusive only)
 Config.EarnXpTick = 1000             // XP earn check interval (ms)
 ```
+
+***
 
 ### XP Earning Activities
 
@@ -43,6 +49,8 @@ Config.EarnXp = {
 }
 ```
 
+***
+
 ### Reset System
 
 ```lua
@@ -56,6 +64,8 @@ Config.SkillReset = {
     }
 }
 ```
+
+***
 
 ### Level & Skills Configuration
 
