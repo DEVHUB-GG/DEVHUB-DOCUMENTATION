@@ -4,15 +4,15 @@
 
 {% stepper %}
 {% step %}
-Enter the folder with the script
+### Enter the folder with the script
 {% endstep %}
 
 {% step %}
-Enter `html` folder
+### Enter `html` folder
 {% endstep %}
 
 {% step %}
-Open the
+### Open the `colors.css` file
 {% endstep %}
 {% endstepper %}
 
