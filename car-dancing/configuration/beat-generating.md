@@ -1,14 +1,18 @@
 # Beat generating
 
-**Step 1: Upload Music**
+## <mark style="color:yellow;">**1: Upload Music**</mark>
 
 1. Upload your desired music in `.ogg` format to the `dh_cardance/html/song` folder.
 
-**Step 2: Restart the Server**
+***
+
+## <mark style="color:yellow;">**2: Restart the Server**</mark>
 
 2. Restart your server to apply changes.
 
-**Step 3: Generate Beats**
+***
+
+## <mark style="color:yellow;">**3: Generate Beats**</mark>
 
 3. Join the server.
 4.  In the **server console**, enter the following command to generate beats for your music file:
@@ -18,7 +22,9 @@
     ```
 5. Do not exit the server until you see the message **"Beat finished successfully"**.
 
-**Step 4: Update Configuration**
+***
+
+## <mark style="color:yellow;">**4: Update Configuration**</mark>
 
 6. Navigate to the `configs/shared.lua` file.
 7.  Add your song to `Shared.Sounds` with the following format:
@@ -27,11 +33,15 @@
     { name = "SONG_DISPLAY_NAME", time = "SONG:DURATION", url = "file_name.ogg", difficulty = "easy" }, -- difficulty options: easy, medium, hard
     ```
 
-**Step 5: Restart the Script**
+***
+
+## <mark style="color:yellow;">**5: Restart the Script**</mark>
 
 8. Restart the script to apply the new configurations. Your Car Dancing script should now be fully functional.
 
-#### Example Configuration
+***
+
+## <mark style="color:yellow;">Example Configuration</mark>
 
 Here is an example configuration entry for `shared.lua`:
 

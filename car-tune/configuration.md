@@ -1,6 +1,6 @@
 # 🛠️ Configuration
 
-**configs/server.lua**
+## <mark style="color:yellow;">**server.lua**</mark>
 
 The `server.lua` file contains settings for how the menu is accessed in-game.
 
@@ -24,7 +24,9 @@ Config.MenuItem = "battle_creator" -- Example assignment, change as needed.
 * **Config.MenuCommand:** The command used to open the menu (only applicable if `Config.OpenMenuOption` is set to `"command"`).
 * **Config.MenuItem:** The item used to open the menu (only applicable if `Config.OpenMenuOption` is set to `"item"`).
 
-**shared.lua**
+***
+
+## <mark style="color:yellow;">shared.lua</mark>
 
 In the `shared.lua` file, you can customize the language settings for various script elements. The keys on the left should not be altered, but you can change the corresponding values on the right to suit your preferences. Ensure that the `${value}` format remains unchanged.
 
@@ -75,7 +77,9 @@ Shared.Lang = {
 ```
 {% endcode %}
 
-**client.lua**
+***
+
+## <mark style="color:yellow;">**client.lua**</mark>
 
 In the `client.lua` file, you can enable or disable the stancer optimization feature by setting the `Config.StancerOptimalization` variable to `true` or `false`.
 

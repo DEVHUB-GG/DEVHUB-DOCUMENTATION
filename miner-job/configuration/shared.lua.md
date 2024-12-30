@@ -4,7 +4,7 @@ description: Documentation for shared.lua Configuration
 
 # shared.lua
 
-**XP Calculation Function**
+## **XP Calculation Function**
 
 ```lua
 Shared.CalculateNeedXP = function(level)
@@ -15,7 +15,9 @@ end
 * **Description**: Determines the XP required for a given level.
 * **Formula**: `100 * (level ^ 1.5)`, rounded down.
 
-**Economy Configuration**
+***
+
+## **Economy Configuration**
 
 ```lua
 Shared.Economy = {
@@ -29,7 +31,9 @@ Shared.Economy = {
 * **money**: Money earned per finished job.
 * **mulitplerPerLevel**: Additional reward percentage per player level.
 
-#### Job Requirement Configuration
+***
+
+## Job Requirement Configuration
 
 ```lua
 Shared.JobRequired = false
@@ -38,7 +42,9 @@ Shared.JobRequired = false
 **Description**: Specifies if a specific job is required to perform mining tasks.\
 **Values**: Set to the job name (e.g., "miner") to require it, or `false` to allow all players.
 
-### Extra Rewards Configuration
+***
+
+## Extra Rewards Configuration
 
 The Extra Rewards feature allows players to receive additional items during mining and smelting. To enable or disable this feature, modify the `Shared.ExtraRewardsEnabled` value.
 
@@ -49,7 +55,9 @@ Shared.ExtraRewardsEnabled = false
 * **Description**: Enables or disables the extra rewards feature.
 * **Values**: Set to `true` to enable or `false` to disable.
 
-**Skill Tree Integration**
+***
+
+## **Skill Tree Integration**
 
 ```lua
 Shared.SkillTreeEnabled = false
@@ -59,7 +67,9 @@ Shared.SkillTreeEnabled = false
 * YOU NEED SKILL TREE SCRIPT, [NORMAL](https://store.devhub.gg/package/6438994) OR [EXCLUSIVE](https://store.devhub.gg/package/6441349)&#x20;
 * **Note**: Must ensure the script is loaded after `dh_skillTree`.
 
-**Quest Configuration**
+***
+
+## **Quest Configuration**
 
 ```lua
 Shared.QuestsEnabled = true
@@ -86,7 +96,9 @@ Shared.Quests = {
 * **rewardMultiplerPerLevel**: Multiplier applied to rewards based on player level.
 * **questMultiplerPerLevel**: Adjusts the difficulty based on player level.
 
-**Ore Configuration**
+***
+
+## **Ore Configuration**
 
 ```lua
 Shared.Ores = {
@@ -125,7 +137,7 @@ Shared.Ores = {
 * **chanceToDrop**: Probability (in percentage) of successfully collecting the ore.
 * **coords**: Positions where ores can be found.
 
-<mark style="color:yellow;">extraRewards:</mark>
+### <mark style="color:yellow;">extraRewards:</mark>
 
 * **itemName**: The item that the player receives during mining.
 * **mineAmount**: The number of items received during mining.
@@ -133,7 +145,9 @@ Shared.Ores = {
 * **smeltingAmount**: The number of items received during smelting.
 * **smeltingChance**: The percentage chance to receive the smelted item, removing the item obtained from mining.
 
-**Language Configuration**
+***
+
+## **Language Configuration**
 
 ```lua
 Shared.Lang = {

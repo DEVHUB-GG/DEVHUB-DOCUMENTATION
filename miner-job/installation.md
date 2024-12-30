@@ -1,14 +1,16 @@
 # 💻 Installation
 
-### Download the lib first.
+## <mark style="color:yellow;">1.</mark> <mark style="color:yellow;">Download the lib first.</mark>
 
 {% content-ref url="../scripts/devhub_lib-needed-for-each-script/" %}
 [devhub\_lib-needed-for-each-script](../scripts/devhub_lib-needed-for-each-script/)
 {% endcontent-ref %}
 
-### **Download and ensure** [**xsound**](https://github.com/Xogy/xsound/archive/refs/tags/1.4.3.zip)
+## <mark style="color:yellow;">**2. Download and ensure**</mark> [<mark style="color:yellow;">**xsound**</mark>](https://github.com/Xogy/xsound/archive/refs/tags/1.4.3.zip)
 
-### **Installation:**
+### &#x20;[**xsound**](https://github.com/Xogy/xsound/archive/refs/tags/1.4.3.zip)
+
+## <mark style="color:yellow;">**3. Installation:**</mark>
 
 * Download the MULTIPLAYER MINER JOB script file from keymaster.&#x20;
 * Download the MULTIPLAYER MINER JOB ASSETS script file from keymaster.&#x20;

@@ -4,7 +4,7 @@ description: Documentation for skillTree.lua Configuration
 
 # skillTree.lua
 
-**XP for Finishing a Job**
+## **XP for Finishing a Job**
 
 ```lua
 Shared.XPForFinishedJob = 30
@@ -13,7 +13,7 @@ Shared.XPForFinishedJob = 30
 * **Description**: Specifies the amount of XP awarded to the skill tree when a player completes a job.
 * **Example**: `30` XP is granted upon finishing a job.
 
-**Skills List**
+## **Skills List**
 
 ```lua
 Shared.SkillsList = {
@@ -40,3 +40,8 @@ Shared.SkillsList = {
 * **effect**: Value of the skill's effect (e.g., 5% bonus).
 * **points**: Points required to unlock the skill.
 * **index**: Skill's position in the skill tree.
+
+{% hint style="warning" %}
+The best skill tree on fivem, get it [here](https://store.devhub.gg/product/6440792-1)
+{% endhint %}
+

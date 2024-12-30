@@ -4,9 +4,7 @@ description: Documentation for client.lua Configuration
 
 # client.lua
 
-
-
-**Ore Spawn Distance**
+## **Ore Spawn Distance**
 
 ```lua
 Config.OreSpawnDistance = 150.0
@@ -15,7 +13,9 @@ Config.OreSpawnDistance = 150.0
 * **Description**: Sets the distance from the player where ores will spawn.
 * **Example**: A value of `150.0` means ores can spawn within a 150-meter radius of the player.
 
-**Drilling Time**
+***
+
+## **Drilling Time**
 
 ```lua
 Config.drillingTime = 8000
@@ -24,7 +24,9 @@ Config.drillingTime = 8000
 * **Description**: Specifies the time (in milliseconds) required to drill an ore.
 * **Example**: `8000` equals 8 seconds of drilling time.
 
-**Smelting Time**
+***
+
+## **Smelting Time**
 
 ```lua
 Config.SmeltingTime = 30000
@@ -33,7 +35,9 @@ Config.SmeltingTime = 30000
 * **Description**: Defines the time (in milliseconds) required to smelt ore.
 * **Example**: `30000` means it will take 30 seconds to smelt ores.
 
-**Main Ped Configuration**
+***
+
+## **Main Ped Configuration**
 
 ```lua
 Config.MainPed = {
@@ -54,7 +58,9 @@ Config.MainPed = {
   * **Scale**: `0.8`
 * **Name**: Displayed as "Miner Job" when interacting.
 
-**Smelting Configuration**
+***
+
+## **Smelting Configuration**
 
 ```lua
 Config.Smelting = {
@@ -74,7 +80,9 @@ Config.Smelting = {
   * **Scale**: `0.8`
 * **Name**: Displayed as "Smelting" when interacting.
 
-**Selling Configuration**
+***
+
+## **Selling Configuration**
 
 ```lua
 Config.Selling = {
@@ -94,7 +102,9 @@ Config.Selling = {
   * **Scale**: `0.8`
 * **Name**: Displayed as "Selling" when interacting.
 
-**Clothing Configuration**
+***
+
+## **Clothing Configuration**
 
 ```lua
 Config.Clothing = {
@@ -119,7 +129,9 @@ Config.Clothing = {
 * **Images**: Displays clothing preview in the menu.
 * **Clothes Data**: Defines the clothing parts (e.g., torso, t-shirt, pants).
 
-**Vehicle Configuration**
+***
+
+## **Vehicle Configuration**
 
 ```lua
 Config.Vehicles = {
@@ -148,7 +160,9 @@ Config.Vehicles = {
 * **Price**: Cost of renting the vehicle.
 * **Image**: URL for the vehicle image displayed in the menu.
 
-**Vehicle Spawn Points**
+***
+
+## **Vehicle Spawn Points**
 
 ```lua
 Config.VehiclesSpawnPoints = {
@@ -161,7 +175,9 @@ Config.VehiclesSpawnPoints = {
 * **Description**: Specifies the spawn locations for rented vehicles.
 * **Coordinates**: Each `vec4` includes X, Y, Z position, and heading.
 
-**Notification Types**
+***
+
+## **Notification Types**
 
 ```lua
 Config.NotificationsTypes = {
@@ -174,7 +190,9 @@ Config.NotificationsTypes = {
 * **Description**: Custom icons for different types of notifications.
 * **Types**: `info`, `success`, `error`
 
-**HUD Placement**
+***
+
+## **HUD Placement**
 
 ```lua
 Config.HudPlacement = "bottom-right"

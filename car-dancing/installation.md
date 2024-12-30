@@ -1,6 +1,6 @@
 # 💻 Installation
 
-### **Installation:**
+## <mark style="color:yellow;">**Installation**</mark>**:**
 
 * Download the CAR TUNE script file from keymaster.&#x20;
 

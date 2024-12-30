@@ -1,6 +1,6 @@
 # 🛠️ Configuration
 
-**configs/server.lua**
+## <mark style="color:yellow;">**server.lua**</mark>
 
 The `server.lua` file contains settings for how the menu is accessed in-game.
 
@@ -24,9 +24,9 @@ Config.MenuItem = "battle_creator" -- Example assignment, change as needed.
 * **Config.MenuCommand:** The command used to open the menu (only applicable if `Config.OpenMenuOption` is set to `"command"`).
 * **Config.MenuItem:** The item used to open the menu (only applicable if `Config.OpenMenuOption` is set to `"item"`).
 
+***
 
-
-**configs/shared.lua**
+## <mark style="color:yellow;">**shared.lua**</mark>
 
 The `shared.lua` file contains the music tracks and language settings.
 
