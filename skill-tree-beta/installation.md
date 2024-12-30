@@ -37,6 +37,44 @@ ensure devhub_skillTree  # Main resource
 
 Import the `sql.sql` file into your database.
 
+
+
+{% stepper %}
+{% step %}
+### &#x20;Install devhub\_lib
+
+Download and install the required library:
+
+Visit [https://github.com/DEVHUB-GG/devhub\_lib ](https://github.com/DEVHUB-GG/devhub_lib)and download or
+
+```bash
+git clone https://github.com/DEVHUB-GG/devhub_lib.git
+```
+
+Configure it according to your framework.\
+
+{% endstep %}
+
+{% step %}
+### Configure server.cfg
+
+Add the following lines to your server.cfg in the correct order:
+
+```bash
+ensure devhub_lib        # Must be loaded before devhub_skillTree
+ensure devhub_skillTree  # Main resource
+```
+{% endstep %}
+
+{% step %}
+### Database Setup
+
+Import the `sql.sql` file into your database.
+{% endstep %}
+{% endstepper %}
+
+
+
 ***
 
 ## <mark style="color:yellow;">Configuration</mark>
