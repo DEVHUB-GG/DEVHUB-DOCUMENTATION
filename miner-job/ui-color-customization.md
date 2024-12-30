@@ -2,9 +2,19 @@
 
 ## <mark style="color:yellow;">Usage</mark>
 
-1. Enter the folder with the script
-2. Enter `html` folder
-3. Open the `colors.css` file
+{% stepper %}
+{% step %}
+Enter the folder with the script
+{% endstep %}
+
+{% step %}
+Enter `html` folder
+{% endstep %}
+
+{% step %}
+Open the
+{% endstep %}
+{% endstepper %}
 
 #### The code looks like this
 
