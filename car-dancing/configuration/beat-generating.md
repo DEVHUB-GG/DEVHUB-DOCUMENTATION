@@ -1,49 +1,49 @@
 # Beat generating
 
-## <mark style="color:yellow;">**1: Upload Music**</mark>
+{% stepper %}
+{% step %}
+### Upload Music
 
-1. Upload your desired music in `.ogg` format to the `dh_cardance/html/song` folder.
+Upload your desired music in `.ogg` format to the `dh_cardance/html/song` folder.
+{% endstep %}
 
-***
+{% step %}
+### Restart the Server
+{% endstep %}
 
-## <mark style="color:yellow;">**2: Restart the Server**</mark>
+{% step %}
+### Join the server
 
-2. Restart your server to apply changes.
-
-***
-
-## <mark style="color:yellow;">**3: Generate Beats**</mark>
-
-3. Join the server.
-4.  In the **server console**, enter the following command to generate beats for your music file:
+1.  In the **server console**, enter the following command to generate beats for your music file:
 
     ```bash
     generate_beat file_name.ogg
     ```
-5. Do not exit the server until you see the message **"Beat finished successfully"**.
+2. Do not exit the server until you see the message **"Beat finished successfully"**.
+{% endstep %}
 
-***
+{% step %}
+### Navigate to the `configs/shared.lua` file
 
-## <mark style="color:yellow;">**4: Update Configuration**</mark>
+Add your song to `Shared.Sounds` with the following format:
 
-6. Navigate to the `configs/shared.lua` file.
-7.  Add your song to `Shared.Sounds` with the following format:
+```lua
+{ name = "SONG_DISPLAY_NAME", time = "SONG:DURATION", url = "file_name.ogg", diff
+```
+{% endstep %}
 
-    ```lua
-    { name = "SONG_DISPLAY_NAME", time = "SONG:DURATION", url = "file_name.ogg", difficulty = "easy" }, -- difficulty options: easy, medium, hard
-    ```
+{% step %}
+### Restart the Script
 
-***
-
-## <mark style="color:yellow;">**5: Restart the Script**</mark>
-
-8. Restart the script to apply the new configurations. Your Car Dancing script should now be fully functional.
+Your Car Dancing script should now be fully functional.
+{% endstep %}
+{% endstepper %}
 
 ***
 
 ## <mark style="color:yellow;">Example Configuration</mark>
 
-Here is an example configuration entry for `shared.lua`:
+Example of configuration entry for `shared.lua`:
 
 ```lua
 Shared.Sounds = {
@@ -51,5 +51,3 @@ Shared.Sounds = {
     -- Add more songs here
 }
 ```
-
-By following these steps, you'll be able to enjoy the Car Dancing script with your favorite music tracks.

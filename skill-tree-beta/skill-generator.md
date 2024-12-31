@@ -50,7 +50,15 @@ Config will be saved to your <mark style="color:green;">**clipboard**</mark>
 {% step %}
 ### Open your `configs/sh.skills.lua` and paste copied skill tree
 {% endstep %}
+
+{% step %}
+### Create your skill functionality using our export and listeners
+{% endstep %}
 {% endstepper %}
+
+{% content-ref url="development/" %}
+[development](development/)
+{% endcontent-ref %}
 
 
 
