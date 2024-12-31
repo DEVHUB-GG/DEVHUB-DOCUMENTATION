@@ -22,13 +22,13 @@ Menu on the left side.
 {% endstep %}
 
 {% step %}
-**Download the Script**
+### **Download the Script**
 
 Press the blue "Download" button to download the asset.
 {% endstep %}
 
 {% step %}
-**Install the Script on Your Server**
+### **Install the Script on Your Server**
 
 * Follow the installation instructions provided in the script documentation.
 * Ensure you follow any specific steps required for the FiveM escrow system if applicable.
