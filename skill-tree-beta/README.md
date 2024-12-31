@@ -10,9 +10,13 @@ description: >-
 
 <table><thead><tr><th width="440">Functionality</th><th width="160" align="center">Standard</th><th align="center">Exclusive </th></tr></thead><tbody><tr><td>15 pre-made skills</td><td align="center">✅</td><td align="center">✅</td></tr><tr><td>Advance Configs</td><td align="center">✅</td><td align="center">✅</td></tr><tr><td>Support</td><td align="center">✅</td><td align="center">✅</td></tr><tr><td>Ultrawide support</td><td align="center">✅</td><td align="center">✅</td></tr><tr><td>New pre-made skills for devhub scripts</td><td align="center">✅</td><td align="center">✅</td></tr><tr><td>Skill Tree Generator</td><td align="center">❌</td><td align="center">✅</td></tr><tr><td>Create custom Skill Trees</td><td align="center">❌</td><td align="center">✅</td></tr></tbody></table>
 
-SKILL TREE - EXCLUSIVE VERSION [Tebex](https://store.devhub.gg/product/6440792-1)
+{% hint style="info" %}
+[SKILL TREE - EXCLUSIVE VERSION](https://store.devhub.gg/product/6440792-1)
+{% endhint %}
 
-SKILL TREE - STANDARD VERSION [Tebex](https://store.devhub.gg/product/6438994)
+{% hint style="info" %}
+[SKILL TREE - STANDARD VERSION](https://store.devhub.gg/product/6438994)
+{% endhint %}
 
 ***
 

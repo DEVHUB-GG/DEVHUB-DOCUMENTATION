@@ -56,7 +56,7 @@ exports['your_key_resource']:GiveKeys(plate) -- ITS JUST EXAMPLE!!
 
 ***
 
-### **Final Example**
+## <mark style="color:yellow;">**Final Example**</mark>
 
 Your function should look like this after the modifications:
 
