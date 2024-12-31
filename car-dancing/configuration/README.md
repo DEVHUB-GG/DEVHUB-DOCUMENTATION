@@ -2,8 +2,6 @@
 
 ## <mark style="color:yellow;">**server.lua**</mark>
 
-The `server.lua` file contains settings for how the menu is accessed in-game.
-
 ```lua
 -- Config.OpenMenuOption can be either "command" or "item".
 -- If set to "item", the menu will open upon using an item.
@@ -19,16 +17,9 @@ Config.MenuCommand = "battle" -- Example assignment, change as needed.
 Config.MenuItem = "battle_creator" -- Example assignment, change as needed.
 ```
 
-* **Config.OpenMenuOption:** Determines whether the menu opens via a command or an item.
-  * Options: `"command"`, `"item"`
-* **Config.MenuCommand:** The command used to open the menu (only applicable if `Config.OpenMenuOption` is set to `"command"`).
-* **Config.MenuItem:** The item used to open the menu (only applicable if `Config.OpenMenuOption` is set to `"item"`).
-
 ***
 
 ## <mark style="color:yellow;">**shared.lua**</mark>
-
-The `shared.lua` file contains the music tracks and language settings.
 
 ```lua
 -- Difficulty options: easy, medium, hard
@@ -101,17 +92,14 @@ Shared.Lang = {
 }
 ```
 
-*   **Shared.Sounds:** List of music tracks available for car dancing.
+* **Shared.Sounds:** List of music tracks available for car dancing.
+  * **name:** Display name of the song.
+  * **time:** Duration of the song.
+  * **url:** Filename of the song in the `dh_cardance/html/song` folder.
+  * **difficulty:** Difficulty level of the song. Options: `"easy"`, `"medium"`, `"hard"`.
 
-    * **name:** Display name of the song.
-    * **time:** Duration of the song.
-    * **url:** Filename of the song in the `dh_cardance/html/song` folder.
-    * **difficulty:** Difficulty level of the song. Options: `"easy"`, `"medium"`, `"hard"`.
-
-    How to generate beat:
+### How to generate beat ?
 
 {% content-ref url="beat-generating.md" %}
 [beat-generating.md](beat-generating.md)
 {% endcontent-ref %}
-
-* **Shared.Lang:** Language settings for various in-game messages and labels. Customize the values as needed to suit your server's language and tone.
