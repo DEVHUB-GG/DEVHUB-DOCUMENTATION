@@ -6,28 +6,52 @@ description: >-
 
 # ⚙️ Skill Generator
 
-## <mark style="color:yellow;">**Installation**</mark>
+{% hint style="danger" %}
+Make sure `devhub_skillTree_generator` is started
+{% endhint %}
 
-1.  Before ensure dh\_skillTree add following line:\
+{% stepper %}
+{% step %}
+### Open configs/sh.main.lua
+{% endstep %}
+
+{% step %}
+### Change `Config.EnableGenerator` to <mark style="color:green;">**true**</mark>
+{% endstep %}
+
+{% step %}
+### Restart `devhub_skillTree` script
+{% endstep %}
+
+{% step %}
+### A new button will appear in the right top corner
+
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+{% endstep %}
+
+{% step %}
+### Click at any box on the grid and start creating or editing
+
+<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+{% endstep %}
+
+{% step %}
+### Make sure that not errors are found
+
+<figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+{% endstep %}
+
+{% step %}
+### Confirm generation of file
+
+Config will be saved to your <mark style="color:green;">**clipboard**</mark>
+{% endstep %}
+
+{% step %}
+### Open your `configs/sh.skills.lua` and paste copied skill tree
+{% endstep %}
+{% endstepper %}
 
 
-    `ensure dh_skillTree_generator`
-
-***
-
-## <mark style="color:yellow;">**Usage**</mark>
-
-1. Open configs/sh.main.lua
-2. Change <mark style="color:blue;">Config.EnableGenerator</mark> to <mark style="color:blue;">true</mark>
-3. Restart dh\_skillTree script
-4. In right top corner click Skill Tree Configurator and select either creating new skill tree or edit existing.\
-
-5. Click at any highlighted box and start editing popup.\
-
-6. Make sure all required fields are highlighted in <mark style="color:green;">green.</mark>\
-
-7. When you are done click button at the top , skill tree config will be copied to your **clipboard**.\
-
-8. Open your **configs/sh.skills.lua** and paste copied skill tree.
 
 <figure><img src="../.gitbook/assets/image (142).png" alt=""><figcaption><p>Showcase of skill tree generator</p></figcaption></figure>
