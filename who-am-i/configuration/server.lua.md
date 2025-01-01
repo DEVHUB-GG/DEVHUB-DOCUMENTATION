@@ -4,56 +4,39 @@ description: Documentation for server.lua Configuration
 
 # server.lua
 
-## <mark style="color:yellow;">**Drill Item Configuration**</mark>
+***
 
-```lua
-Config.MenuItem = "dh_drill"
-```
+## <mark style="color:yellow;">**Main Configuration Table**</mark>
 
-* **Description**: Specifies the item required to initiate the drilling process.
-* **Example**: `"dh_drill"` means players need this item to start drilling.
+* The `Config` table holds all key configuration settings. Below is an explanation of each parameter and its purpose.
 
-{% hint style="danger" %}
-Dont forget to add the item <mark style="color:blue;">**dh\_drill**</mark> to the item list. An example of how to add to \
-<mark style="color:purple;">qb-inventory</mark> and <mark style="color:purple;">ox-inventory</mark> can be found in the <mark style="color:red;">items.lua</mark> file
-{% endhint %}
+#### **Parameters**
+
+| Parameter        | Type    | Default Value | Description                                                              |
+| ---------------- | ------- | ------------- | ------------------------------------------------------------------------ |
+| `ItemEnabled`    | boolean | `true`        | Determines if the item functionality is enabled.                         |
+| `Item`           | string  | `"whoami"`    | The name of the item. Used only if `ItemEnabled` is set to `true`.       |
+| `CommandEnabled` | boolean | `false`       | Determines if the command functionality is enabled.                      |
+| `Command`        | string  | `"whoami"`    | The name of the command. Used only if `CommandEnabled` is set to `true`. |
 
 ***
 
-## <mark style="color:yellow;">**Ore Deletion Chance**</mark>
+## <mark style="color:yellow;">**Example Configuration**</mark>
+
+* Below is an example of how the configuration may look in your `server.lua` file:
 
 ```lua
-Config.DeleteOreChance = 10
+Config = {}
+
+-- Enable or disable item functionality
+Config.ItemEnabled = true -- Set to false to disable item functionality
+
+-- Name of the item (used only if ItemEnabled is true)
+Config.Item = "whoami"
+
+-- Enable or disable command functionality
+Config.CommandEnabled = false -- Set to true to enable the command functionality
+
+-- Name of the command (used only if CommandEnabled is true)
+Config.Command = "whoami"
 ```
-
-* **Description**: Sets the probability (in percentage) that an ore will be removed after a successful drill.
-* **Example**: `10` means there is a 10% chance of the ore disappearing post-drilling.
-
-***
-
-## <mark style="color:yellow;">**Money Type for Jobs and Quests**</mark>
-
-```lua
-Config.MoneyType = "cash"
-```
-
-* **Description**: Determines whether the player receives job payment as cash or bank balance.
-* **Options**: `"cash"` or `"bank"`
-
-```lua
-Config.MoneyTypeQuest = "cash"
-```
-
-* **Description**: Specifies the method of payment (cash or bank) for completing quests.
-* **Options**: `"cash"` or `"bank"`
-
-***
-
-## <mark style="color:yellow;">**Webhook Configuration**</mark>
-
-```lua
-Config.Webhook = "https://discord.com/api/webhooks/890000000000000000/"
-```
-
-* **Description**: URL for sending logs or notifications to a Discord channel.
-* **Note**: Replace with your webhook URL for proper functionality.
