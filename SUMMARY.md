@@ -5,7 +5,7 @@
 
 ## 💾 SCRIPTS
 
-* [📗 Devhub\_lib (NEEDED FOR EACH SCRIPT!)](scripts/devhub_lib-needed-for-each-script/README.md)
+* [📗 devhub\_lib (NEEDED FOR EACH SCRIPT!)](scripts/devhub_lib-needed-for-each-script/README.md)
   * [⚙️ Configuration](scripts/devhub_lib-needed-for-each-script/configuration/README.md)
     * [Vehicle keys](scripts/devhub_lib-needed-for-each-script/configuration/vehicle-keys.md)
 
@@ -46,6 +46,13 @@
     * [skillTree.lua](miner-job/configuration/skilltree.lua.md)
     * [config.js](miner-job/configuration/config.js.md)
   * [🎨 UI Color Customization](miner-job/ui-color-customization.md)
+* [📱 WHO AM I?](who-am-i/README.md)
+  * [💻 Installation](who-am-i/installation.md)
+  * [🛠️ Configuration](who-am-i/configuration/README.md)
+    * [client.lua](who-am-i/configuration/client.lua.md)
+    * [shared.lua](who-am-i/configuration/shared.lua.md)
+    * [server.lua](who-am-i/configuration/server.lua.md)
+  * [🎨 UI Color Customization](who-am-i/ui-color-customization.md)
 * [🌿 \[FREE\] HERBAL ALCHEMIST JOB](free-herbal-alchemist-job/README.md)
   * [💻 Installation](free-herbal-alchemist-job/installation.md)
   * [🛠️ Configuration](free-herbal-alchemist-job/configuration/README.md)
