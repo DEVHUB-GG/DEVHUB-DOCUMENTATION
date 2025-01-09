@@ -2,6 +2,7 @@
 description: >-
   This script introduces a customizable skill tree system to your FiveM server,
   allowing players to earn and invest skill points to enhance their characters.
+hidden: true
 ---
 
 # 💪 SKILL TREE
@@ -34,7 +35,7 @@ description: >-
 
 <summary>In the standard version can I add new skills via config without using generaor ?</summary>
 
-**NO , the ability to add your own skill tree via config or generator is only available in the **<mark style="color:yellow;">**exclusive**</mark>** version.**
+**NO , the ability to add your own skill tree via config or generator is only available in the&#x20;**<mark style="color:yellow;">**exclusive**</mark>**&#x20;version.**
 
 </details>
 
@@ -42,6 +43,6 @@ description: >-
 
 <summary>I want to upgrade the standard to <a href="https://store.devhub.gg/package/6441349"><mark style="color:yellow;">exclusive</mark></a> version, can I get a discount?</summary>
 
-**SURE, Create a ticket on our discord and we will give you a discount code for the **<mark style="color:yellow;">**exclusive**</mark>** version.**
+**SURE, Create a ticket on our discord and we will give you a discount code for the&#x20;**<mark style="color:yellow;">**exclusive**</mark>**&#x20;version.**
 
 </details>
