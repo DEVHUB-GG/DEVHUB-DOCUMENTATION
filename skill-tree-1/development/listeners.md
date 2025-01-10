@@ -62,3 +62,24 @@ end)
 **Parameters:**
 
 * `categoryUid` (string): Category name (e.g., 'personal')
+
+***
+
+### Level Up Event
+
+Triggered when a player levels up in a skill category.
+
+```lua
+RegisterNetEvent('devhub_skillTree:client:listener:levelUp', function(categoryUid, newLevel)
+    exports['your-hud']:ShowNotification({
+        type = 'level',
+        message = string.format('Level up! %s reached level %d', categoryUid, newLevel),
+        duration = 3000
+    })
+end)
+```
+
+**Parameters:**
+
+* `categoryUid` (string): Category name (e.g., 'personal')
+* `newLevel` (number): The new level achieved
