@@ -209,11 +209,57 @@ end
 
 ***
 
+### Remove Xp
+
+```lua
+exports['devhub_skillTree']:removeXp(categoryUid, amount, source)
+```
+
+Removes XP from a specific skill category.
+
+{% hint style="danger" %}
+&#x20;It works only within current level. It will **never** decrease level and will **never** remove unlocked skills.
+{% endhint %}
+
+**Parameters:**
+
+* `categoryUid` (string): Skill category name
+* `amount` (number): Amount of XP to remove
+* `source` (number): Player server ID
+
+**Example**
+
+```lua
+exports['devhub_skillTree']:removeXp('personal', 100, source)
+```
+
+***
+
+### Remove Points
+
+```lua
+exports['devhub_skillTree']:removePoints(categoryUid, amount, source)
+```
+
+Removes skill points from a specific category.
+
+**Parameters:**
+
+* `categoryUid` (string): Skill category name
+* `amount` (number): Amount of points to remove
+* `source` (number): Player server ID
+
+**Example**
+
+```lua
+exports['devhub_skillTree']:removePoints('personal', 1, source)
+```
+
+***
+
 ## <mark style="color:yellow;">Shared Exports</mark>
 
 These exports work on both client and server side.
-
-***
 
 ### Has Unlocked Skill
 
