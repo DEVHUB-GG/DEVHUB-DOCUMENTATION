@@ -5,102 +5,154 @@
 ### Basic Settings
 
 ```lua
-Config.MenuCommand = "skill"  // Command to open menu (string or false)
-Config.Keybind = "F7"        // Keybind to open menu (string or false) 
-Config.Item = false          // Item required to open menu (string or false)
+Config.MenuCommand = "skillSelection"  -- Command to open menu (string or false)
+Config.Keybind = "F6"                 -- Keybind to open menu (string or false)
 ```
 
 ***
 
-### XP Settings
+### Skill Tree Settings
 
 ```lua
-Config.XpBoost = 1.0         // XP multiplier
-Config.BaseXp = 100          // Base XP required per level
-Config.LevelBasedXp = 50     // Additional XP per level
-Config.PointsPerLevel = 1    // Skill points awarded per level
+Config.UseDataFromSkillTree = false  -- true/false
 ```
+
+Use data about unlocked skills from the skill tree
+
+{% hint style="info" %}
+[BUY SKILL TREE](https://store.devhub.gg/product/6440792-1)
+{% endhint %}
+
+{% content-ref url="skill-tree-connection.md" %}
+[skill-tree-connection.md](skill-tree-connection.md)
+{% endcontent-ref %}
 
 ***
 
-### System Settings
+### Abilities
 
-```lua
-Config.CloseUiOnDeath = true         // Close UI on player death
-Config.HpRegenerationTimeout = 5000   // HP regen cooldown (ms)
-Config.EnableGenerator = true         // Enable skill tree generator (Exclusive only)
-Config.EarnXpTick = 1000             // XP earn check interval (ms)
-```
-
-***
-
-### XP Earning Activities
-
-```lua
-Config.EarnXp = {
-    ['running'] = {
-        xp = 5,              // XP awarded
-        timeout = 10000,     // Cooldown before next award
-        addTo = {            // Which skill trees receive XP
-            ['personal'] = true
+<pre class="language-lua"><code class="lang-lua">Config.Abilities = {
+    ['wizard'] = {
+        name = "Wizard",
+        displayOrder = 1,
+<strong>        isVisible = function(source)
+</strong>            -- return true if the ability should be visible in the UI
+            -- server side
+            return true
+        end,
+        abilities = {
+            ['water_spell'] = {
+                label = "Water spell",
+                icon = "fas fa-user",
+                useCooldown = 5,
+                onUse = function()
+                    -- client side
+                    print("Water spell used by "..GetPlayerName(PlayerId()))
+                end
+            },
+            ['fire_spell'] = {
+                label = "Fire spell",
+                icon = "fire_spell.png",
+                useCooldown = 5,
+                onUse = function()
+                    -- client side
+                    print("Fire spell used by "..GetPlayerName(PlayerId()))
+                end
+            },
         }
     },
-    // Similar settings for: swimming, melee, shooting, driving
+    ['vampire'] = {
+        name = "Vampire",
+        displayOrder = 2,
+        isVisible = function(source)
+            -- return true if the ability should be visible in the UI
+            -- server side
+            return true
+        end,
+        abilities = {
+            ['more_hp'] = {
+                label = "More Hp",
+                icon = "more_hp.png",
+                useCooldown = 5,
+                onUse = function()
+                    -- client side
+                    print("More hp used by "..GetPlayerName(PlayerId()))
+                end
+            },
+        }
+    },
 }
+</code></pre>
+
+***
+
+### Hotbar settings
+
+```lua
+Config.UseBuildInHotBar = true   --- true/false
+```
+
+Use the build in hotbar, if set to false you can use your own hotba if you are using custom hotbar use client event to listen for hotbar changes&#x20;
+
+```lua
+RegisterNetEvent('devhub_skillSelection:client:syncSlots', function(data) end) 
+```
+
+data is a table with structure like this:&#x20;
+
+{% code overflow="wrap" fullWidth="false" %}
+```lua
+{
+   [2] = { -- slot 2
+         category = "wizard", 
+         uid = "water_spell", 
+         label = "Water spell", 
+         icon = "fas fa-user"
+   }, 
+   [6] = { -- slot 6
+         category = "vampire", 
+         uid = "vampire_spell", 
+         label = "Vampire spell", 
+         icon = "fas fa-user
+   },  
+}
+```
+{% endcode %}
+
+***
+
+```lua
+Config.DisplayHotBarOnScriptLoad = true   --- true/false
+```
+
+Display the hotbar on script load, if set to false you can set when hotbar should be displayed using client event:
+
+```lua
+TriggerEvent('devhub_skillSelection:client:hotBarDisplayStatus', true)
 ```
 
 ***
 
-### Reset System
+{% hint style="warning" %}
+If you are using custom hotbar you also need to set the hotbar slots.
+{% endhint %}
 
 ```lua
-Config.SkillReset = {
-    Enabled = false,         // Enable skill reset feature
-    PaymentType = false,     // Payment method (cash/item/false)
-    Cash = 1000,            // Reset cost if using cash
-    Item = {
-        Name = "cash",      // Required item name
-        Amount = 1000       // Required item amount
-    }
+Config.HotBarSlots = {
+    { slotKey = "1", slotLabel = "1" },
+    { slotKey = "2", slotLabel = "2" },
+    { slotKey = "3", slotLabel = "3" },
+    { slotKey = "4", slotLabel = "4" },
+    { slotKey = "5", slotLabel = "5" },
+    { slotKey = "6", slotLabel = "6" },
+    { slotKey = "7", slotLabel = "7" },
+    { slotKey = "8", slotLabel = "8" },
+    { slotKey = "K", slotLabel = "K" },
 }
 ```
 
-***
-
-### Level & Skills Configuration
-
-```lua
-Config.MaxLevel = {
-    // ['personal'] = 7,    // Max level per skill tree
-}
-
-Config.SkillLoadingOrder = {
-    // Control order of skill loading
-    // ['skillName'] = priority,
-}
-
-Config.MeleeWeapons = {
-    // List of weapons affected by melee damage skills
-    ["weapon_hammer"] = true,
-    // ...other melee weapons
-}
-
-Config.SkillDefaultValues = {
-    ['moreStamina'] = 100.0,
-    ['moreMaxHp'] = 200,
-    ['timeUnderwater'] = 10.0,
-}
-
-Config.DisableDefaultSkillEffects = {
-    ['runFaster'] = false,
-    ['swimFaster'] = false,
-    ['moreStamina'] = false,
-    ['timeUnderwater'] = false,
-    ['moreMaxHp'] = false,
-}
-
-Config.DisableRefreshOnPedOrPidChanged = false
-```
+slotKey - used in key mapping\
+slotLabel - used in Ui
 
 ***
 
@@ -110,56 +162,9 @@ The language file contains all text strings used in the UI. Each string can be c
 
 ```lua
 Config.Lang = {
-    ['skill_already_unlocked'] = "Skill already unlocked",
-    ['not_enough_points'] = "You don't have enough points",
-    // ...more translations
+    ['skill_select'] = "Skill select",
+    ['skill_select_hotbar'] = "Skill select hotbar",
+    ['confirm'] = "Confirm",
 }
 ```
 
-***
-
-## <mark style="color:yellow;">Server Configuration (s.main.lua)</mark>
-
-Category visibility can be controlled server-side:
-
-```lua
-Config.CategoryVisibilityHandler = {
-    ['personal'] = function(source)
-        // Return false to hide category
-        return true
-    end,
-}
-
-```
-
-***
-
-## <mark style="color:yellow;">Skills Configuration (sh.skills.lua)</mark>
-
-The skills configuration defines all available skills and their properties. Each skill is defined with:
-
-* `uid`: Unique identifier
-* `title`: Display name
-* `icon`: FontAwesome icon or image URL
-* `effect`: Numerical effect value
-* `description`: Skill description
-* `points`: Points required to unlock
-* `img`: Preview image/gif URL
-* `lines`: Connection lines to other skills
-* `index`: Position in skill grid (171 total slots in 9x19 grid)
-
-Example skill entry:
-
-```lua
-{
-    description = "Increases running speed by 3%",
-    icon = "fa-solid fa-person-running-fast",
-    points = 1,
-    uid = "runFaster_1", 
-    img = "https://example.com/run.gif",
-    lines = { top = false, leftTop = false },
-    title = "Speed Boost I",
-    index = 139,
-    effect = 1,
-}
-```

@@ -39,6 +39,10 @@ ensure devhub_skillSelection
 DO NOT CHANGE RESOURCE NAME
 {% endhint %}
 
+{% hint style="info" %}
+DATA IS SAVED USING KVP, NO SQL REQUIRED
+{% endhint %}
+
 {% content-ref url="../scripts/devhub_lib-needed-for-each-script/" %}
 [devhub\_lib-needed-for-each-script](../scripts/devhub_lib-needed-for-each-script/)
 {% endcontent-ref %}
