@@ -38,4 +38,4 @@ If you are editing the primary color, we recommend changing it in two locations!
 
 ## <mark style="color:yellow;">Examples of color changes</mark>
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>

@@ -163,3 +163,18 @@ Example skill entry:
     effect = 1,
 }
 ```
+
+***
+
+## <mark style="color:yellow;">Ui Configuration (config.js)</mark>
+
+{% hint style="info" %}
+W**here to find:** html/config.js
+{% endhint %}
+
+```javascript
+window.config = {
+    numberFormatting: [/\B(?=(\d{3})+(?!\d))/g, " "],
+    soundVolume: 0.25,
+};
+```
