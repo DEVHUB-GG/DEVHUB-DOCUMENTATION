@@ -34,6 +34,7 @@
     * [Listeners](skill-tree-1/development/listeners.md)
     * [Exports](skill-tree-1/development/exports.md)
     * [Example skill](skill-tree-1/development/example-skill.md)
+    * [Pre-made skills](skill-tree-1/development/pre-made-skills.md)
   * [⚙️ Skill Generator](skill-tree-1/skill-generator.md)
   * [🎨 UI Color Customization](skill-tree-1/ui-color-customization.md)
   * [❔ FAQ](skill-tree-1/faq.md)
