@@ -313,6 +313,10 @@ exports['devhub_skillTree']:addXp('personal', 100)
 exports['devhub_skillTree']:addXp('personal', 100, source)
 ```
 
+{% hint style="warning" %}
+If **Config.DisableSensitiveClientExports** is set to true, this export will <mark style="color:red;">**NOT**</mark> work client side
+{% endhint %}
+
 ***
 
 ### Add Points
@@ -338,6 +342,10 @@ exports['devhub_skillTree']:addPoints('personal', 1)
 -- Server side example
 exports['devhub_skillTree']:addPoints('personal', 1, source)
 ```
+
+{% hint style="warning" %}
+If **Config.DisableSensitiveClientExports** is set to true, this export will <mark style="color:red;">**NOT**</mark> work client side
+{% endhint %}
 
 ***
 

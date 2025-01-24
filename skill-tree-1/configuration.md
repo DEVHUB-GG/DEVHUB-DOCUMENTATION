@@ -5,9 +5,9 @@
 ### Basic Settings
 
 ```lua
-Config.MenuCommand = "skill"  // Command to open menu (string or false)
-Config.Keybind = "F7"        // Keybind to open menu (string or false) 
-Config.Item = false          // Item required to open menu (string or false)
+Config.MenuCommand = "skill"  -- Command to open menu (string or false)
+Config.Keybind = "F7"        -- Keybind to open menu (string or false) 
+Config.Item = false          -- Item required to open menu (string or false)
 ```
 
 ***
@@ -15,10 +15,10 @@ Config.Item = false          // Item required to open menu (string or false)
 ### XP Settings
 
 ```lua
-Config.XpBoost = 1.0         // XP multiplier
-Config.BaseXp = 100          // Base XP required per level
-Config.LevelBasedXp = 50     // Additional XP per level
-Config.PointsPerLevel = 1    // Skill points awarded per level
+Config.XpBoost = 1.0         -- XP multiplier
+Config.BaseXp = 100          -- Base XP required per level
+Config.LevelBasedXp = 50     -- Additional XP per level
+Config.PointsPerLevel = 1    -- Skill points awarded per level
 ```
 
 ***
@@ -26,10 +26,11 @@ Config.PointsPerLevel = 1    // Skill points awarded per level
 ### System Settings
 
 ```lua
-Config.CloseUiOnDeath = true         // Close UI on player death
-Config.HpRegenerationTimeout = 5000   // HP regen cooldown (ms)
-Config.EnableGenerator = true         // Enable skill tree generator (Exclusive only)
-Config.EarnXpTick = 1000             // XP earn check interval (ms)
+Config.CloseUiOnDeath = true         -- Close UI on player death
+Config.HpRegenerationTimeout = 5000   -- HP regen cooldown (ms)
+Config.EnableGenerator = true         -- Enable skill tree generator (Exclusive only)
+Config.EarnXpTick = 1000             -- XP earn check interval (ms)
+Config.DisableXpEarnWhileDead = false  -- Disable XP earning while dead
 ```
 
 ***
@@ -39,13 +40,13 @@ Config.EarnXpTick = 1000             // XP earn check interval (ms)
 ```lua
 Config.EarnXp = {
     ['running'] = {
-        xp = 5,              // XP awarded
-        timeout = 10000,     // Cooldown before next award
-        addTo = {            // Which skill trees receive XP
+        xp = 5,              -- XP awarded
+        timeout = 10000,     -- Cooldown before next award
+        addTo = {            -- Which skill trees receive XP
             ['personal'] = true
         }
     },
-    // Similar settings for: swimming, melee, shooting, driving
+    -- Similar settings for: swimming, melee, shooting, driving
 }
 ```
 
@@ -55,12 +56,12 @@ Config.EarnXp = {
 
 ```lua
 Config.SkillReset = {
-    Enabled = false,         // Enable skill reset feature
-    PaymentType = false,     // Payment method (cash/item/false)
-    Cash = 1000,            // Reset cost if using cash
+    Enabled = false,         -- Enable skill reset feature
+    PaymentType = false,     -- Payment method (cash/item/false)
+    Cash = 1000,            -- Reset cost if using cash
     Item = {
-        Name = "cash",      // Required item name
-        Amount = 1000       // Required item amount
+        Name = "cash",      -- Required item name
+        Amount = 1000       -- Required item amount
     }
 }
 ```
@@ -71,18 +72,18 @@ Config.SkillReset = {
 
 ```lua
 Config.MaxLevel = {
-    // ['personal'] = 7,    // Max level per skill tree
+    ['personal'] = 7,    -- Max level per skill tree
 }
 
 Config.SkillLoadingOrder = {
-    // Control order of skill loading
-    // ['skillName'] = priority,
+    -- Control order of skill loading
+    ['skillName'] = 1,
 }
 
 Config.MeleeWeapons = {
-    // List of weapons affected by melee damage skills
+    -- List of weapons affected by melee damage skills
     ["weapon_hammer"] = true,
-    // ...other melee weapons
+    -- ...other melee weapons
 }
 
 Config.SkillDefaultValues = {
@@ -102,6 +103,23 @@ Config.DisableDefaultSkillEffects = {
 Config.DisableRefreshOnPedOrPidChanged = false
 ```
 
+### **Custom Skill Unlock Requirements**
+
+```lua
+Config.UnlockHandlerForSkills = {
+    ['CATEGORY_UID'] = {
+        ['SKILL_UID'] = {
+            unlockRequirementMessage = "Custom requirement message",
+            handler = function(source)
+                -- This is triggered server side
+                -- Return false to prevent skill unlock
+                return false
+            end
+        }
+    }
+}
+```
+
 ***
 
 ## <mark style="color:yellow;">Language Configuration (sh.lang.lua)</mark>
@@ -112,7 +130,7 @@ The language file contains all text strings used in the UI. Each string can be c
 Config.Lang = {
     ['skill_already_unlocked'] = "Skill already unlocked",
     ['not_enough_points'] = "You don't have enough points",
-    // ...more translations
+    -- ...more translations
 }
 ```
 
@@ -120,17 +138,57 @@ Config.Lang = {
 
 ## <mark style="color:yellow;">Server Configuration (s.main.lua)</mark>
 
-Category visibility can be controlled server-side:
+### Category visibility
 
 ```lua
 Config.CategoryVisibilityHandler = {
     ['personal'] = function(source)
-        // Return false to hide category
+        -- Return false to hide category
         return true
     end,
 }
 
 ```
+
+### Logging Configuration
+
+```lua
+Config.Logs = {
+    ['addXp'] = "webhook_url",            -- Log XP additions
+    ['addPoints'] = "webhook_url",        -- Log point additions
+    ['removePoints'] = "webhook_url",     -- Log point removals
+    ['removeXp'] = "webhook_url",         -- Log XP removals
+    ['levelUp'] = "webhook_url",          -- Log level ups
+    ['unlockSkill'] = "webhook_url",      -- Log skill unlocks
+    ['skillReset'] = "webhook_url",       -- Log skill resets
+    -- Security logs
+    ['suspiciousActivityLowPriority'] = "webhook_url",   -- Logs for potential cheating might also be issues (lag/connection)
+    ['suspiciousActivityHighPriority'] = "webhook_url"   -- Logs for most likely cheating attempts
+}
+```
+
+### Security Settings
+
+{% hint style="warning" %}
+It is highly advised to keep this option enabled and transition scripts to utilize server-side exports only.
+{% endhint %}
+
+```lua
+Config.DisableSensitiveClientExports = true  -- Disable client-side sensitive exports
+```
+
+#### Suspicious Activity Handler
+
+```lua
+Config.SuspiciousActivity = function(source, privateReason, priority)
+    -- Called when suspicious activity is detected
+    -- priority: 
+        -- 'high' (likely cheating)
+        --'low' (cheater or possible connection issues)
+}
+```
+
+
 
 ***
 
