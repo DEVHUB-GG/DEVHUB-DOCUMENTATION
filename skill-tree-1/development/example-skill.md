@@ -1,11 +1,5 @@
 # Example skill
 
-## <mark style="color:yellow;">Adding a New Skill Tree Category</mark>
-
-To add a new skill tree category via generator (Exclusive version only):
-
-***
-
 ## <mark style="color:yellow;">Adding XP to Skills</mark>
 
 ### From Client Side
