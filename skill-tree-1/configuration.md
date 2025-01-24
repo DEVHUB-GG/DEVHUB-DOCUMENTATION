@@ -184,7 +184,7 @@ Config.SuspiciousActivity = function(source, privateReason, priority)
     -- Called when suspicious activity is detected
     -- priority: 
         -- 'high' (likely cheating)
-        --'low' (cheater or possible connection issues)
+        -- 'low' (cheater or possible connection issues)
 }
 ```
 
