@@ -150,6 +150,15 @@ This feature is useful for creating mutually exclusive skill paths or preventing
 
 </details>
 
+<details>
+
+<summary>Q: Can an item or other action be required for player to unlock skill ?</summary>
+
+A: Yes, you can do it using Config.UnlockHandlerForSkills in configs/sh.main.lua\
+More on that you can find [here](https://docs.devhub.gg/skill-tree-1/configuration#custom-skill-unlock-requirements)
+
+</details>
+
 ## <mark style="color:yellow;">Common Issues</mark>
 
 <details>
