@@ -3,5 +3,5 @@
 
 
 {% hint style="info" %}
-COMING SOON
+[Buy here](https://store.devhub.gg/product/6639832)
 {% endhint %}

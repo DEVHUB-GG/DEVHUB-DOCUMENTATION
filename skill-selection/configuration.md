@@ -168,3 +168,26 @@ Config.Lang = {
 }
 ```
 
+***
+
+## <mark style="color:yellow;">Framework File (s.framework.lua)</mark>
+
+Set up your framework here for use within the isVisible function in Config.Abilities
+
+***
+
+## <mark style="color:yellow;">Functions File (c.functions.lua)</mark>
+
+Here, you can customize the behavior of the **useRaycast** function
+
+### **useRaycast** usage:
+
+```lua
+local maxDistance = 50
+local coords, entity = useRaycast(maxDistance)
+if not coords then return false end
+```
+
+Input:
+
+If the `coords` returns false, it indicates that the user attempted to point at coordinates too far from their original location.
