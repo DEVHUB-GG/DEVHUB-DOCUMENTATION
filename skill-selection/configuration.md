@@ -178,7 +178,7 @@ Set up your framework here for use within the isVisible function in Config.Abili
 
 ## <mark style="color:yellow;">Functions File (c.functions.lua)</mark>
 
-Here, you can customize the behavior of the **useRaycast** function
+Here, you can customize the behavior of the **useRaycast** function. Whole **useRaycast** function behaviour is <mark style="color:green;">open source</mark>.
 
 ### **useRaycast** usage:
 
