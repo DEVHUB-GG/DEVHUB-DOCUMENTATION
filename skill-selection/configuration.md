@@ -48,6 +48,7 @@ Use data about unlocked skills from the skill tree
                 onUse = function()
                     -- client side
                     print("Water spell used by "..GetPlayerName(PlayerId()))
+                    return true -- return true if the ability was used successfully, false cooldown will not be triggered
                 end
             },
             ['fire_spell'] = {
@@ -57,6 +58,7 @@ Use data about unlocked skills from the skill tree
                 onUse = function()
                     -- client side
                     print("Fire spell used by "..GetPlayerName(PlayerId()))
+                    return true -- return true if the ability was used successfully, false cooldown w
                 end
             },
         }
@@ -77,6 +79,7 @@ Use data about unlocked skills from the skill tree
                 onUse = function()
                     -- client side
                     print("More hp used by "..GetPlayerName(PlayerId()))
+                    return true -- return true if the ability was used successfully, false cooldown w
                 end
             },
         }
