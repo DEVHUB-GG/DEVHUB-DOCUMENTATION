@@ -29,6 +29,10 @@ end)
 
 Triggered when a player receives new XP.
 
+{% hint style="info" %}
+XP from the personal category is cached on the client side and refreshed every few minutes
+{% endhint %}
+
 ```lua
 RegisterNetEvent('devhub_skillTree:client:listener:newXp', function(categoryUid, amount)
     exports['your-hud']:ShowNotification({
