@@ -140,3 +140,8 @@ Adjust the effect values in `configs/skills.lua`.
 
 * **Effect Calculation**: Direct percentage chance
 * **Example**: 25% effect gives 25% chance to resist taser
+
+{% hint style="danger" %}
+Skills using SetWeaponDamageModifier might be overwriten by your build in scripts
+{% endhint %}
+
