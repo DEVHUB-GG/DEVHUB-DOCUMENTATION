@@ -222,3 +222,64 @@ CreateThread(function()
     end
 end)
 ```
+
+***
+
+## <mark style="color:yellow;">Ensure correct skill trigger order</mark>
+
+In certain situations, it's essential to ensure that skills are triggered in the correct order. For example, when adding more HP to a player, you might use one of the following design patterns.
+
+### Using Config.SkillLoadingOrder&#x20;
+
+This configuration allows you to define a custom order for loading events when a player first joins the server. Since player data is stored as a hashmap in the database, the loading order of events cannot be naturally controlled.
+
+By default, all events are loaded in an arbitrary order. However, in certain cases, you may need to ensure that specific events are executed before others to properly overwrite values or establish dependencies.
+
+```lua
+Config.SkillLoadingOrder = {
+    ['more_hp_1'] = 1,
+    ['more_hp_2'] = 2,
+    ['more_hp_3'] = 3,
+    ['more_hp_4'] = 4,
+}
+```
+
+***
+
+### Skill-Based Incremental Effect Pattern
+
+#### Overview
+
+This pattern is designed to streamline the process of applying skill effects dynamically without requiring explicit values for each skill level. Instead of defining fixed values per skill tier (e.g., `more_hp_1` → +120 HP, `more_hp_2` → +140 HP), we apply a consistent incremental effect across all levels of the same skill category.
+
+#### Benefits
+
+* **Scalability:** New skill levels can be added without modifying the logic.
+* **Simplicity:** Eliminates the need for redundant configuration per skill level.
+* **Consistency:** Ensures all skill instances contribute equally.
+
+This pattern is particularly useful for **stat-based skill progression**, where effects scale in a linear or predictable manner.
+
+#### Example Usage
+
+```lua
+local currentHp = 100
+
+function getSkillUidNoNumber(uid)
+    return uid:gsub('_%d+', '')
+end
+
+function applySkill(uid)
+    if getSkillUidNoNumber(uid) == "more_hp" then
+        currentHp = currentHp + 20
+    end
+end
+
+applySkill("more_hp_3")
+applySkill("more_hp_2")
+applySkill("more_hp_4")
+applySkill("more_hp_1")
+
+print(currentHp) -- Output: 180
+```
+
