@@ -8,6 +8,15 @@
 * [📗 devhub\_lib (NEEDED FOR EACH SCRIPT!)](scripts/devhub_lib-needed-for-each-script/README.md)
   * [⚙️ Configuration](scripts/devhub_lib-needed-for-each-script/configuration/README.md)
     * [Vehicle keys](scripts/devhub_lib-needed-for-each-script/configuration/vehicle-keys.md)
+* [📒 devhub\_lib](scripts/devhub_lib/README.md)
+  * [⚙️ Configuration](scripts/devhub_lib/configuration/README.md)
+    * [🔑 Vehicle Keys](scripts/devhub_lib/configuration/vehicle-keys.md)
+    * [⛽ Vehicle fuel](scripts/devhub_lib/configuration/vehicle-fuel.md)
+    * [👕 Clothing](scripts/devhub_lib/configuration/clothing.md)
+    * [🔊 Sound Systme](scripts/devhub_lib/configuration/sound-systme.md)
+    * [📳 Ui](scripts/devhub_lib/configuration/ui.md)
+    * [ℹ️ Logs](scripts/devhub_lib/configuration/logs.md)
+    * [📡 Sql](scripts/devhub_lib/configuration/sql.md)
 
 ***
 

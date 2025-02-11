@@ -2,7 +2,7 @@
 
 ## <mark style="color:yellow;">Adding XP to Skills</mark>
 
-### From Client Side
+### Client Side
 
 ```lua
 -- Add XP to specific category
@@ -16,7 +16,7 @@ end)
 
 ***
 
-### From Server Side
+### Server Side
 
 ```lua
 -- Add XP to player's skill
@@ -45,6 +45,22 @@ end
 -- Get skill effect value
 local effect = exports['devhub_skillTree']:getSkillEffect('personal', 'runFaster_1')
 print('Speed boost multiplier:', effect)
+
+```
+
+***
+
+### Server Side
+
+```lua
+-- Check if player has unlocked specific skill
+if exports['devhub_skillTree']:hasUnlockedSkill('personal', 'xp_1', source) then
+    -- Apply more xp
+end
+
+-- Get skill effect value
+local effect = exports['devhub_skillTree']:getSkillEffect('personal', 'xp_1', source)
+print('Add more xp:', effect)
 
 ```
 
