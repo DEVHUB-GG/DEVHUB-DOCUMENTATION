@@ -9,6 +9,7 @@
   * [⚙️ Configuration](scripts/devhub_lib-needed-for-each-script/configuration/README.md)
     * [Vehicle keys](scripts/devhub_lib-needed-for-each-script/configuration/vehicle-keys.md)
 * [📒 devhub\_lib](scripts/devhub_lib/README.md)
+  * [💻 Installation](scripts/devhub_lib/installation.md)
   * [⚙️ Framework](scripts/devhub_lib/framework.md)
   * [🖐️ Target](scripts/devhub_lib/target.md)
   * [🧭 Ui](scripts/devhub_lib/ui.md)
@@ -18,6 +19,7 @@
   * [👕 Clothing](scripts/devhub_lib/clothing.md)
   * [ℹ️ Logs](scripts/devhub_lib/logs.md)
   * [📡 Sql](scripts/devhub_lib/sql.md)
+  * [🆘 Compatibility test](scripts/devhub_lib/compatibility-test.md)
 
 ***
 
