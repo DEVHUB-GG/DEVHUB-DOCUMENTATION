@@ -1,5 +1,17 @@
 # 🔑 Vehicle Keys
 
+## <mark style="color:yellow;">Pre configured scripts</mark>
+
+* qb-vehiclekeys
+* qs-vehiclekeys
+* ak47\_vehiclekeys
+* t1ger\_keys
+* Renewed-Vehiclekeys
+* cd\_garage
+* custom
+
+***
+
 ## <mark style="color:yellow;">Auto detection of resource</mark>
 
 By default, the script will try to automatically detect the correct resource.

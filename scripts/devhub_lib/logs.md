@@ -8,7 +8,7 @@ By default, logs are sent to Discord via webhook. Additionally, you can connect 
 RegisterNetEvent('dh_lib:server:sendLog',function(_source, webhook, data)
     local identifier = Core.GetIdentifier(_source)
     local message = ""
-    message = message .. "**Player:** " .. Core.GetFullName(_source) .. " (".._source..")\n**Identifier: **" .. identifier .. "\n\n"
+    message = message .. "**Player:** " .. GetPlayerName(_source) .. " (".._source..")\n**Identifier: **" .. identifier .. "\n\n"
     for k,v in pairs(data) do
         message = message .. "**"..Core.String.Capitalize(k)..":** " .. v .. "\n"
     end

@@ -1,5 +1,15 @@
 # ⛽ Vehicle fuel
 
+## <mark style="color:yellow;">Pre configured scripts</mark>
+
+* LegacyFuel
+* ps-fuel
+* ox\_fuel
+* cd\_fuel
+* custom
+
+***
+
 ## <mark style="color:yellow;">Auto detection of resource</mark>
 
 By default, the script will try to automatically detect the correct resource.
@@ -18,7 +28,7 @@ If auto detect failed in **shared.lua**, set `Shared.VehicleFuel` to use the app
 
 ## <mark style="color:yellow;">Custom functionality</mark>
 
-Go to **frameworks/c.vehicleFuellua** and customize your fuel logic
+Go to **frameworks/c.vehicleFuel.lua** and customize your fuel logic
 
 ```lua
 Core.SetVehicleFuel = function(vehicle, amount)
