@@ -23,10 +23,10 @@
 
 ***
 
-* [🔧 CAR TUNE](car-tune/README.md)
+* [🔧 Car Tune](car-tune/README.md)
   * [💻 Installation](car-tune/installation.md)
   * [🛠️ Configuration](car-tune/configuration.md)
-* [🚙 CAR DANCING](car-dancing/README.md)
+* [🚙 Car Dancing](car-dancing/README.md)
   * [💻 Installation](car-dancing/installation.md)
   * [🛠️ Configuration](car-dancing/configuration/README.md)
     * [Beat generating](car-dancing/configuration/beat-generating.md)
@@ -39,7 +39,7 @@
     * [Example skill](skill-tree/development/example-skill.md)
   * [⚙️ Skill Generator](skill-tree/skill-generator.md)
   * [🎨 UI Color Customization](skill-tree/ui-color-customization.md)
-* [💪 SKILL TREE](skill-tree-1/README.md)
+* [💪 Skill Tree](skill-tree-1/README.md)
   * [💻 Installation](skill-tree-1/installation.md)
   * [🛠️ Configuration](skill-tree-1/configuration.md)
   * [🎫 Development](skill-tree-1/development/README.md)
@@ -69,7 +69,7 @@
     * [config.js](drywood-cutter-job/configuration/config.js.md)
     * [zones.lua](drywood-cutter-job/configuration/zones.lua.md)
   * [🎨 UI Color Customization](drywood-cutter-job/ui-color-customization.md)
-* [🌿 \[FREE\] HERBAL ALCHEMIST JOB](free-herbal-alchemist-job/README.md)
+* [🌿 \[FREE\] Herbal Alchemist Job](free-herbal-alchemist-job/README.md)
   * [💻 Installation](free-herbal-alchemist-job/installation.md)
   * [🛠️ Configuration](free-herbal-alchemist-job/configuration/README.md)
     * [client.lua](free-herbal-alchemist-job/configuration/client.lua.md)
