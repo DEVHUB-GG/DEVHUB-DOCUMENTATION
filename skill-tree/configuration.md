@@ -1,130 +1,98 @@
 # 🛠️ Configuration
 
-**configs/sh.main.lua**
+## <mark style="color:yellow;">Main Configuration (sh.main.lua)</mark>
+
+### Basic Settings
 
 ```lua
-Config.MenuCommand = "skill" -- string or false
-Config.Keybind = "F7" -- string or false
-Config.Item = false -- string or false | update 1.0.6
--- client event | dh_skillTree:client:openSkillTree
+Config.MenuCommand = "skill"  -- Command to open menu (string or false)
+Config.Keybind = "F7"        -- Keybind to open menu (string or false) 
+Config.Item = false          -- Item required to open menu (string or false)
+```
 
-Config.XpBoost = 1.0 -- float
+***
 
-Config.BaseXp = 100 -- int | Base xp for each level
-Config.LevelBasedXp = 50 -- int | Xp increase for each level (BaseXp + (Level * LevelBasedXp))
+### XP Settings
 
-Config.PointsPerLevel = 1 -- int | Points given for each level up
+```lua
+Config.XpBoost = 1.0         -- XP multiplier
+Config.BaseXp = 100          -- Base XP required per level
+Config.LevelBasedXp = 50     -- Additional XP per level
+Config.PointsPerLevel = 1    -- Skill points awarded per level
+```
 
-Config.CloseUiOnDeath = true -- bool | Close the UI when the player dies , disable ui while dead , must be configured in dh_lib "dh_lib:client:setDeathStatus"
+***
 
-Config.HpRegenerationTimeout = 5000 -- int | If player has unlocked skill, every how many sec he should restore hp
+### System Settings
 
-Config.EnableGenerator = true -- bool | Enable the generator for the skill tree [ONLY EXCLUSIVE VERSION]
+```lua
+Config.CloseUiOnDeath = true         -- Close UI on player death
+Config.HpRegenerationTimeout = 5000   -- HP regen cooldown (ms)
+Config.EnableGenerator = true         -- Enable skill tree generator (Exclusive only)
+Config.EarnXpTick = 1000             -- XP earn check interval (ms)
+Config.DisableXpEarnWhileDead = false  -- Disable XP earning while dead
+```
 
-Config.EarnXpTick = 500 -- int | Time in ms for each tick , check if players is doing actions from Config.EarnXp
+***
 
+### XP Earning Activities
+
+```lua
 Config.EarnXp = {
-    -- if you want to disable option , just remove it
     ['running'] = {
-        xp = 5, -- int | Xp given for each tick
-        timeout = 3000, -- int | Timeout in ms , cooldown for receiving xp
-        addTo = { -- table | Add xp to specific skill | update 1.0.6
-            ['personal'] = true,
+        xp = 5,              -- XP awarded
+        timeout = 10000,     -- Cooldown before next award
+        addTo = {            -- Which skill trees receive XP
+            ['personal'] = true
         }
     },
-    ['swimming'] = {
-        xp = 5,
-        timeout = 3000,
-        addTo = {
-            ['personal'] = true,
-        }
-    },
-    ['melee'] = {
-        xp = 5,
-        timeout = 3000,
-        addTo = {
-            ['personal'] = true,
-        }
-    },
-    ['shooting'] = {
-        xp = 5,
-        timeout = 3000,
-        addTo = {
-            ['personal'] = true,
-        }
-    },
-    ['driving'] = {
-        xp = 5,
-        timeout = 3000,
-        addTo = {
-            ['personal'] = true,
-        }
-    },
+    -- Similar settings for: swimming, melee, shooting, driving
 }
+```
 
--- update 1.0.2
+***
 
+### Reset System
+
+```lua
 Config.SkillReset = {
-    Enabled = false, -- bool | Enable the skill reset
-    PaymentType = false, -- string , bool | Payment type (cash or item, false to make it for free)
-    Cash = 1000, -- int | Price for reseting the skills
+    Enabled = false,         -- Enable skill reset feature
+    PaymentType = false,     -- Payment method (cash/item/false)
+    Cash = 1000,            -- Reset cost if using cash
     Item = {
-        Name = "cash", -- string | Item name
-        Amount = 1000 -- int | Amount of item
+        Name = "cash",      -- Required item name
+        Amount = 1000       -- Required item amount
     }
 }
+```
 
--- update 1.0.4
+***
 
+### Level & Skills Configuration
+
+```lua
 Config.MaxLevel = {
-    -- ['personal'] = 7, -- int | Max level for personal skills
+    ['personal'] = 7,    -- Max level per skill tree
 }
-
--- You can set up custom order for loading events on player loaded
--- Why? In database we store player data as hashmap, so we do not have control over the order of loading
--- Usually you do not need to change this, but sometimes you may want to load some events before others to make sure they overwrite some values
--- It only affect the loading order of events during first time player loading
--- First we execute events no in this table, after that we execute events in this table
 
 Config.SkillLoadingOrder = {
-    -- ['betterAccuracy_1'] = 1,
-    -- ['betterAccuracy_2'] = 2,
-    -- ['fasterReload_1'] = 3,
-    -- ['fasterReload_2'] = 4,
+    -- Control order of skill loading
+    ['skillName'] = 1,
 }
 
--- update 1.0.9
-
-Config.MeleeWeapons = { -- used in personal skill tree, uid: meleeDamageMultiplier
+Config.MeleeWeapons = {
+    -- List of weapons affected by melee damage skills
     ["weapon_hammer"] = true,
-    ["weapon_wrench"] = true,
-    ["weapon_stungun"] = true,
-    ["weapon_nightstick"] = true,
-    ["weapon_bat"] = true,
-    ["weapon_bottle"] = true,
-    ["weapon_flashlight"] = true,
-    ["weapon_golfclub"] = true,
-    ["weapon_hatchet"] = true,
-    ["weapon_knuckle"] = true,
-    ["weapon_crowbar"] = true,
-    ["weapon_knife"] = true,
-    ["weapon_machete"] = true,
-    ["weapon_switchblade"] = true,
-    ["weapon_battleaxe"] = true,
-    ["weapon_poolcue"] = true,
-    ["weapon_stone_hatchet"] = true, 
+    -- ...other melee weapons
 }
 
-Config.SkillDefaultValues = { -- values that will be applied if player has not skill and is base for further calculations
+Config.SkillDefaultValues = {
     ['moreStamina'] = 100.0,
     ['moreMaxHp'] = 200,
     ['timeUnderwater'] = 10.0,
 }
 
--- If you removed skill from personal category and you dont want default effect to by applied, set it to true 
--- Why only this skills? Because only this apply default value no matter if you have skill or not
--- DO NOT CHANGE THIS IF YOU HAVE NOT REMOVED A CORRESPONDING SKILL FROM "personal" CATEGORY
-Config.DisableDefaultSkillEffects = { 
+Config.DisableDefaultSkillEffects = {
     ['runFaster'] = false,
     ['swimFaster'] = false,
     ['moreStamina'] = false,
@@ -132,160 +100,139 @@ Config.DisableDefaultSkillEffects = {
     ['moreMaxHp'] = false,
 }
 
-Config.DisableRefreshOnPedOrPidChanged = false -- bool | Disable refreshing some player skills on ped change or pid change
-
+Config.DisableRefreshOnPedOrPidChanged = false
 ```
 
-* **Config.MenuCommand**: The command used to open the menu.\
-  **Type**: `string` or `false`
-* **Config.Keybind**: The keybind used to open the menu.\
-  **Type**: `string` or `false`
-* **Config.XpBoost**: The multiplier applied to experience points (XP) earned.\
-  **Type**: `float`
-* **Config.BaseXp**: The base experience points required for each level.\
-  **Type**: `int`
-* **Config.LevelBasedXp**: The additional experience points required for each level, calculated as `BaseXp + (Level * LevelBasedXp)`.\
-  **Type**: `int`
-* **Config.PointsPerLevel**: The number of points awarded to the player for each level up.\
-  **Type**: `int`
-* **Config.CloseUiOnDeath**: Determines whether the UI should close when the player dies.\
-  **Type**: `bool`
-* **Config.EnableGenerator**: Enable the generator for the skill tree \[ONLY EXCLUSIVE VERSION]\
-  **Type**: `bool`
-* **Config.EarnXpTick**: Tick checking if players is doing actions from Config.EarnXp\
-  **Type**:  `int`
-* **Config.EarnXp**: Object with actions for which player will be reward\
-  **Type**:  `object`
-* **Config.HpRegenerationTimeout**: If player has unlocked skill, every how many sec he should restore hp\
-  **Type**:  `int`
-* **Config.SkillReset:** Give player option to reset skills\
-  **Type**:  `object`
-* **Config.MaxLevel:** Set the maximum level for each skill category\
-  **Type**:  `object`
-* **Config.SkillLoadingOrder:** Define the skill loading order during the player loaded event\
-  **Type**:  `object`
-* **Config.MeleeWeapons:** used in personal skill tree, uid: meleeDamageMultiplie\
-  **Type**:  `object`
-* **Config.SkillDefaultValues:** values that will be applied if player has not skill and is base for further calculations\
-  **Type**: object
-* **Config.DisableDefaultSkillEffects:** \
-  If you removed skill from personal category and you dont want default effect to by applied, set it to true \
-  **Type**: object
-* **Config.DisableRefreshOnPedOrPidChanged:** Disable refreshing some player skills on ped change or pid change\
-  **Type**: `bool`
-
-**configs/sh.lang.lua**
+### **Custom Skill Unlock Requirements**
 
 ```lua
--- Language Configuration
--- Change the value (right side) as needed
--- Do not change the key (left side)
--- Maintain the %{value} format
-Config.Lang = {
-    ['skill_already_unlocked'] = "Skill already unlocked",
-    ['not_enough_points'] = "You don't have enough points",
-    ['skill_tree'] = "Skill Tree",
-    ['Unknown'] = "Unknown",
-    ['Skill'] = "Skill",
-    ['Tree'] = "Tree",
-    ['skill_tree_generator'] = "Skill Tree Configurator",
-    ['view_details'] = "View Details",
-    ['unlock_skill'] = "Unlock Skill",
-    ['hold'] = "Hold",
-    ['click'] = "Click",
-    ['close_menu'] = "Close Menu",
-    ['tree_generator'] = "Tree Generator",
-    ['Generate'] = "Generate",
-    ['close_generator'] = "Close Generator",
-    ['category_uid'] = "Category Uid",
-    ['select_box'] = "SELECT BOX TO EDIT",
-    ['generator_c'] = "GENERATOR",
-    ['skill_uid'] = "Skill Uid",
-    ['unlock_points'] = "Unlock Points",
-    ['skill_name'] = "Skill Name",
-    ['icon'] = "Icon",
-    ['image'] = "Image/Gif",
-    ['description'] = "Description",
-    ['section_name'] = "Section Name",
-    ['skill_effect'] = "Skill Effect",
-    ['only_lines'] = "Only Lines",
-    ['default_unlocable'] = "Default Unlocable",
-    ['actions'] = "Actions",
-    ['remove'] = "Remove",
-    ['optional'] = "Optional",
-    ['skill_info'] = "Skill Info",
-    ['level_up'] = "Level Up",
-    ['level_up_skill'] = "Skill: %{skill}",
-    ['error'] = "Error",
-    ['generate_new'] = "Generate new",
-    ['edit_existing'] = "Edit existing",
-    ["success"] = "Success",
-    ['config_copied'] = "Config copied to clipboard, put it into your config and restart script",
-    ['category_already_used'] = "This category is already in use",
-    ['correct'] = "Correct",
-    ['uid_already_used'] = "This uid is already in use",
-    ['not_number'] = "This is not a number",
-    ['required'] = "Required",
-    ['correct'] = "Correct",
-    ['wrong'] = "Wrong",
-    ['cancel'] = "Cancel",
-    ['confirm'] = "Confirm" ,
-    ['areUSure'] = "Are you absolutely sure?",
-    ['important'] = "This is really important",
-    ['close_generator_confirm'] = "Do you want to close without saving ?",
-    ['save_generator_confirm'] = "Do you want to close and save config to your clipboard",
-}
-```
-
-In the `sh.lang.lua` file, you can customize the language settings for various script elements. The keys on the left should not be altered, but you can change the corresponding values on the right to suit your preferences. Ensure that the %`{value}` format remains unchanged.
-
-**configs/sh.skills.lua**
-
-```lua
--- skill = 'CATEGORY_UID', title = 'YOUR_TITLE'
-Config.SkillsCategory = {
-    {skill = 'personal', title = 'Personal'},
-}
-
--- grid
--- 171 [9x19]
-
-Config.SkillsList = {
-    ["personal"] = {
-        {
-            points = 1,
-            lines = { right = false, rightBottom = false, },
-            icon = "fa-solid fa-person-rifle",
-            index = 6,
-            title = "Aim Movement Speed IV",
-            description = "Increases your movement speed while aiming by 10%.",
-            uid = "aimSpeedMultiplier_4",
-            img = "https://upload.devhub.gg/dh_upload/aiming.gif",
-            effect = 10,
-        },
-        {
-            lines = { left = false, right = false, },
-            index = 7 ,
-        },
-        {
-            lines = { left = false, right = false, },
-            index = 8 ,
-        },
-        {
-            points = 1,
-            lines = { left = false, right = false, },
-            icon = "fa-solid fa-crosshairs",
-            index = 9,
-            title = "Reduced Recoil IV",
-            description = "Reduces weapon recoil by 10% for improved accuracy",
-            uid = "betterAccuracy_4",
-            img = "https://upload.devhub.gg/dh_upload/recoil.gif",
-            effect = 10,
-        },
+Config.UnlockHandlerForSkills = {
+    ['CATEGORY_UID'] = {
+        ['SKILL_UID'] = {
+            unlockRequirementMessage = "Custom requirement message",
+            handler = function(source)
+                -- This is triggered server side
+                -- Return false to prevent skill unlock
+                return false
+            end
+        }
     }
 }
 ```
 
-**Config.SkillsCategory**: Defines the categories of skills available, each with a unique identifier (`skill`) and a display title (`title`).\
-\
-**Config.SkillsList**: Contains the list of skills organized by categories.
+***
+
+## <mark style="color:yellow;">Language Configuration (sh.lang.lua)</mark>
+
+The language file contains all text strings used in the UI. Each string can be customized:
+
+```lua
+Config.Lang = {
+    ['skill_already_unlocked'] = "Skill already unlocked",
+    ['not_enough_points'] = "You don't have enough points",
+    -- ...more translations
+}
+```
+
+***
+
+## <mark style="color:yellow;">Server Configuration (s.main.lua)</mark>
+
+### Category visibility
+
+```lua
+Config.CategoryVisibilityHandler = {
+    ['personal'] = function(source)
+        -- Return false to hide category
+        return true
+    end,
+}
+
+```
+
+### Logging Configuration
+
+```lua
+Config.Logs = {
+    ['addXp'] = "webhook_url",            -- Log XP additions
+    ['addPoints'] = "webhook_url",        -- Log point additions
+    ['removePoints'] = "webhook_url",     -- Log point removals
+    ['removeXp'] = "webhook_url",         -- Log XP removals
+    ['levelUp'] = "webhook_url",          -- Log level ups
+    ['unlockSkill'] = "webhook_url",      -- Log skill unlocks
+    ['skillReset'] = "webhook_url",       -- Log skill resets
+    -- Security logs
+    ['suspiciousActivityLowPriority'] = "webhook_url",   -- Logs for potential cheating might also be issues (lag/connection)
+    ['suspiciousActivityHighPriority'] = "webhook_url"   -- Logs for most likely cheating attempts
+}
+```
+
+### Security Settings
+
+{% hint style="warning" %}
+It is highly advised to keep this option enabled and transition scripts to utilize server-side exports only.
+{% endhint %}
+
+```lua
+Config.DisableSensitiveClientExports = true  -- Disable client-side sensitive exports
+```
+
+#### Suspicious Activity Handler
+
+```lua
+Config.SuspiciousActivity = function(source, privateReason, priority)
+    -- Called when suspicious activity is detected
+    -- priority: 
+        -- 'high' (likely cheating)
+        -- 'low' (cheater or possible connection issues)
+}
+```
+
+
+
+***
+
+## <mark style="color:yellow;">Skills Configuration (sh.skills.lua)</mark>
+
+The skills configuration defines all available skills and their properties. Each skill is defined with:
+
+* `uid`: Unique identifier
+* `title`: Display name
+* `icon`: FontAwesome icon or image URL
+* `effect`: Numerical effect value
+* `description`: Skill description
+* `points`: Points required to unlock
+* `img`: Preview image/gif URL
+* `lines`: Connection lines to other skills
+* `index`: Position in skill grid (171 total slots in 9x19 grid)
+
+Example skill entry:
+
+```lua
+{
+    description = "Increases running speed by 3%",
+    icon = "fa-solid fa-person-running-fast",
+    points = 1,
+    uid = "runFaster_1", 
+    img = "https://example.com/run.gif",
+    lines = { top = false, leftTop = false },
+    title = "Speed Boost I",
+    index = 139,
+    effect = 1,
+}
+```
+
+***
+
+## <mark style="color:yellow;">Ui Configuration (config.js)</mark>
+
+{% hint style="info" %}
+W**here to find:** html/config.js
+{% endhint %}
+
+```javascript
+window.config = {
+    numberFormatting: [/\B(?=(\d{3})+(?!\d))/g, " "],
+    soundVolume: 0.25,
+};
+```

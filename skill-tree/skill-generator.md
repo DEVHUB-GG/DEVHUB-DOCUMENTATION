@@ -1,27 +1,65 @@
+---
+description: >-
+  The skill generator and adding your own skills is only available in the
+  exclusive version
+---
+
 # ⚙️ Skill Generator
 
-**The skill generator and adding your own skills is only available in the** [<mark style="color:yellow;">**exclusive**</mark>](https://store.devhub.gg/package/6441349) **version**
+{% hint style="danger" %}
+Make sure `devhub_skillTree_generator` is started
+{% endhint %}
 
-### **Installation**
+{% stepper %}
+{% step %}
+### Open configs/sh.main.lua
+{% endstep %}
 
-1.  Before ensure dh\_skillTree add following line:\
+{% step %}
+### Change `Config.EnableGenerator` to <mark style="color:green;">**true**</mark>
+{% endstep %}
+
+{% step %}
+### Restart `devhub_skillTree` script
+{% endstep %}
+
+{% step %}
+### A new button will appear in the right top corner
+
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+{% endstep %}
+
+{% step %}
+### Click at any box on the grid and start creating or editing
+
+<figure><img src="../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
+{% endstep %}
+
+{% step %}
+### Make sure that not errors are found
+
+<figure><img src="../.gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
+{% endstep %}
+
+{% step %}
+### Confirm generation of file
+
+Config will be saved to your <mark style="color:green;">**clipboard**</mark>
+{% endstep %}
+
+{% step %}
+### Open your `configs/sh.skills.lua` and paste copied skill tree
+{% endstep %}
+
+{% step %}
+### Create your skill functionality using our export and listeners
+{% endstep %}
+{% endstepper %}
+
+{% content-ref url="development/" %}
+[development](development/)
+{% endcontent-ref %}
 
 
-    `ensure dh_skillTree_generator`
-
-### **Usage**
-
-1. Open configs/sh.main.lua
-2. Change <mark style="color:blue;">Config.EnableGenerator</mark> to <mark style="color:blue;">true</mark>
-3. Restart dh\_skillTree script
-4. In right top corner click Skill Tree Configurator and select either creating new skill tree or edit existing.\
-
-5. Click at any highlighted box and start editing popup.\
-
-6. Make sure all required fields are highlighted in <mark style="color:green;">green.</mark>\
-
-7. When you are done click button at the top , skill tree config will be copied to your **clipboard**.\
-
-8. Open your **configs/sh.skills.lua** and paste copied skill tree.
 
 <figure><img src="../.gitbook/assets/image (142).png" alt=""><figcaption><p>Showcase of skill tree generator</p></figcaption></figure>
