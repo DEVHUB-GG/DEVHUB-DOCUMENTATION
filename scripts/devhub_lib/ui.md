@@ -1,16 +1,35 @@
 # 🧭 Ui
 
-{% hint style="warning" %}
+{% hint style="info" %}
 Ensure that if custom functionality is utilized, it returns true.
 {% endhint %}
 
 ## <mark style="color:yellow;">Notification</mark>
 
-Displays a notification to the user.
+### Ui Position
+
+<kbd>top-left</kbd> <kbd>top-right</kbd>  <kbd>bottom-left</kbd>  <kbd>bottom-right</kbd>  <kbd>top-center</kbd>  <kbd>bottom-center</kbd>
+
+```lua
+CustomUi.NotifyPosition = "top-right"
+```
+
+### Notification Types
+
+```lua
+CustomUi.NotifyTypes = {
+    ['info'] = "info",
+    ['error'] = "error",
+    ['success'] = "success",
+    ['warning'] = "warning"
+}
+```
+
+### Custom Notification
 
 <kbd>text</kbd> The text of the notification. \
 <kbd>duration</kbd> The duration for which the notification should be displayed. In milliseconds. \
-<kbd>notificationType</kbd> The type of the notification.
+<kbd>notificationType</kbd> The type of the notification. `'info'` `'error'` `'success'` `'warning'`
 
 ```lua
 CustomUi.Notify = function(text, duration, notificationType)
@@ -22,7 +41,13 @@ end
 
 ## <mark style="color:yellow;">Static Message</mark>
 
-Displays a static message to the user.
+### Ui Position
+
+```lua
+CustomUi.StaticMessagePosition = "top-left"
+```
+
+### Custom Static Message
 
 <kbd>text</kbd> The text of the static message, if false ui is hidden.
 
