@@ -78,7 +78,7 @@
     * [skillTree.lua](free-herbal-alchemist-job/configuration/skilltree.lua.md)
     * [config.js](free-herbal-alchemist-job/configuration/config.js.md)
   * [🎨 UI Color Customization](free-herbal-alchemist-job/ui-color-customization.md)
-* [📱 WHO AM I?](who-am-i/README.md)
+* [📱 Who Am I?](who-am-i/README.md)
   * [💻 Installation](who-am-i/installation.md)
   * [🛠️ Configuration](who-am-i/configuration/README.md)
     * [shared.lua](who-am-i/configuration/shared.lua.md)
