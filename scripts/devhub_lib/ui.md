@@ -4,6 +4,10 @@
 Ensure that if custom functionality is utilized, it returns true.
 {% endhint %}
 
+{% hint style="warning" %}
+Some script may override this position, in that case, you will have a config in a script which will override this value
+{% endhint %}
+
 ## <mark style="color:yellow;">Notification</mark>
 
 ### Ui Position
