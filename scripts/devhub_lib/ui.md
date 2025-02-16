@@ -43,6 +43,8 @@ end
 
 ### Ui Position
 
+<kbd>top-left</kbd> <kbd>top-right</kbd>  <kbd>bottom-left</kbd>  <kbd>bottom-right</kbd> <kbd>{right = 0, top = 0}</kbd>&#x20;
+
 ```lua
 CustomUi.StaticMessagePosition = "top-left"
 ```
@@ -61,6 +63,16 @@ end
 
 ## <mark style="color:yellow;">Control Buttons</mark>
 
+### Ui Position
+
+<kbd>top-left</kbd> <kbd>top-right</kbd>  <kbd>bottom-left</kbd>  <kbd>bottom-right</kbd> <kbd>{right = 0, top = 0}</kbd>&#x20;
+
+```lua
+CustomUi.ControlButtonsPosition= "bottom-right"
+```
+
+### Custom Control Buttons
+
 Displays control buttons to the user.
 
 <kbd>text</kbd>  The text associated with the control buttons, if false ui is hidden.
@@ -75,7 +87,15 @@ end
 
 ## <mark style="color:yellow;">Progressbar</mark>
 
-Displays a progress bar to the user.
+### Ui Position
+
+<kbd>low</kbd> <kbd>medium</kbd> <kbd>high</kbd>
+
+```lua
+CustomUi.ProgressbarPlacement = "low"
+```
+
+### Custom Progressbar
 
 <kbd>data</kbd>  The data for the progress bar.
 
