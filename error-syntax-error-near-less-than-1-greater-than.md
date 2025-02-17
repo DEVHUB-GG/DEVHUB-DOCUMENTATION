@@ -26,7 +26,7 @@
 {% step %}
 **Corrupted or Missing Files**
 
-* f your download was incomplete or corrupted, perform a **clean reinstall** of the script.
+* If your download was incomplete or corrupted, perform a **clean reinstall** of the script.
 * Ensure **all hidden files** (including `.fxap` files) are transferred properly. Some FTP clients may skip these files.
 {% endstep %}
 {% endstepper %}
@@ -70,8 +70,10 @@
 {% endstep %}
 
 {% step %}
-### Clear server cache
+#### **Clear server cache**
+{% endstep %}
 
-Delete the  server `cache`
+{% step %}
+#### **Make a fresh script reinstall**
 {% endstep %}
 {% endstepper %}
