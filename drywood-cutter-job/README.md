@@ -1,7 +1,3 @@
----
-hidden: true
----
-
 # 🪵 Drywood Cutter Job
 
 
