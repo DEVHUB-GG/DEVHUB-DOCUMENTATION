@@ -2,6 +2,8 @@
 
 * [🏠 Home page](README.md)
 * [🐌 Download purchased assets](download-purchased-assets.md)
+* [⁉️ Error: "You lack the required entitlement to use"](error-you-lack-the-required-entitlement-to-use.md)
+* [⁉️ Error: syntax error near '<\1>'](error-syntax-error-near-less-than-1-greater-than.md)
 
 ## 💾 SCRIPTS
 
