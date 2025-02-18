@@ -12,6 +12,7 @@
     * [Vehicle keys](scripts/devhub_lib-needed-for-each-script/configuration/vehicle-keys.md)
 * [📒 devhub\_lib](scripts/devhub_lib/README.md)
   * [💻 Installation](scripts/devhub_lib/installation.md)
+  * [2️⃣ Migration from v1 to v2](scripts/devhub_lib/migration-from-v1-to-v2.md)
   * [⚙️ Framework](scripts/devhub_lib/framework.md)
   * [🖐️ Target](scripts/devhub_lib/target.md)
   * [🧭 Ui](scripts/devhub_lib/ui.md)
