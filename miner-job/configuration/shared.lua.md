@@ -164,3 +164,13 @@ Shared.Lang = {
 * **Description**: Customizes text used throughout the script's UI.
 * **Usage**: Adjust the right-side values to localize or customize messages.
 * **Note**: Keep `${value}` format unchanged to ensure dynamic values work correctly.
+
+***
+
+## <mark style="color:yellow;">Sound Volume</mark>
+
+Adjust in game sound
+
+```lua
+Shared.SoundVolume = 0.25
+```
