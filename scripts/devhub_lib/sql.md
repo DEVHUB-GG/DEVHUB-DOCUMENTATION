@@ -1,6 +1,14 @@
 # 📡 Sql
 
-By default **oxmysql** is beaing used
+{% hint style="success" %}
+File Path: <kbd>modules/systems/s.sql.lua</kbd>
+{% endhint %}
+
+***
+
+{% hint style="info" %}
+By default, only **oxmysql** is configured.
+{% endhint %}
 
 ## <mark style="color:yellow;">Async</mark>
 

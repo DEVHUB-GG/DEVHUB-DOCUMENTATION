@@ -1,6 +1,10 @@
 # 👕 Clothing
 
-If you want to change clothing system go to **frameworks/c.clothing.lua**
+{% hint style="success" %}
+File Path: <kbd>modules/systems/c.clothing.lua</kbd>
+{% endhint %}
+
+***
 
 ```lua
 function SetPlayerOutfit(clothingConfig)

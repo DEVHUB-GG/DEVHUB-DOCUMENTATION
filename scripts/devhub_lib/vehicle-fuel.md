@@ -1,5 +1,11 @@
 # ⛽ Vehicle fuel
 
+{% hint style="success" %}
+File Path: <kbd>modules/systems/c.vehicleFuel.lua</kbd>
+{% endhint %}
+
+***
+
 ## <mark style="color:yellow;">Pre configured scripts</mark>
 
 * LegacyFuel
@@ -22,13 +28,13 @@ Shared.VehicleFuel = "AUTO DETECT"
 
 ## <mark style="color:yellow;">Auto detection failed</mark>
 
-If auto detect failed in **shared.lua**, set `Shared.VehicleFuel` to use the appropriate keys resource or set it to custom and configurate it yourself.
+If auto detect failed in <kbd>config.lua</kbd>, set **Shared.VehicleFuel** to use the appropriate keys resource or set it to custom and configurate it yourself.
 
 ***
 
 ## <mark style="color:yellow;">Custom functionality</mark>
 
-Go to **frameworks/c.vehicleFuel.lua** and customize your fuel logic
+Go to <kbd>modules/systems/c.vehicleFuel.lua</kbd> and customize your fuel logic
 
 ```lua
 Core.SetVehicleFuel = function(vehicle, amount)
