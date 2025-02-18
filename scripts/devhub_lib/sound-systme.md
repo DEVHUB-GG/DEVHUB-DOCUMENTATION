@@ -1,13 +1,9 @@
 # 🔊 Sound Systme
 
-{% hint style="success" %}
-File Path: <kbd>modules/systems/c.sound.lua</kbd>
-{% endhint %}
-
-***
+If you want to adjust sound system go to **frameworks/c.sound.lua**
 
 {% hint style="info" %}
-By default, only xsound is configured.
+By default, xsound is configured
 {% endhint %}
 
 ```lua

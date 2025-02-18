@@ -1,14 +1,8 @@
 # ℹ️ Logs
 
-{% hint style="success" %}
-<kbd>modules/systems/s.logs.lua</kbd>
-{% endhint %}
+Logs functionality can be found in **frameworks/s.logs.lua.**
 
-***
-
-{% hint style="info" %}
-By default, logs are sent to **Discord** via webhook. Additionally, you can connect **database** logs to it.
-{% endhint %}
+By default, logs are sent to Discord via webhook. Additionally, you can connect database logs to it.
 
 ```lua
 RegisterNetEvent('dh_lib:server:sendLog',function(_source, webhook, data)

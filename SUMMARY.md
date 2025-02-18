@@ -21,6 +21,7 @@
   * [👕 Clothing](scripts/devhub_lib/clothing.md)
   * [ℹ️ Logs](scripts/devhub_lib/logs.md)
   * [📡 Sql](scripts/devhub_lib/sql.md)
+  * [🎨 UI Color Customization](scripts/devhub_lib/ui-color-customization.md)
   * [🆘 Compatibility test](scripts/devhub_lib/compatibility-test.md)
 
 ***

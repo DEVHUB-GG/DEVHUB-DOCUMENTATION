@@ -1,8 +1,6 @@
 # 🖐️ Target
 
-{% hint style="success" %}
-File Path: <kbd>modules/systems/targets</kbd>
-{% endhint %}
+If you want to adjust target system go to **frameworks/targets**
 
 ***
 
@@ -27,13 +25,13 @@ Shared.Target = "AUTO DETECT"
 
 ## <mark style="color:yellow;">Auto detection failed</mark>
 
-If auto detect failed in <kbd>config.lua</kbd>, set **Shared.Target** to use the appropriate resource or set it to custom and configurate it yourself.
+If auto detect failed in **shared.lua**, set `Shared.Target` to use the appropriate resource or set it to custom and configurate it yourself.
 
 ***
 
 ## <mark style="color:yellow;">Custom functionality</mark>
 
-Go to <kbd>modules/systems/targets/c.custom.lua</kbd> and customize your logic
+Go to **frameworks/target/c.custom.lua** and customize your logic
 
 ```lua
     Core.AddModelToTarget = function(model, data)
