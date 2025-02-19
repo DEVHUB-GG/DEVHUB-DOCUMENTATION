@@ -15,10 +15,10 @@
   * [🧭 Ui](scripts/devhub_lib/ui.md)
   * [🔑 Vehicle Keys](scripts/devhub_lib/vehicle-keys.md)
   * [⛽ Vehicle fuel](scripts/devhub_lib/vehicle-fuel.md)
-  * [🔊 Sound Systme](scripts/devhub_lib/sound-systme.md)
+  * [🔊 Sound System](scripts/devhub_lib/sound-systme.md)
   * [👕 Clothing](scripts/devhub_lib/clothing.md)
   * [ℹ️ Logs](scripts/devhub_lib/logs.md)
-  * [📡 Sql](scripts/devhub_lib/sql.md)
+  * [📡 SQL](scripts/devhub_lib/sql.md)
   * [🎨 UI Color Customization](scripts/devhub_lib/ui-color-customization.md)
   * [🆘 Compatibility test](scripts/devhub_lib/compatibility-test.md)
 
