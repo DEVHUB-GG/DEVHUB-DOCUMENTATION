@@ -1,8 +1,6 @@
 # ⁉️ Error: syntax error near '<\1>'
 
-## <mark style="color:yellow;">Error: Syntax Error Near</mark> <mark style="color:yellow;"></mark><mark style="color:yellow;">`<\1>`</mark>
-
-### Causes:
+## <mark style="color:yellow;">Causes:</mark>
 
 {% stepper %}
 {% step %}
@@ -33,14 +31,14 @@
 
 ***
 
-### How to Fix:
+## <mark style="color:yellow;">How to Fix:</mark>
 
 {% stepper %}
 {% step %}
 #### **Update Your Server Artifacts**
 
 * **Windows:** [FXServer Artifacts](https://runtime.fivem.net/artifacts/fivem/build_server_windows/master/)
-* **Linux:** [Proot Linux Artifacts](https://runtime.fivem.net/artifacts/fivem/build_proot_linux/master/)
+* **Linux:** [Linux Artifacts](https://runtime.fivem.net/artifacts/fivem/build_proot_linux/master/)
 
 **Steps to update:**
 

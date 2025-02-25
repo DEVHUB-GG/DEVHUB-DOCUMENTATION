@@ -1,10 +1,12 @@
 # ⚙️ Framework
 
-If you want to adjust framework go to **frameworks/framework**&#x20;
+{% hint style="success" %}
+File Path: <kbd>modules/frameworks</kbd>&#x20;
+{% endhint %}
 
 ***
 
-## <mark style="color:yellow;">Pre configured scripts</mark>
+## <mark style="color:yellow;">Pre configured frameworks</mark>
 
 * esx
 * qb
@@ -26,10 +28,10 @@ Shared.Framework = "AUTO DETECT"
 
 ## <mark style="color:yellow;">Auto detection failed</mark>
 
-If auto detect failed in **shared.lua**, set `Shared.Framework` to use the appropriate resource or set it to custom and configurate it yourself.
+If auto detect failed in <kbd>config.lua</kbd>, set **Shared.Framework** to use the appropriate resource or set it to custom and configurate it yourself.
 
 ***
 
 ## <mark style="color:yellow;">Custom functionality</mark>
 
-Go to **frameworks/custom** and customize your logic
+Go to <kbd>modules/frameworks/custom</kbd> and customize your logic

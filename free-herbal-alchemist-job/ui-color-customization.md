@@ -12,7 +12,7 @@
 {% endstep %}
 
 {% step %}
-### Open the <kbd>colors.css</kbd> file
+### Open the `colors.css` file
 {% endstep %}
 {% endstepper %}
 

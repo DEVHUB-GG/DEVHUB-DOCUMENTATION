@@ -2,9 +2,9 @@
 
 {% stepper %}
 {% step %}
-### Install devhub\_lib
+### Install [devhub\_lib](https://docs.devhub.gg/scripts/devhub_lib-needed-for-each-script)
 
-Download and install the required library and configure it according to your framework.
+Download and install the required library and [configure](https://docs.devhub.gg/scripts/devhub_lib-needed-for-each-script) it according to your framework.
 
 Download [https://github.com/DEVHUB-GG/devhub\_lib ](https://github.com/DEVHUB-GG/devhub_lib)or use command
 
@@ -14,16 +14,9 @@ git clone https://github.com/DEVHUB-GG/devhub_lib.git
 {% endstep %}
 
 {% step %}
-### Install xsound
-
-Download [https://github.com/Xogy/xsound/archive/refs/tags/1.4.3.zip](https://github.com/Xogy/xsound/archive/refs/tags/1.4.3.zip)
-{% endstep %}
-
-{% step %}
 ### Install resources from keymaster
 
-* Download the <mark style="color:red;">MULTIPLAYER MINER JOB</mark> script file from keymaster.&#x20;
-* Download the <mark style="color:red;">MULTIPLAYER MINER JOB ASSETS</mark> script file from keymaster.&#x20;
+* Download the <mark style="color:red;">SKILL SELECTION</mark> script file from keymaster.&#x20;
 {% endstep %}
 
 {% step %}
@@ -32,10 +25,8 @@ Download [https://github.com/Xogy/xsound/archive/refs/tags/1.4.3.zip](https://gi
 Move the files to the `resources` folder on your server and add the following lines to your server.cfg in the correct order:
 
 ```javascript
-ensure xsound
 ensure devhub_lib
-ensure devhub_miner
-ensure devhub_miner_assets
+ensure devhub_skillSelection
 ```
 {% endstep %}
 
@@ -44,7 +35,13 @@ ensure devhub_miner_assets
 {% endstep %}
 {% endstepper %}
 
+{% hint style="danger" %}
+DO NOT CHANGE RESOURCE NAME
+{% endhint %}
 
+{% hint style="info" %}
+DATA IS SAVED USING KVP, NO SQL REQUIRED
+{% endhint %}
 
 {% content-ref url="../scripts/devhub_lib-needed-for-each-script/" %}
 [devhub\_lib-needed-for-each-script](../scripts/devhub_lib-needed-for-each-script/)

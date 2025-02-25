@@ -1,5 +1,9 @@
 # 🧭 Ui
 
+{% hint style="success" %}
+File Path: <kbd>modules/systems/c.ui.lua</kbd>
+{% endhint %}
+
 {% hint style="info" %}
 Ensure that if custom functionality is utilized, it returns true.
 {% endhint %}
@@ -7,6 +11,8 @@ Ensure that if custom functionality is utilized, it returns true.
 {% hint style="warning" %}
 Some script may override this position, in that case, you will have a config in a script which will override this value
 {% endhint %}
+
+***
 
 ## <mark style="color:yellow;">Notification</mark>
 

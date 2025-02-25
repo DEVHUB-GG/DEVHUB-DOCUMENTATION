@@ -44,6 +44,16 @@ Shared.Economy = {
 
 ***
 
+### `Sound Volume`
+
+Adjust in game sound
+
+```lua
+Shared.SoundVolume = 0.25
+```
+
+***
+
 ## <mark style="color:yellow;">**Herb Collection**</mark>
 
 ### **`Shared.HerbsTypePerTask`**

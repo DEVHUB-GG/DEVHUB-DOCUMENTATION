@@ -4,7 +4,7 @@ To ensure the framework configuration is working correctly, run a compatibility 
 
 {% stepper %}
 {% step %}
-### Go to shared.lua and set **Shared.CompatibilityTest** to true
+### Go to <kbd>config.lua</kbd> and set **Shared.CompatibilityTest** to true
 {% endstep %}
 
 {% step %}

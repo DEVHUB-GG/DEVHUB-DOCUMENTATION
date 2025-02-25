@@ -8,11 +8,11 @@
 {% endstep %}
 
 {% step %}
-### Enter `html` folder
+### Enter <kbd>html</kbd> folder
 {% endstep %}
 
 {% step %}
-### Open the `colors.css` file
+### Open the <kbd>colors.css</kbd> file
 {% endstep %}
 {% endstepper %}
 
