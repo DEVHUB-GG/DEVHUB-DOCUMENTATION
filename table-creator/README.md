@@ -2,7 +2,7 @@
 hidden: true
 ---
 
-# ⚙️ Table Creator
+# 🍲 Table Creator
 
 
 
