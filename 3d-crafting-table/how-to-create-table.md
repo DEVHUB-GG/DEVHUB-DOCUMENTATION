@@ -80,7 +80,7 @@ These settings allow you to create a more dynamic and interactive experience usi
 {% endstep %}
 
 {% step %}
-## Final Step: Saving & Applying the Configuration
+## Saving & Applying the Configuration
 
 Once all settings are configured:
 
