@@ -68,14 +68,31 @@ You can enhance the prop with particle effects and sound effects.
 
 Each prop can be customized with different functionalities:
 
-1. **Static Prop** – The prop remains stationary and cannot be moved.
-2. **Spawn Delay** – The prop appears with a delay, becoming visible only when its turn comes.
-3. **Model Change** – The prop's model and location can be altered at a specific step (e.g., changing a pot’s appearance when water is poured into it during step 5).
+| Feature          | Description                                                                                              |
+| ---------------- | -------------------------------------------------------------------------------------------------------- |
+| **Static Prop**  | The prop remains in a fixed position.                                                                    |
+| **Spawn Delay**  | The prop appears **with a delay**, making it visible only when its turn comes.                           |
+| **Model Change** | The prop **changes its model or location** at a specific step (e.g., a pot changes when water is added). |
 
 These settings allow you to create a more dynamic and interactive experience using our table.
 
 
+{% endstep %}
 
+{% step %}
+## Final Step: Saving & Applying the Configuration
 
+Once all settings are configured:
+
+1. **Press the "Save" button** in the Table Generator.
+2. **Open** the `configs/shared.lua` file.
+3.  **Find** the following configuration:
+
+    ```lua
+    Shared.Recepie = {
+        -- Generated code
+    }
+    ```
+4. **Paste the generated table code inside `Shared.Recepie`**.
 {% endstep %}
 {% endstepper %}
