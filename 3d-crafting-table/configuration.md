@@ -1,196 +1,203 @@
 # 🛠️ Configuration
 
-## <mark style="color:yellow;">Main Configuration (sh.main.lua)</mark>
+## <mark style="color:yellow;">Shared Configuration (shared.lua)</mark>
 
-### Basic Settings
+### Debug Configuration
+
+The debug configuration controls whether debug messages are displayed and what types of messages are enabled.
 
 ```lua
-Config.MenuCommand = "skillSelection"  -- Command to open menu (string or false)
-Config.Keybind = "F6"                 -- Keybind to open menu (string or false)
+Shared.Debug = {
+    Enabled = true, -- Set to false to disable all debug prints
+    Levels = {
+        Info = true,    -- General information
+        Success = true, -- Success operations
+        Warning = true  -- Warnings and potential issues
+    }
+}
 ```
+
+* **Enabled**: Enables or disables all debug prints.
+* **Levels**: Controls specific debug message types:
+  * `Info`: General information messages.
+  * `Success`: Messages for successful operations.
+  * `Warning`: Warnings and potential issues.
 
 ***
 
-### Skill Tree Settings
+### DevHub Skill Tree Integration
+
+This setting enables integration with the **DevHub Skill Tree System**.
 
 ```lua
-Config.UseDataFromSkillTree = false  -- true/false
+Shared.DEVHUB_SKILLTREE_ENABLED = false
 ```
 
-Use data about unlocked skills from the skill tree
-
-{% hint style="info" %}
-[BUY SKILL TREE](https://store.devhub.gg/product/6440792-1)
-{% endhint %}
-
-{% content-ref url="../skill-selection/skill-tree-connection.md" %}
-[skill-tree-connection.md](../skill-selection/skill-tree-connection.md)
-{% endcontent-ref %}
+* **DEVHUB\_SKILLTREE\_ENABLED**: Set to `true` if you're using the DevHub Skill Tree system.
+* The skill tree system can be purchased at: [DevHub Store](https://store.devhub.gg/product/6440792-1).
 
 ***
 
-### Abilities
+### Recepie Configuration
 
-<pre class="language-lua"><code class="lang-lua">Config.Abilities = {
-    ['wizard'] = {
-        name = "Wizard",
-        displayOrder = 1,
-<strong>        isVisible = function(source)
-</strong>            -- return true if the ability should be visible in the UI
-            -- server side
-            return true
-        end,
-        abilities = {
-            ['water_spell'] = {
-                label = "Water spell",
-                icon = "fas fa-user",
-                useCooldown = 5,
-                onUse = function()
-                    -- client side
-                    print("Water spell used by "..GetPlayerName(PlayerId()))
-                    return true -- return true if the ability was used successfully, false cooldown will not be triggered
-                end
-            },
-            ['fire_spell'] = {
-                label = "Fire spell",
-                icon = "fire_spell.png",
-                useCooldown = 5,
-                onUse = function()
-                    -- client side
-                    print("Fire spell used by "..GetPlayerName(PlayerId()))
-                    return true -- return true if the ability was used successfully, false cooldown w
-                end
-            },
-        }
+This section contains generated code from [how-to-create-table.md](how-to-create-table.md "mention")
+
+```lua
+Shared.Recepie = { 
+    -- Generated code
+}
+```
+
+* **Recepie**: Stores generated recipe data.
+
+## <mark style="color:yellow;">Client Configuration (client.lua)</mark>
+
+### Developer Mode
+
+Enables developer commands, such as `/tablegenerator`.
+
+```lua
+Config.DeveloperMode = true 
+```
+
+* **DeveloperMode**: Set to `true` to enable developer commands.
+
+***
+
+### Skill Tree Boosts
+
+Defines various skill-based bonuses that apply when using the skill tree integration.
+
+```lua
+Config.SkillTreeBoosts = {
+    ["table_boost1"] = { 
+        attribute = "double_xp",
+        chance = 10,
     },
-    ['vampire'] = {
-        name = "Vampire",
-        displayOrder = 2,
-        isVisible = function(source)
-            -- return true if the ability should be visible in the UI
-            -- server side
-            return true
-        end,
-        abilities = {
-            ['more_hp'] = {
-                label = "More Hp",
-                icon = "more_hp.png",
-                useCooldown = 5,
-                onUse = function()
-                    -- client side
-                    print("More hp used by "..GetPlayerName(PlayerId()))
-                    return true -- return true if the ability was used successfully, false cooldown w
-                end
-            },
-        }
+    ["table_boost2"] = {
+        attribute = "xp_multiplier",
+        chance = 10,
+    },
+    ["table_boost3"] = {
+        attribute = "double_reward",
+        chance = 10,
+    },
+    ["table_boost4"] = {
+        attribute = "needed_items_recover",
+        chance = 10,
+    }
+}
+```
+
+* **SkillTreeBoosts**: Defines the various skill effects that can be applied during crafting.
+  * `double_xp`: 10% chance to earn double XP from crafting.
+  * `xp_multiplier`: 10% XP gain multiplier.
+  * `double_reward`: 10% chance to receive double rewards.
+  * `needed_items_recover`: 10% chance to recover 50% of required crafting items.
+
+***
+
+### Crafting Table Interaction
+
+**Table Check Interval**
+
+Defines how often the system checks if a player is near a crafting table.
+
+```lua
+Config.TablesCheckInterval = 2000 
+```
+
+* **TablesCheckInterval**: Time in milliseconds between each proximity check (default: `2000ms`).
+
+***
+
+### **Sound Configuration**
+
+Controls the volume of all crafting-related sound effects.
+
+```lua
+Config.SoundVolume = 0.5 
+```
+
+* **SoundVolume**: The global volume for crafting sounds (`0.0` - `1.0`).
+
+***
+
+### Camera Offsets
+
+Defines camera positions for different crafting table models.
+
+```lua
+Config.CameraOffsets = {
+    [`dh_alchemy_table`] = {
+        cameraAimOffset = vec3(0.3, 0.0, 0.0),
+        cameraOffset = vec3(0.3, -2.0, 1.75),
+    },
+    [`h4_prop_h4_table_isl_01a`] = {
+        cameraAimOffset = vec3(0.0, 0.0, 0.0),
+        cameraOffset = vec3(0.3, -2.5, 2.6),
+    },
+    [`bkr_prop_weed_table_01b`] = {
+        cameraAimOffset = vec3(0.0, 0.0, 0.0),
+        cameraOffset = vec3(0.0, -2.0, 2.2),
     },
 }
-</code></pre>
-
-***
-
-### Hotbar settings
-
-```lua
-Config.UseBuildInHotBar = true   --- true/false
 ```
 
-Use the build in hotbar, if set to false you can use your own hotba if you are using custom hotbar use client event to listen for hotbar changes&#x20;
+* **CameraOffsets**: Configures camera behavior when interacting with different crafting tables.
+  * `cameraAimOffset`: Adjusts where the camera is aiming (relative to the table).
+  * `cameraOffset`: Controls the position of the camera relative to the table.
+
+## <mark style="color:yellow;">Server Configuration (server.lua)</mark>
+
+### Crafting Tables Configuration
+
+Defines crafting table locations and settings. This script can be used to spawn crafting tables, or you can spawn them via your own scripts.
 
 ```lua
-RegisterNetEvent('devhub_skillSelection:client:syncSlots', function(data) end) 
-```
-
-data is a table with structure like this:&#x20;
-
-{% code overflow="wrap" fullWidth="false" %}
-```lua
-{
-   [2] = { -- slot 2
-         category = "wizard", 
-         uid = "water_spell", 
-         label = "Water spell", 
-         icon = "fas fa-user"
-   }, 
-   [6] = { -- slot 6
-         category = "vampire", 
-         uid = "vampire_spell", 
-         label = "Vampire spell", 
-         icon = "fas fa-user
-   },  
-}
-```
-{% endcode %}
-
-***
-
-```lua
-Config.DisplayHotBarOnScriptLoad = true   --- true/false
-```
-
-Display the hotbar on script load, if set to false you can set when hotbar should be displayed using client event:
-
-```lua
-TriggerEvent('devhub_skillSelection:client:hotBarDisplayStatus', true)
-```
-
-***
-
-{% hint style="warning" %}
-If you are using custom hotbar you also need to set the hotbar slots.
-{% endhint %}
-
-```lua
-Config.HotBarSlots = {
-    { slotKey = "1", slotLabel = "1" },
-    { slotKey = "2", slotLabel = "2" },
-    { slotKey = "3", slotLabel = "3" },
-    { slotKey = "4", slotLabel = "4" },
-    { slotKey = "5", slotLabel = "5" },
-    { slotKey = "6", slotLabel = "6" },
-    { slotKey = "7", slotLabel = "7" },
-    { slotKey = "8", slotLabel = "8" },
-    { slotKey = "K", slotLabel = "K" },
+Config.Tables = { 
+    { coords = vec4(250.5990, -753.7527, 34.6390, 68.1239), tableUid = "herbal_table", snapToGround = true },
+    -- You can add more tables with different locations and recipes
 }
 ```
 
-slotKey - used in key mapping\
-slotLabel - used in Ui
+* **Tables**: A list of predefined crafting tables.
+  * `coords`: The **vector4** position of the table in the world.
+  * `tableUid`: A unique identifier for the table.
+  * `snapToGround`: If `true`, the table will be placed on the ground automatically.
 
-***
+### <mark style="color:red;">**Alternative: Triggering the Client-Side Event**</mark>
 
-## <mark style="color:yellow;">Language Configuration (sh.lang.lua)</mark>
-
-The language file contains all text strings used in the UI. Each string can be customized:
-
-```lua
-Config.Lang = {
-    ['skill_select'] = "Skill select",
-    ['skill_select_hotbar'] = "Skill select hotbar",
-    ['confirm'] = "Confirm",
-}
-```
-
-***
-
-## <mark style="color:yellow;">Framework File (s.framework.lua)</mark>
-
-Set up your framework here for use within the isVisible function in Config.Abilities
-
-***
-
-## <mark style="color:yellow;">Functions File (c.functions.lua)</mark>
-
-Here, you can customize the behavior of the **useRaycast** function. Whole **useRaycast** function behaviour is <mark style="color:green;">open source</mark>.
-
-### **useRaycast** usage:
+If you prefer **not to use** `Config.Tables`, you can manually trigger the client-side event instead:
 
 ```lua
-local maxDistance = 50
-local coords, entity = useRaycast(maxDistance)
-if not coords then return false end
+TriggerEvent("devhub_3dCraftingTable:useTable:client", entity, tableUid)
 ```
 
-Input:
+* <mark style="color:red;">**Triggering this event manually allows you to use your own logic for spawning crafting tables.**</mark>
+* The event takes two arguments:
+  * `entity`: The table entity.
+  * `tableUid`: The unique identifier of the table.
+* This provides flexibility in integrating the crafting system into custom scripts.
 
-If the `coords` returns false, it indicates that the user attempted to point at coordinates too far from their original location.
+***
+
+### XP System Integration
+
+
+
+This function awards XP to players after crafting if the **DevHub Skill Tree System** is enabled.
+
+```lua
+Config.AddXP = function(source, xp)
+    -- Add XP to player
+    if Shared.DEVHUB_SKILLTREE_ENABLED then 
+        -- Server side example
+        exports['devhub_skillTree']:addXp('personal', xp, source)
+    end
+end
+```
+
+* **AddXP**: A function that adds XP to the player.
+  * Uses `exports['devhub_skillTree']:addXp()` when **DevHub Skill Tree** is enabled.
+  * XP is applied to the **personal** skill tree.
