@@ -1,8 +1,4 @@
----
-hidden: true
----
-
-# 🍲 Table Creator
+# 🍲 3D CRAFTING TABLE
 
 
 

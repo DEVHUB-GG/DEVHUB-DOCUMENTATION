@@ -4,7 +4,19 @@
 
 {% stepper %}
 {% step %}
-### Table settings
+## Change the config
+
+* Go to the `configs/client.lua` folder, find `Config.DeveloperMode`, and set it to `true`
+{% endstep %}
+
+{% step %}
+## Restarting the Script
+
+* Restart the script, then in the game, use the command `tablegenerator` to open the table creator.
+{% endstep %}
+
+{% step %}
+## **Table settings**
 
 * Select the table UID; this will be useful later for triggering the event to open the correct table.
 * Choose the table prop (it will automatically update after pressing confirm).
@@ -12,19 +24,19 @@
 {% endstep %}
 
 {% step %}
-**Rewards**
+## **Rewards**
 
 * You can specify which items the player should have after a successful craft.
 {% endstep %}
 
 {% step %}
-Needed **items**
+## Needed **items**
 
 * You can specify which items the player must have in their inventory to start crafting.
 {% endstep %}
 
 {% step %}
-### Props
+## Props
 
 ### **1. Setting the Prop’s Initial Position**
 
@@ -52,7 +64,7 @@ You can enhance the prop with particle effects and sound effects.
 
 ***
 
-### **4. Additional Prop Features**
+## **4. Additional Prop Features**
 
 Each prop can be customized with different functionalities:
 

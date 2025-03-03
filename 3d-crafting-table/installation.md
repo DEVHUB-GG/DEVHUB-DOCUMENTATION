@@ -16,7 +16,7 @@ git clone https://github.com/DEVHUB-GG/devhub_lib.git
 {% step %}
 ### Install resources from keymaster
 
-* Download the <mark style="color:red;">SKILL SELECTION</mark> script file from keymaster.&#x20;
+* Download the <mark style="color:red;">3D CRAFTING TABLE</mark> script file from keymaster.&#x20;
 {% endstep %}
 
 {% step %}
@@ -26,7 +26,7 @@ Move the files to the `resources` folder on your server and add the following li
 
 ```javascript
 ensure devhub_lib
-ensure devhub_skillSelection
+ensure devhub_3dCraftingTable
 ```
 {% endstep %}
 
@@ -37,10 +37,6 @@ ensure devhub_skillSelection
 
 {% hint style="danger" %}
 DO NOT CHANGE RESOURCE NAME
-{% endhint %}
-
-{% hint style="info" %}
-DATA IS SAVED USING KVP, NO SQL REQUIRED
 {% endhint %}
 
 {% content-ref url="../scripts/devhub_lib-needed-for-each-script/" %}
