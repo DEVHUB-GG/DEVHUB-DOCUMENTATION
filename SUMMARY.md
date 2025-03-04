@@ -85,6 +85,7 @@
   * [💻 Installation](3d-crafting-table/installation.md)
   * [🛠️ Configuration](3d-crafting-table/configuration.md)
   * [❓ How to create table](3d-crafting-table/how-to-create-table.md)
+  * [🌹 Custom props](3d-crafting-table/custom-props.md)
 * [♟️ Props](props/README.md)
   * [🎃 Halloween Food Pack](props/halloween-food-pack.md)
   * [🎃 Halloween Pack](props/halloween-pack.md)
