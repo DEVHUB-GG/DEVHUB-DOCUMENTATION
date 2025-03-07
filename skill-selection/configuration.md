@@ -159,6 +159,23 @@ slotLabel - used in Ui
 
 ***
 
+### CustomHotBarCss
+
+Adjust the positioning of hotbar.
+
+```lua
+Config.CustomHotBarCss = {
+    left = "50%",
+    top = "95%",
+    scale = 1.0,
+    gap = "0.75vw",
+    reverseRow = false,
+    column = false,
+}
+```
+
+***
+
 ## <mark style="color:yellow;">Language Configuration (sh.lang.lua)</mark>
 
 The language file contains all text strings used in the UI. Each string can be customized:
