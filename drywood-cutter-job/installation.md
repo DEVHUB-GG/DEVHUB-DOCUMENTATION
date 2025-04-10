@@ -17,6 +17,8 @@ git clone https://github.com/DEVHUB-GG/devhub_lib.git
 ### Install xsound
 
 Download [https://github.com/Xogy/xsound/archive/refs/tags/1.4.3.zip](https://github.com/Xogy/xsound/archive/refs/tags/1.4.3.zip)
+
+_Other sound systems are also possible to use but they will require configuration in devhub\_lib_ [sound-systme.md](../scripts/devhub_lib/sound-systme.md "mention")
 {% endstep %}
 
 {% step %}

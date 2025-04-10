@@ -24,8 +24,8 @@ _Other sound systems are also possible to use but they will require configuratio
 {% step %}
 ### Install resources from keymaster
 
-* Download the <mark style="color:red;">MULTIPLAYER HERBAL ALCHEMIST JOB</mark> script file from keymaster.&#x20;
-* Download the <mark style="color:red;">MULTIPLAYER HERBAL ALCHEMIST JOB ASSETS</mark> script file from keymaster.&#x20;
+* Download the <mark style="color:red;">POOL CLEANER JOB</mark> script file from keymaster.&#x20;
+* Download the <mark style="color:red;">POOL CLEANER JOB ASSETS</mark> script file from keymaster.&#x20;
 {% endstep %}
 
 {% step %}
@@ -36,8 +36,8 @@ Move the files to the `resources` folder on your server and add the following li
 ```javascript
 ensure xsound
 ensure devhub_lib
-ensure devhub_herbalAlchemist
-ensure devhub_herbalAlchemist_assets
+ensure devhub_poolCleaner
+ensure devhub_poolCleaner_assets
 ```
 {% endstep %}
 
@@ -55,4 +55,3 @@ ensure devhub_herbalAlchemist_assets
 {% content-ref url="../download-purchased-assets.md" %}
 [download-purchased-assets.md](../download-purchased-assets.md)
 {% endcontent-ref %}
-
