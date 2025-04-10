@@ -62,7 +62,7 @@
     * [config.js](drywood-cutter-job/configuration/config.js.md)
     * [zones.lua](drywood-cutter-job/configuration/zones.lua.md)
   * [🎨 UI Color Customization](drywood-cutter-job/ui-color-customization.md)
-* [🪵 Pool Cleaner](pool-cleaner/README.md)
+* [🌊 Pool Cleaner](pool-cleaner/README.md)
   * [💻 Installation](pool-cleaner/installation.md)
   * [🛠️ Configuration](pool-cleaner/configuration/README.md)
     * [client.lua](pool-cleaner/configuration/client.lua.md)
