@@ -100,8 +100,6 @@
 * [🏋️ Gym](gym/README.md)
   * [💻 Installation](gym/installation.md)
   * [🛠️ Configuration](gym/configuration.md)
-  * [❓ How to create table](gym/how-to-create-table.md)
-  * [🌹 Custom props](gym/custom-props.md)
 * [♟️ Props](props/README.md)
   * [🎃 Halloween Food Pack](props/halloween-food-pack.md)
   * [🎃 Halloween Pack](props/halloween-pack.md)
