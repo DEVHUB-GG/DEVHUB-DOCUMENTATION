@@ -1,8 +1,14 @@
+---
+description: This document describes all configuration options for the DevHub Gym resource.
+---
+
 # 🛠️ Configuration
 
-### <mark style="color:yellow;">Shared Configuration (shared.lua)</mark>
+***
 
-#### Debug Configuration
+#### <mark style="color:yellow;">Shared Configuration (</mark><mark style="color:yellow;">`configs/shared.lua`</mark><mark style="color:yellow;">)</mark>
+
+**Debug Configuration**
 
 Controls debug output for the gym system.
 
@@ -12,7 +18,7 @@ Shared.Debug = {
     Levels = {
         Info = true,    -- General information
         Success = true, -- Success operations
-        Warning = true  -- Warnings and potential issues
+        Warning = true  -- Warning and potential issues
     }
 }
 ```
@@ -22,7 +28,7 @@ Shared.Debug = {
 
 ***
 
-#### DevHub Skill Tree Integration
+**DevHub Skill Tree Integration**
 
 Enable or disable integration with the DevHub Skill Tree system.
 
@@ -34,7 +40,7 @@ Shared.DevhubSkillTreeEnabled = true -- Set to false if you don't want to use de
 
 ***
 
-#### Exercises Configuration
+**Exercises Configuration**
 
 Defines all available gym stations and their properties.
 
@@ -42,55 +48,110 @@ Defines all available gym stations and their properties.
 Shared.Exercises = {
     {
         uid = "kettlebellswing",
-        weight = 10, -- Default weight in kg
-        maxReps = 10, -- Maximum reps per session
-        placeOnTheGround = true, -- Place prop on ground
-        propName = "devhub_gym_kettlebell_rack",
-        propCoords = vec4(...),
-        playerCoords = vec4(...),
+        maxReps = 10, -- Maximum number of reps for an exercise session
+        placeOnTheGround = true, -- Place the prop on the ground
+        propName = "devhub_gym_kettlebell_rack", -- Prop model name
+        propCoords = vec4(...), -- x, y, z, heading
+        playerCoords = vec4(...), -- x, y, z, heading (optional, for some exercises)
     },
     -- Add more exercise stations as needed
 }
 ```
 
 * **uid**: Unique identifier for the exercise type.
-* **weight**: Default weight for the exercise.
 * **maxReps**: Maximum repetitions per session.
 * **placeOnTheGround**: Whether to place the prop on the ground.
 * **propName**: The prop model name.
 * **propCoords**: World coordinates for the prop.
-* **playerCoords**: Where the player stands during the exercise.
+* **playerCoords**: Where the player stands during the exercise (optional, required for some exercises).
 
 ***
 
-### <mark style="color:yellow;">Client Configuration (client.lua)</mark>
+#### <mark style="color:yellow;">Client Configuration (</mark><mark style="color:yellow;">`configs/client.lua`</mark><mark style="color:yellow;">)</mark>
 
-#### Minigames
+**Blip Configuration**
+
+Controls the map blip for the gym.
+
+```lua
+Config.Blip = {
+    sprite = 311,
+    scale = 0.8,
+    color = 5,
+    name = "Gym",
+    coords = vec2(-1204.3674, -1572.0725), -- Blip location
+    enabled = true, -- Enable/disable blip
+}
+```
+
+* **sprite**: Blip icon.
+* **scale**: Blip size.
+* **color**: Blip color.
+* **name**: Blip label.
+* **coords**: Blip coordinates.
+* **enabled**: Show/hide the blip.
+
+***
+
+**Minigames**
 
 Defines the available minigames and their settings for each difficulty.
 
 ```lua
 Config.Minigames = {
-    ['minigame_1'] = { settings = { ... } },
-    -- ...
+    ['minigame_1'] = {
+        settings = {
+            ['easy'] = { boxes = 3, moveSpeed = 2 },
+            ['medium'] = { boxes = 5, moveSpeed = 3 },
+            ['hard'] = { boxes = 8, moveSpeed = 5 },
+        }
+    },
+    ['minigame_2'] = {
+        settings = {
+            ['easy'] = { boxes = 3, moveSpeed = 2 },
+            ['medium'] = { boxes = 5, moveSpeed = 3 },
+            ['hard'] = { boxes = 8, moveSpeed = 5 },
+        }
+    },
+    ['minigame_3'] = {
+        settings = {
+            ['easy'] = { time = 5, keysToPress = 2 },
+            ['medium'] = { time = 10, keysToPress = 4 },
+            ['hard'] = { time = 15, keysToPress = 6 },
+        }
+    },
+    ['minigame_4'] = {
+        settings = {
+            ['easy'] = { zoneWidth = 20, hitSpeed = 0.5, reduceOnHit = 10, regainSpeed = 2, keySequence = {"A", "D"} },
+            ['medium'] = { zoneWidth = 20, hitSpeed = 0.75, reduceOnHit = 10, regainSpeed = 3, keySequence = {"A", "D"} },
+            ['hard'] = { zoneWidth = 15, hitSpeed = 1, reduceOnHit = 10, regainSpeed = 4, keySequence = {"A", "D"} },
+        }
+    },
+    ['minigame_5'] = {
+        settings = {
+            ['easy'] = { },
+            ['medium'] = { },
+            ['hard'] = { },
+        }
+    },
 }
 ```
 
-* **Minigames**: Table of minigame configurations, each with settings for `easy`, `medium`, and `hard` difficulties.
+* **settings**: Each minigame has settings for `easy`, `medium`, and `hard` difficulties.
 
 ***
 
-#### Exercise Types
+**Exercise Types**
 
 Maps each exercise to its minigames and skill tree XP rewards.
 
 ```lua
 Shared.ExercisesTypes = {
     ["boxing"] = {
-        minigames = { 1, 2, 3, 4 },
-        skillTrees = { ["gym"] = 30 },
+        minigames = { 1, 2, 3, 4 }, -- Minigame IDs
+        skillTrees = { ["gym"] = 30 }, -- XP for gym skills uid
     },
-    -- ...
+    -- ...other exercises...
 }
 ```
 
@@ -99,7 +160,38 @@ Shared.ExercisesTypes = {
 
 ***
 
-#### Weight Boosts
+**Prop Spawn Distance**
+
+Controls how far from the player props will spawn.
+
+```lua
+Config.PropSpawnDistance = 50.0 -- Distance from player to spawn props (do not exceed 75.0)
+```
+
+***
+
+**Props Menu Offset**
+
+Offsets for the weight selection menu for each prop model.
+
+```lua
+Config.PropsMenuOffset = {
+    [`devhub_gym_punch_bag`] = vec3(-1.0, 0.0, 1.0),
+    [`devhub_gym_kettlebell_rack`] = vec3(0.0, -1.5, 0.0),
+    [`devhub_gym_jumping_box`] = vec3(0.0, -1.0, 0.4),
+    [`devhub_gym_barbell`] = vec3(1.5, 0.0, 0.4),
+    [`devhub_gym_dumbell2_rack`] = vec3(1.0, 0.0, 0.7),
+    [`devhub_gym_dumbell1_rack`] = vec3(1.0, 0.0, 0.7),
+    [`prop_barbell_02`] = vec3(1.5, 0.0, 0.4),
+}
+```
+
+* **key**: Prop model hash.
+* **value**: Offset vector for menu display.
+
+***
+
+**Weight Boosts**
 
 Defines XP and difficulty scaling for different weights.
 
@@ -107,7 +199,13 @@ Defines XP and difficulty scaling for different weights.
 Config.WeightBoost = {
     ["1"] = { skillUid = false, boost = 1.0, difficulty = "easy" },
     ["5"] = { skillUid = "gym_weights_1", boost = 1.1, difficulty = "easy" },
-    -- ...
+    ["10"] = { skillUid = "gym_weights_2", boost = 1.2, difficulty = "easy" },
+    ["12"] = { skillUid = "gym_weights_3", boost = 1.25, difficulty = "easy" },
+    ["15"] = { skillUid = "gym_weights_4", boost = 1.3, difficulty = "easy" },
+    ["20"] = { skillUid = "gym_weights_5", boost = 1.35, difficulty = "easy" },
+    ["30"] = { skillUid = "gym_weights_6", boost = 1.45, difficulty = "easy" },
+    ["40"] = { skillUid = "gym_weights_7", boost = 1.55, difficulty = "easy" },
+    ["50"] = { skillUid = "gym_weights_8", boost = 1.6, difficulty = "easy" },
 }
 ```
 
@@ -117,25 +215,27 @@ Config.WeightBoost = {
 
 ***
 
-### <mark style="color:yellow;">Server Configuration (server.lua)</mark>
+#### <mark style="color:yellow;">Server Configuration (</mark><mark style="color:yellow;">`configs/server.lua`</mark><mark style="color:yellow;">)</mark>
 
-#### XP System Integration
+**XP System Integration**
 
 Awards XP to players after completing exercises if the skill tree system is enabled.
 
 ```lua
-Config.AddXP = function(source, xp)
-    if Shared.DevhubSkillTreeEnabled then
-        exports['devhub_skillTree']:addXp('personal', xp, source)
-    end
-end
+Config = {}
+-- You can add XP logic here if needed, for example:
+-- Config.AddXP = function(source, xp)
+--     if Shared.DevhubSkillTreeEnabled then
+--         exports['devhub_skillTree']:addXp('personal', xp, source)
+--     end
+-- end
 ```
 
-* **AddXP**: Function to add XP to a player, using the skill tree system if enabled.
+* **AddXP**: (Optional) Function to add XP to a player, using the skill tree system if enabled.
 
 ***
 
-### <mark style="color:yellow;">Exercise Flow</mark>
+#### <mark style="color:yellow;">Exercise Flow</mark>
 
 1. **Player approaches a gym prop** (e.g., kettlebell, punch bag).
 2. **Minigame starts** based on exercise type and weight.
@@ -144,10 +244,11 @@ end
 
 ***
 
-### <mark style="color:yellow;">Customization</mark>
+#### <mark style="color:yellow;">Customization</mark>
 
 * Add or remove exercises in `shared.lua`.
 * Adjust minigame settings and difficulties in `client.lua`.
 * Integrate with other systems by modifying the XP function in `server.lua`.
+* Adjust prop spawn distance and menu offsets as needed.
 
 ***
