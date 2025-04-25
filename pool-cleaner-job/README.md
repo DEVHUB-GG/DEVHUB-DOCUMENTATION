@@ -1,4 +1,8 @@
-# 🌊 Pool Cleaner
+---
+hidden: true
+---
+
+# 🌊 Pool Cleaner Job
 
 
 
