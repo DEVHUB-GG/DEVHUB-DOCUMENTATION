@@ -7,5 +7,5 @@ hidden: true
 
 
 {% hint style="info" %}
-[Tebex Store](https://store.devhub.gg/product/6496078-1) TODO
+[Tebex Store](https://store.devhub.gg/product/6803226)
 {% endhint %}
