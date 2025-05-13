@@ -15,6 +15,9 @@ RegisterNetEvent('devhub_skillTree:client:listener:skillUnlocked', function(cate
         moreHp = moreHp + 50
     end
     SetPedMaxHealth(ped, maxHp + moreHp)
+    if firstUnlock then
+        print("USER UNLOCKED NEW SKILL")
+    end
 end)
 ```
 
