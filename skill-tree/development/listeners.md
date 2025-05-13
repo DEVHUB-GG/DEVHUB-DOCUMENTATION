@@ -8,7 +8,7 @@ Triggered when a player unlocks a new skill and after player is loaded first tim
 
 ```lua
 local moreHp = 0
-RegisterNetEvent('devhub_skillTree:client:listener:skillUnlocked', function(categoryUid, skillUid)
+RegisterNetEvent('devhub_skillTree:client:listener:skillUnlocked', function(categoryUid, skillUid, firstUnlock)
     local ped = PlayerPedId()
     local maxHp = GetEntityMaxHealth(ped)
     if categoryUid == 'personal' and skillUid == 'moreHp' then
@@ -22,6 +22,7 @@ end)
 
 * `categoryUid` (string): Category name (e.g., 'personal')
 * `skillUid` (string): Unique identifier of the unlocked skill
+* `firstUnlock` (boolean) It will only be true on skill unlock and when synced on relog it will be nil
 
 ***
 
