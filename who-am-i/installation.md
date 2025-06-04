@@ -37,9 +37,9 @@ ensure devhub_whoami_assets
 {% endstep %}
 {% endstepper %}
 
-{% content-ref url="../scripts/devhub_lib-needed-for-each-script/" %}
-[devhub\_lib-needed-for-each-script](../scripts/devhub_lib-needed-for-each-script/)
-{% endcontent-ref %}
+{% hint style="info" %}
+For this script **devhub\_lib** is not need.
+{% endhint %}
 
 {% content-ref url="../download-purchased-assets.md" %}
 [download-purchased-assets.md](../download-purchased-assets.md)

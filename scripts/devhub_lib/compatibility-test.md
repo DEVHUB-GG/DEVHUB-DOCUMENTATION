@@ -32,4 +32,4 @@ To ensure the framework configuration is working correctly, run a compatibility 
 During the test, you will need to use an item, revive yourself, and then you will be kicked from the server. Results will be shown in **server console** within 20 seconds after being kicked.
 {% endhint %}
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
