@@ -93,6 +93,49 @@ Config.Blip = {
 
 ***
 
+### **Force Stop Key**
+
+Defines the key used to interrupt an ongoing exercise manually.
+
+```lua
+Config.ForceStopKey = 200 -- Key to force stop exercise (default is 200 = ESC)
+```
+
+*   **ForceStopKey**: The key code to cancel an exercise session. Common values include:
+
+    * `200` = ESC
+    * `177` = BACKSPACE
+    * `73` = X
+
+    Use [FiveM key mapping reference](https://docs.fivem.net/docs/game-references/controls/) to customize.
+
+***
+
+### **Player StateBag**
+
+### **`LocalPlayer.state.gymExercise`**
+
+Indicates whether the player is currently performing a gym activity.
+
+```lua
+-- Example usage:
+if LocalPlayer.state.gymExercise then
+    -- Player is actively exercising
+else
+    -- Player is idle or not in an exercise session
+end
+```
+
+* **Type**: `boolean`
+* **Default**: `false`
+* **Description**:
+  * `true` — the player is currently doing an exercise.
+  * `false` — the player is not exercising.
+* **Usage**: This state can be checked to block certain actions during training or to trigger animations/UI elements.
+* **Reference**: [FiveM State Bags Documentation](https://docs.fivem.net/docs/scripting-manual/networking/state-bags/)
+
+***
+
 ### **Minigames**
 
 Defines the available minigames and their settings for each difficulty.
