@@ -1,10 +1,27 @@
+---
+description: >-
+  Welcome to the configuration guide for DevHub 3D Crafting Table! This document
+  will walk you through setting up and customizing your crafting experience. All
+  primary configuration files are located in
+---
+
 # 🛠️ Configuration
 
-## <mark style="color:yellow;">Shared Configuration (shared.lua)</mark>
+### 📁 Configuration Files Overview:
 
-### Debug Configuration
+* `configs/shared.lua`: Settings accessible by both the server and client (e.g., recipe definitions, debug modes).
+* `configs/client.lua`: Client-side settings (e.g., UI, camera, sound, developer mode).
+* `configs/server.lua`: Server-side settings (e.g., table locations, XP integration).
 
-The debug configuration controls whether debug messages are displayed and what types of messages are enabled.
+***
+
+## <mark style="color:yellow;">Shared Configuration (</mark><mark style="color:yellow;">`configs/shared.lua`</mark><mark style="color:yellow;">)</mark>
+
+These settings are shared between the server and the client.
+
+#### Debug Configuration
+
+Controls whether debug messages are displayed in the console.
 
 ```lua
 Shared.Debug = {
@@ -17,15 +34,15 @@ Shared.Debug = {
 }
 ```
 
-* **Enabled**: Enables or disables all debug prints.
-* **Levels**: Controls specific debug message types:
-  * `Info`: General information messages.
-  * `Success`: Messages for successful operations.
-  * `Warning`: Warnings and potential issues.
+* **`Enabled`**: `true` to show debug messages, `false` to hide them.
+* **`Levels`**: Fine-tune which types of messages you want to see:
+  * `Info`: General script information.
+  * `Success`: Confirmation of successful actions.
+  * `Warning`: Potential issues or misconfigurations.
 
 ***
 
-### DevHub Skill Tree Integration
+DevHub Skill Tree Integration
 
 This setting enables integration with the **DevHub Skill Tree System**.
 

@@ -6,9 +6,9 @@ description: This document describes all configuration options for the DevHub Gy
 
 ***
 
-#### <mark style="color:yellow;">Shared Configuration (</mark><mark style="color:yellow;">`configs/shared.lua`</mark><mark style="color:yellow;">)</mark>
+## <mark style="color:yellow;">Shared Configuration (</mark><mark style="color:yellow;">`configs/shared.lua`</mark><mark style="color:yellow;">)</mark>
 
-**Debug Configuration**
+### **Debug Configuration**
 
 Controls debug output for the gym system.
 
@@ -28,7 +28,7 @@ Shared.Debug = {
 
 ***
 
-**DevHub Skill Tree Integration**
+### **DevHub Skill Tree Integration**
 
 Enable or disable integration with the DevHub Skill Tree system.
 
@@ -40,7 +40,7 @@ Shared.DevhubSkillTreeEnabled = true -- Set to false if you don't want to use de
 
 ***
 
-**Exercises Configuration**
+### **Exercises Configuration**
 
 Defines all available gym stations and their properties.
 
@@ -67,9 +67,9 @@ Shared.Exercises = {
 
 ***
 
-#### <mark style="color:yellow;">Client Configuration (</mark><mark style="color:yellow;">`configs/client.lua`</mark><mark style="color:yellow;">)</mark>
+## <mark style="color:yellow;">Client Configuration (</mark><mark style="color:yellow;">`configs/client.lua`</mark><mark style="color:yellow;">)</mark>
 
-**Blip Configuration**
+### **Blip Configuration**
 
 Controls the map blip for the gym.
 
@@ -93,7 +93,7 @@ Config.Blip = {
 
 ***
 
-**Minigames**
+### **Minigames**
 
 Defines the available minigames and their settings for each difficulty.
 
@@ -141,7 +141,7 @@ Config.Minigames = {
 
 ***
 
-**Exercise Types**
+### **Exercise Types**
 
 Maps each exercise to its minigames and skill tree XP rewards.
 
@@ -160,7 +160,7 @@ Shared.ExercisesTypes = {
 
 ***
 
-**Prop Spawn Distance**
+### **Prop Spawn Distance**
 
 Controls how far from the player props will spawn.
 
@@ -170,7 +170,7 @@ Config.PropSpawnDistance = 50.0 -- Distance from player to spawn props (do not e
 
 ***
 
-**Props Menu Offset**
+### **Props Menu Offset**
 
 Offsets for the weight selection menu for each prop model.
 
@@ -191,7 +191,7 @@ Config.PropsMenuOffset = {
 
 ***
 
-**Weight Boosts**
+### **Weight Boosts**
 
 Defines XP and difficulty scaling for different weights.
 
@@ -215,27 +215,26 @@ Config.WeightBoost = {
 
 ***
 
-#### <mark style="color:yellow;">Server Configuration (</mark><mark style="color:yellow;">`configs/server.lua`</mark><mark style="color:yellow;">)</mark>
+## <mark style="color:yellow;">Server Configuration (</mark><mark style="color:yellow;">`configs/server.lua`</mark><mark style="color:yellow;">)</mark>
 
-**XP System Integration**
+### **XP System Integration**
 
 Awards XP to players after completing exercises if the skill tree system is enabled.
 
-```lua
-Config = {}
+<pre class="language-lua"><code class="lang-lua">Config = {}
 -- You can add XP logic here if needed, for example:
--- Config.AddXP = function(source, xp)
---     if Shared.DevhubSkillTreeEnabled then
---         exports['devhub_skillTree']:addXp('personal', xp, source)
---     end
--- end
-```
+Config.AddXP = function(source, xp)
+   if Shared.DevhubSkillTreeEnabled then
+       exports['devhub_skillTree']:addXp('personal', xp, source)
+    end
+<strong>end
+</strong></code></pre>
 
 * **AddXP**: (Optional) Function to add XP to a player, using the skill tree system if enabled.
 
 ***
 
-#### <mark style="color:yellow;">Exercise Flow</mark>
+## <mark style="color:yellow;">Exercise Flow</mark>
 
 1. **Player approaches a gym prop** (e.g., kettlebell, punch bag).
 2. **Minigame starts** based on exercise type and weight.
@@ -244,7 +243,7 @@ Config = {}
 
 ***
 
-#### <mark style="color:yellow;">Customization</mark>
+## <mark style="color:yellow;">Customization</mark>
 
 * Add or remove exercises in `shared.lua`.
 * Adjust minigame settings and difficulties in `client.lua`.
