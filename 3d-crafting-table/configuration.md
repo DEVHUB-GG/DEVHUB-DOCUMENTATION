@@ -7,7 +7,9 @@ description: >-
 
 # 🛠️ Configuration
 
-### 📁 Configuration Files Overview:
+## 🛠️ Configuration
+
+#### 📁 Configuration Files Overview:
 
 * `configs/shared.lua`: Settings accessible by both the server and client (e.g., recipe definitions, debug modes).
 * `configs/client.lua`: Client-side settings (e.g., UI, camera, sound, developer mode).
@@ -19,7 +21,7 @@ description: >-
 
 These settings are shared between the server and the client.
 
-#### Debug Configuration
+### **Debug Configuration**
 
 Controls whether debug messages are displayed in the console.
 
@@ -42,7 +44,7 @@ Shared.Debug = {
 
 ***
 
-DevHub Skill Tree Integration
+### DevHub Skill Tree Integration
 
 This setting enables integration with the **DevHub Skill Tree System**.
 
@@ -57,7 +59,7 @@ Shared.DEVHUB_SKILLTREE_ENABLED = false
 
 ### Recepie Configuration
 
-This section contains generated code from [how-to-create-table.md](how-to-create-table.md "mention")
+This section contains generated code from how-to-create-table.md
 
 ```lua
 Shared.Recepie = { 
@@ -66,6 +68,60 @@ Shared.Recepie = {
 ```
 
 * **Recepie**: Stores generated recipe data.
+
+***
+
+### Multiple Recipes Configuration
+
+The `Shared.MultipleRecipes` allows you to create custom recipes with specific item requirements. This system provides more flexibility for creating multiple recipes under a single crafting table.
+
+```lua
+Shared.MultipleRecipes = {
+    ["carft1"] = {
+        itemsNeeded = {
+            {
+                name = "items19",
+                amount = 1,
+            },
+            {
+                name = "items15",
+                amount = 1,
+            },
+            -- Add more required items
+        },
+        rewards = {
+            {
+                name = "items14",
+                amount = 1,
+            },
+            -- Add more reward items
+        },
+        tableUid = "herbal_table", -- Reference to table type from Shared.Recepie
+    },
+    ["carft2"] = {
+        itemsNeeded = {
+            {
+                name = "items4",
+                amount = 1,
+            },
+            {
+                name = "items9",
+                amount = 1,
+            },
+        },
+        rewards = {
+            {
+                name = "items1",
+                amount = 1,
+            },
+        },
+        tableUid = "spices",
+    },
+    -- Add more custom recipes
+}
+```
+
+## <mark style="color:yellow;">How to configurate multiple recepies?</mark> [multiple-recepies-configuration.md](multiple-recepies-configuration.md "mention")
 
 ## <mark style="color:yellow;">Client Configuration (client.lua)</mark>
 
@@ -78,6 +134,18 @@ Config.DeveloperMode = true
 ```
 
 * **DeveloperMode**: Set to `true` to enable developer commands.
+
+***
+
+### Target Interaction Text
+
+Configures the text displayed when targeting a crafting table.
+
+```lua
+Config.UseTableTargetText = "Use Table"
+```
+
+* **UseTableTargetText**: The text shown when targeting a crafting table for interaction.
 
 ***
 
@@ -173,35 +241,37 @@ Defines crafting table locations and settings. This script can be used to spawn 
 
 ```lua
 Config.Tables = { 
-    { coords = vec4(250.5990, -753.7527, 34.6390, 68.1239), tableUid = "herbal_table", snapToGround = true },
+    { 
+        coords = vec4(250.5990, -753.7527, 34.6390, 68.1239), 
+        tableUid = "herbal_table", -- Old method: using tableUid
+        snapToGround = true 
+    },
+    { 
+        coords = vec4(3629.7241, 5683.1719, 7.8236, 343.4010), 
+        recipeUids = { "carft1", "carft3", "carft2", "carft4", "carft5" }, -- New method: using recipeUids
+        snapToGround = true 
+    },
     -- You can add more tables with different locations and recipes
 }
 ```
 
+**Table Configuration Options:**
+
 * **Tables**: A list of predefined crafting tables.
   * `coords`: The **vector4** position of the table in the world.
-  * `tableUid`: A unique identifier for the table.
   * `snapToGround`: If `true`, the table will be placed on the ground automatically.
 
-### <mark style="color:red;">**Alternative: Triggering the Client-Side Event**</mark>
+**Two Methods for Recipe Assignment:**
 
-If you prefer **not to use** `Config.Tables`, you can manually trigger the client-side event instead:
-
-```lua
-TriggerEvent("devhub_3dCraftingTable:useTable:client", entity, tableUid)
-```
-
-* <mark style="color:red;">**Triggering this event manually allows you to use your own logic for spawning crafting tables.**</mark>
-* The event takes two arguments:
-  * `entity`: The table entity.
-  * `tableUid`: The unique identifier of the table.
-* This provides flexibility in integrating the crafting system into custom scripts.
-
-***
+1. **Old Method - `tableUid`**:
+   * `tableUid`: A unique identifier that matches a key in `Shared.Recepie`.
+   * This method links the table to all recipes defined under that specific `tableUid` in the recipe configuration.
+2. **New Method - `recipeUids`**:
+   * `recipeUids`: An array of recipe UIDs from `Shared.MultipleRecipes`.
+   * This method allows you to specify exactly which recipes are available at this table.
+   * More flexible as you can mix and match recipes from different categories.
 
 ### XP System Integration
-
-
 
 This function awards XP to players after crafting if the **DevHub Skill Tree System** is enabled.
 
@@ -218,3 +288,19 @@ end
 * **AddXP**: A function that adds XP to the player.
   * Uses `exports['devhub_skillTree']:addXp()` when **DevHub Skill Tree** is enabled.
   * XP is applied to the **personal** skill tree.
+
+## <mark style="color:red;">**Alternative: Triggering the Client-Side Event**</mark>
+
+If you prefer **not to use** `Config.Tables`, you can manually trigger the client-side event instead:
+
+```lua
+TriggerEvent("devhub_3dCraftingTable:useTable:client", entity, tableUid)
+```
+
+* <mark style="color:red;">**Triggering this event manually allows you to use your own logic for spawning crafting tables.**</mark>
+* The event takes two arguments:
+  * `entity`: The table entity.
+  * `tableUid`: The unique identifier of the table.
+* This provides flexibility in integrating the crafting system into custom scripts.
+
+***

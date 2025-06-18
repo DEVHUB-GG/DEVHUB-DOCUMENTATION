@@ -103,6 +103,7 @@
   * [💻 Installation](3d-crafting-table/installation.md)
   * [🛠️ Configuration](3d-crafting-table/configuration.md)
   * [❓ How to create table](3d-crafting-table/how-to-create-table.md)
+  * [❓ Multiple recepies configuration](3d-crafting-table/multiple-recepies-configuration.md)
   * [🌹 Custom props](3d-crafting-table/custom-props.md)
 * [🏋️ Gym](gym/README.md)
   * [💻 Installation](gym/installation.md)
