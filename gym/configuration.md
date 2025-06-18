@@ -53,6 +53,7 @@ Shared.Exercises = {
         propName = "devhub_gym_kettlebell_rack", -- Prop model name
         propCoords = vec4(...), -- x, y, z, heading
         playerCoords = vec4(...), -- x, y, z, heading (optional, for some exercises)
+        dontSpawnProp = true, -- Optional: If true, the prop will not be spawned, but the target will still be active
     },
     -- Add more exercise stations as needed
 }
@@ -64,6 +65,7 @@ Shared.Exercises = {
 * **propName**: The prop model name.
 * **propCoords**: World coordinates for the prop.
 * **playerCoords**: Where the player stands during the exercise (optional, required for some exercises).
+* **dontSpawnProp**: _(Optional)_ If set to `true`, the prop will **not be spawned**, but the **target interaction will remain active**, allowing players to still perform the exercise.
 
 ***
 
