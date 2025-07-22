@@ -8,6 +8,7 @@
 Config.MenuCommand = "skill"  -- Command to open menu (string or false)
 Config.Keybind = "F7"        -- Keybind to open menu (string or false) 
 Config.Item = false          -- Item required to open menu (string or false)
+--client event | devhub_skillTree:client:openSkillTree
 ```
 
 ***
