@@ -102,22 +102,36 @@ Config.DisableDefaultSkillEffects = {
 }
 
 Config.DisableRefreshOnPedOrPidChanged = false
+
+Config.XpCacheLimit = 20 -- int | Used for xp virtualization in all categories from Config.EarnXp, how many ticks should be cached before sending to server
+-- How it works? When player earns xp, it is cached in client side and sent to server only when player has enough ticks to send
+
 ```
 
 ### **Custom Skill Unlock Requirements**
 
 ```lua
 Config.UnlockHandlerForSkills = {
-    ['CATEGORY_UID'] = {
+    ['CATEGORY_UID'] = { -- skill category uid
         ['SKILL_UID'] = {
-            unlockRequirementMessage = "Custom requirement message",
+            unlockRequirementMessage = 'You need to have energy drink to unlock this skill', -- string | Message shown when unlock fail and when they inspect skill in ui
             handler = function(source)
-                -- This is triggered server side
-                -- Return false to prevent skill unlock
+                -- this is triggered server side
+                -- return false to prevent unlocking the skill
+                -- to use your core in here set it up in /configs/s.main.lua
                 return false
             end
-        }
-    }
+        },
+        ['SKILL_UID_1,SKILL_UID_2'] = { -- multiple skills in one handler, separated by comma ","
+            unlockRequirementMessage = 'You need to have energy drink to unlock this skill', -- string | Message shown when unlock fail and when they inspect skill in ui
+            handler = function(source)
+                -- this is triggered server side
+                -- return false to prevent unlocking the skill
+                -- to use your core in here set it up in /configs/s.main.lua
+                return false
+            end
+        },
+    },
 }
 ```
 
