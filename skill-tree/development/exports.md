@@ -257,6 +257,34 @@ exports['devhub_skillTree']:removePoints('personal', 1, source)
 
 ***
 
+### Unlock Skill
+
+```lua
+exports['devhub_skillTree']:unlockSkill(categoryUid, skillUid, source)
+```
+
+**Parameters:**
+
+* `categoryUid` (string): Skill category name
+* skillUid (string): Skill uid
+* `source` (number): Player server ID
+
+**Example**
+
+```lua
+exports['devhub_skillTree']:unlockSkill('personal', 'run_faster_1', source)
+```
+
+{% hint style="danger" %}
+This export is disabled by default
+{% endhint %}
+
+{% hint style="warning" %}
+To use unlockSkill export set Config.TurnOnUnlockSkillExport = true
+{% endhint %}
+
+***
+
 ## <mark style="color:yellow;">Shared Exports</mark>
 
 These exports work on both client and server side.

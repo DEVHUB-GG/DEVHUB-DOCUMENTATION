@@ -200,10 +200,16 @@ Config.SuspiciousActivity = function(source, privateReason, priority)
     -- priority: 
         -- 'high' (likely cheating)
         -- 'low' (cheater or possible connection issues)
-}
+} 
 ```
 
+### Enable Unclock Skill Export
 
+```lua
+Config.TurnOnUnlockSkillExport = false -- bool
+```
+
+Turn on export for unlocking skills, this will allow you to unlock skills from other scripts, it will skip all requirements. Use it with caution! It might be used in a malicious way or cause script to not work properly if you are not careful. Try unlocking only skills that have active connection to other unlocked skills.
 
 ***
 
@@ -250,4 +256,64 @@ window.config = {
     numberFormatting: [/\B(?=(\d{3})+(?!\d))/g, " "],
     soundVolume: 0.25,
 };
+```
+
+***
+
+## <mark style="color:yellow;">Used Natives (c.natives.lua)</mark>
+
+```lua
+-- In this file you can add your anti-cheat exports or switch used native to an export that is used in your other scripts.
+NATIVES =  {
+    SetRunSprintMultiplierForPlayer = function(player, multiplier)
+        SetRunSprintMultiplierForPlayer(player, multiplier)
+        -- debug
+        debugPrint('SetRunSprintMultiplierForPlayer called with multiplier:', multiplier)
+    end,
+    SetSwimMultiplierForPlayer = function(player, multiplier)
+        SetSwimMultiplierForPlayer(player, multiplier)
+        -- debug
+        debugPrint('SetSwimMultiplierForPlayer called with multiplier:', multiplier)
+    end,
+    SetPlayerMaxStamina = function(player, maxStamina)
+        SetPlayerMaxStamina(player, maxStamina)
+        -- debug
+        debugPrint('SetPlayerMaxStamina called with maxStamina:', maxStamina)
+    end,
+    SetPedMaxTimeUnderwater = function(ped, maxTimeUnderwater)
+        SetPedMaxTimeUnderwater(ped, maxTimeUnderwater)
+        -- debug
+        debugPrint('SetPedMaxTimeUnderwater called with maxTimeUnderwater:', maxTimeUnderwater)
+    end,
+    SetPedMaxHealth = function(ped, maxHealth)
+        SetPedMaxHealth(ped, maxHealth)
+        -- debug
+        debugPrint('SetPedMaxHealth called with maxHealth:', maxHealth, GetPedMaxHealth(ped))
+    end,
+    SetWeaponDamageModifier = function(weapon, damageModifier)
+        SetWeaponDamageModifier(weapon, damageModifier)
+        -- debug
+        debugPrint('SetWeaponDamageModifier called with weapon:', weapon, 'and damageModifier:', damageModifier)
+    end,
+    SetPlayerStamina = function(player, stamina)
+        SetPlayerStamina(player, stamina)
+        -- debug
+        debugPrint('SetPlayerStamina called with stamina:', stamina)
+    end,
+    SetEntityHealth = function(entity, health)
+        SetEntityHealth(entity, health)
+        -- debug
+        debugPrint('SetEntityHealth called with health:', health)
+    end,
+    SetWeaponRecoilShakeAmplitude = function(weapon, recoilShakeAmplitude)
+        SetWeaponRecoilShakeAmplitude(weapon, recoilShakeAmplitude)
+        -- debug
+        debugPrint('SetWeaponRecoilShakeAmplitude called with weapon:', weapon, 'and recoilShakeAmplitude:', recoilShakeAmplitude)
+    end,
+    SetFeastDamageMultiplier = function(ped, feastDamageMultiplier)
+        SetWeaponDamageModifier('WEAPON_UNARMED', feastDamageMultiplier)
+        -- debug
+        debugPrint('SetFeastDamageMultiplier called with ped:', ped, 'and feastDamageMultiplier:', feastDamageMultiplier)
+    end,
+}
 ```
