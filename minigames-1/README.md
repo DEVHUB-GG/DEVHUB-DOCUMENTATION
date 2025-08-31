@@ -3,7 +3,7 @@
 
 
 {% hint style="info" %}
-[Tebex Store](https://store.devhub.gg/product/6920780) TODO
+[Tebex Store](https://store.devhub.gg/product/7006975)
 {% endhint %}
 
 ## Exports
