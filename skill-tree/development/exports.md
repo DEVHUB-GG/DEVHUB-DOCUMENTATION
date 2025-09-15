@@ -52,6 +52,18 @@ exports['devhub_skillTree']:getConfig()
 
 ***
 
+### Set Pre Made Xp Earning Status
+
+Enable or disable pre-made ways of earning XP. You can use this to disable XP earning temporarily while a player is engaged in another activity.
+
+_status_ **false -** xp will be disabled
+
+_status_ **true  -** xp will be enabled (default set by skill tree script)
+
+```lua
+exports['devhub_skillTree']:setPreMadeXpEarningStatus(status)
+```
+
 ## <mark style="color:yellow;">Server Side Exports</mark>
 
 ### Get Player Level
