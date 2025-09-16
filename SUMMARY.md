@@ -39,6 +39,7 @@
   * [🎫 Development](skill-tree/development/README.md)
     * [Listeners](skill-tree/development/listeners.md)
     * [Exports](skill-tree/development/exports.md)
+    * [Events](skill-tree/development/events.md)
     * [Example skill](skill-tree/development/example-skill.md)
     * [Pre-made skills](skill-tree/development/pre-made-skills.md)
   * [⚙️ Skill Generator](skill-tree/skill-generator.md)

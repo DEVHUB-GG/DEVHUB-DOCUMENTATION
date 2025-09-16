@@ -20,6 +20,10 @@ Config.XpBoost = 1.0         -- XP multiplier
 Config.BaseXp = 100          -- Base XP required per level
 Config.LevelBasedXp = 50     -- Additional XP per level
 Config.PointsPerLevel = 1    -- Skill points awarded per level
+
+function xpAlgorithm(level)
+    return Config.BaseXp + (Config.LevelBasedXp * level)
+end
 ```
 
 ***
