@@ -4,7 +4,8 @@
 
 ### Skill Unlock Event
 
-Reset player skill tree category, clear all unlocked skills and return points,
+Reset player skill tree category, clear all unlocked skills and return points,\
+<mark style="color:$warning;">**The event will skip all requirements for reset.**</mark>
 
 #### Skill Reset Event will be triggered
 
