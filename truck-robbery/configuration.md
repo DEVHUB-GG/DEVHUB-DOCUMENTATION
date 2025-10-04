@@ -1,20 +1,22 @@
 ---
-description: This document describes all configuration options for the DevHub Gym resource.
+description: >-
+  This document describes all configuration options for the DevHub Truck robbery
+  resource.
 ---
 
 # 🛠️ Configuration
 
 ***
 
-## <mark style="color:yellow;">Shared Configuration (</mark><mark style="color:yellow;">`configs/shared.lua`</mark><mark style="color:yellow;">)</mark>
+### <mark style="color:yellow;">Shared Configuration (</mark><mark style="color:yellow;">`configs/shared.lua`</mark><mark style="color:yellow;">)</mark>
 
-### **Debug Configuration**
+#### **Debug Configuration**
 
-Controls debug output for the gym system.
+Controls debug output for the truck robbery system.
 
 ```lua
 Shared.Debug = {
-    Enabled = true, -- Set to false to disable all debug prints
+    Enabled = true,    -- Set to false to disable all debug prints
     Levels = {
         Info = true,    -- General information
         Success = true, -- Success operations
@@ -25,274 +27,215 @@ Shared.Debug = {
 
 * **Enabled**: Enables/disables all debug prints.
 * **Levels**: Controls specific debug message types.
+  * **Info**: General information about system operations
+  * **Success**: Successful operation confirmations
+  * **Warning**: Warning messages and potential issues
 
 ***
 
-### **DevHub Skill Tree Integration**
+### <mark style="color:yellow;">Client Configuration (</mark><mark style="color:yellow;">`configs/client.lua`</mark><mark style="color:yellow;">)</mark>
 
-Enable or disable integration with the DevHub Skill Tree system.
+#### **Truck Spawn Locations**
 
-```lua
-Shared.DevhubSkillTreeEnabled = true -- Set to false if you don't want to use devhub_skillTree
-```
-
-* **DevhubSkillTreeEnabled**: Set to `true` to use the skill tree system.
-
-***
-
-### **Exercises Configuration**
-
-Defines all available gym stations and their properties.
+Defines where mission trucks will spawn on the map.
 
 ```lua
-Shared.Exercises = {
-    {
-        uid = "kettlebellswing",
-        maxReps = 10, -- Maximum number of reps for an exercise session
-        placeOnTheGround = true, -- Place the prop on the ground
-        propName = "devhub_gym_kettlebell_rack", -- Prop model name
-        propCoords = vec4(...), -- x, y, z, heading
-        playerCoords = vec4(...), -- x, y, z, heading (optional, for some exercises)
-        dontSpawnProp = true, -- Optional: If true, the prop will not be spawned, but the target will still be active
-    },
-    -- Add more exercise stations as needed
+Config.TruckSpawnCoords = {
+    vec4(-271.2736, 6069.4941, 31.0700, 124.1105),
 }
 ```
 
-* **uid**: Unique identifier for the exercise type.
-* **maxReps**: Maximum repetitions per session.
-* **placeOnTheGround**: Whether to place the prop on the ground.
-* **propName**: The prop model name.
-* **propCoords**: World coordinates for the prop.
-* **playerCoords**: Where the player stands during the exercise (optional, required for some exercises).
-* **dontSpawnProp**: _(Optional)_ If set to `true`, the prop will **not be spawned**, but the **target interaction will remain active**, allowing players to still perform the exercise.
+* **TruckSpawnCoords**: Array of vec4 coordinates (x, y, z, heading) where trucks can spawn.
+* **Format**: `vec4(x, y, z, heading)`
+* **Usage**: Add more coordinates to create multiple possible spawn points for variety.
 
 ***
 
-## <mark style="color:yellow;">Client Configuration (</mark><mark style="color:yellow;">`configs/client.lua`</mark><mark style="color:yellow;">)</mark>
+#### **Destination Coordinates**
 
-### **Blip Configuration**
-
-Controls the map blip for the gym.
+Defines where players must deliver the stolen truck.
 
 ```lua
-Config.Blip = {
-    sprite = 311,
-    scale = 0.8,
-    color = 5,
-    name = "Gym",
-    coords = vec2(-1204.3674, -1572.0725), -- Blip location
-    enabled = true, -- Enable/disable blip
+Config.DesitnationCoords = {
+    vec4(1576.2224, 6449.6060, 24.8902, 274.0559)
 }
 ```
 
-* **sprite**: Blip icon.
-* **scale**: Blip size.
-* **color**: Blip color.
-* **name**: Blip label.
-* **coords**: Blip coordinates.
-* **enabled**: Show/hide the blip.
+* **DesitnationCoords**: Array of vec4 coordinates for delivery locations.
+* **Format**: `vec4(x, y, z, heading)`
+* **Note**: Multiple destinations can be added for variety.
 
 ***
 
-### **Force Stop Key**
+#### **Ped Models**
 
-Defines the key used to interrupt an ongoing exercise manually.
+Defines the peds models that can be used for NPCs in the mission.
 
 ```lua
-Config.ForceStopKey = 200 -- Key to force stop exercise (default is 200 = ESC)
+Config.PedModels = {
+    "mp_m_freemode_01",
+    "mp_f_freemode_01",
+}
 ```
 
-*   **ForceStopKey**: The key code to cancel an exercise session. Common values include:
-
-    * `200` = ESC
-    * `177` = BACKSPACE
-    * `73` = X
-
-    Use [FiveM key mapping reference](https://docs.fivem.net/docs/game-references/controls/) to customize.
+* **PedModels**: Array of ped model names to use for mission NPCs.
+* **Default Models**:
+  * `mp_m_freemode_01`: Male freemode ped
+  * `mp_f_freemode_01`: Female freemode ped
+* **Customization**: Add more ped models to increase NPC variety.
 
 ***
 
-### **Player StateBag**
+### <mark style="color:yellow;">Server Configuration (</mark><mark style="color:yellow;">`configs/server.lua`</mark><mark style="color:yellow;">)</mark>
 
-### **`LocalPlayer.state.gymExercise`**
+#### **Alarm Triggering Function**
 
-Indicates whether the player is currently performing a gym activity.
+Custom function to handle alarm triggering during the robbery.
 
 ```lua
--- Example usage:
-if LocalPlayer.state.gymExercise then
-    -- Player is actively exercising
-else
-    -- Player is idle or not in an exercise session
+function TriggerAlarm(coords)
+    -- TODO Implement alarm triggering logic
+    -- Example: Notify police, trigger dispatch, etc.
 end
 ```
 
-* **Type**: `boolean`
-* **Default**: `false`
-* **Description**:
-  * `true` — the player is currently doing an exercise.
-  * `false` — the player is not exercising.
-* **Usage**: This state can be checked to block certain actions during training or to trigger animations/UI elements.
-* **Reference**: [FiveM State Bags Documentation](https://docs.fivem.net/docs/scripting-manual/networking/state-bags/)
+* **coords**: The coordinates where the alarm was triggered.
+* **Usage**: Customize this function to integrate with your police/dispatch system.
+* **Implementation Examples**:
+  * Send notification to police players
+  * Create a blip on the map
+  * Trigger a dispatch call
+  * Send alert to specific job roles
 
 ***
 
-### **Minigames**
+### <mark style="color:yellow;">Translation Configuration (</mark><mark style="color:yellow;">`configs/translation.lua`</mark><mark style="color:yellow;">)</mark>
 
-Defines the available minigames and their settings for each difficulty.
+Customize all user-facing text in the resource.
 
 ```lua
-Config.Minigames = {
-    ['minigame_1'] = {
-        settings = {
-            ['easy'] = { boxes = 3, moveSpeed = 2 },
-            ['medium'] = { boxes = 5, moveSpeed = 3 },
-            ['hard'] = { boxes = 8, moveSpeed = 5 },
-        }
-    },
-    ['minigame_2'] = {
-        settings = {
-            ['easy'] = { boxes = 3, moveSpeed = 2 },
-            ['medium'] = { boxes = 5, moveSpeed = 3 },
-            ['hard'] = { boxes = 8, moveSpeed = 5 },
-        }
-    },
-    ['minigame_3'] = {
-        settings = {
-            ['easy'] = { time = 5, keysToPress = 2 },
-            ['medium'] = { time = 10, keysToPress = 4 },
-            ['hard'] = { time = 15, keysToPress = 6 },
-        }
-    },
-    ['minigame_4'] = {
-        settings = {
-            ['easy'] = { zoneWidth = 20, hitSpeed = 0.5, reduceOnHit = 10, regainSpeed = 2, keySequence = {"A", "D"} },
-            ['medium'] = { zoneWidth = 20, hitSpeed = 0.75, reduceOnHit = 10, regainSpeed = 3, keySequence = {"A", "D"} },
-            ['hard'] = { zoneWidth = 15, hitSpeed = 1, reduceOnHit = 10, regainSpeed = 4, keySequence = {"A", "D"} },
-        }
-    },
-    ['minigame_5'] = {
-        settings = {
-            ['easy'] = { },
-            ['medium'] = { },
-            ['hard'] = { },
-        }
-    },
+Shared.Lang = {
+    ["weight_too_heavy"] = "Weight is too heavy for you, you need to unlock the skill first",
 }
 ```
 
-* **settings**: Each minigame has settings for `easy`, `medium`, and `hard` difficulties.
+* Modify these strings to change the language or customize messages.
+* Add your own language translations by following the same format.
+* **Example**: For Polish translation, replace English text with Polish equivalents.
 
 ***
 
-### **Exercise Types**
+### <mark style="color:yellow;">Customization</mark>
 
-Maps each exercise to its minigames and skill tree XP rewards.
+#### **Adding More Spawn Points**
+
+Add additional truck spawn locations for variety:
 
 ```lua
-Shared.ExercisesTypes = {
-    ["boxing"] = {
-        minigames = { 1, 2, 3, 4 }, -- Minigame IDs
-        skillTrees = { ["gym"] = 30 }, -- XP for gym skills uid
-    },
-    -- ...other exercises...
+Config.TruckSpawnCoords = {
+    vec4(-271.2736, 6069.4941, 31.0700, 124.1105),
+    vec4(-500.1234, 5800.5678, 32.1500, 90.0000),  -- New spawn point
+    vec4(-150.9876, 6200.3456, 30.5000, 180.0000), -- Another spawn point
 }
 ```
 
-* **minigames**: List of minigame IDs for the exercise.
-* **skillTrees**: XP rewards for each skill tree.
-
 ***
 
-### **Prop Spawn Distance**
+#### **Adding More Delivery Locations**
 
-Controls how far from the player props will spawn.
-
-```lua
-Config.PropSpawnDistance = 50.0 -- Distance from player to spawn props (do not exceed 75.0)
-```
-
-***
-
-### **Props Menu Offset**
-
-Offsets for the weight selection menu for each prop model.
+Create multiple delivery destinations:
 
 ```lua
-Config.PropsMenuOffset = {
-    [`devhub_gym_punch_bag`] = vec3(-1.0, 0.0, 1.0),
-    [`devhub_gym_kettlebell_rack`] = vec3(0.0, -1.5, 0.0),
-    [`devhub_gym_jumping_box`] = vec3(0.0, -1.0, 0.4),
-    [`devhub_gym_barbell`] = vec3(1.5, 0.0, 0.4),
-    [`devhub_gym_dumbell2_rack`] = vec3(1.0, 0.0, 0.7),
-    [`devhub_gym_dumbell1_rack`] = vec3(1.0, 0.0, 0.7),
-    [`prop_barbell_02`] = vec3(1.5, 0.0, 0.4),
+Config.DesitnationCoords = {
+    vec4(1576.2224, 6449.6060, 24.8902, 274.0559),
+    vec4(1200.5678, 6300.1234, 25.5000, 180.0000), -- New destination
 }
 ```
 
-* **key**: Prop model hash.
-* **value**: Offset vector for menu display.
-
 ***
 
-### **Weight Boosts**
+#### **Customizing NPC Appearance**
 
-Defines XP and difficulty scaling for different weights.
+Add more diverse ped models:
 
 ```lua
-Config.WeightBoost = {
-    ["1"] = { skillUid = false, boost = 1.0, difficulty = "easy" },
-    ["5"] = { skillUid = "gym_weights_1", boost = 1.1, difficulty = "easy" },
-    ["10"] = { skillUid = "gym_weights_2", boost = 1.2, difficulty = "easy" },
-    ["12"] = { skillUid = "gym_weights_3", boost = 1.25, difficulty = "easy" },
-    ["15"] = { skillUid = "gym_weights_4", boost = 1.3, difficulty = "easy" },
-    ["20"] = { skillUid = "gym_weights_5", boost = 1.35, difficulty = "easy" },
-    ["30"] = { skillUid = "gym_weights_6", boost = 1.45, difficulty = "easy" },
-    ["40"] = { skillUid = "gym_weights_7", boost = 1.55, difficulty = "easy" },
-    ["50"] = { skillUid = "gym_weights_8", boost = 1.6, difficulty = "easy" },
+Config.PedModels = {
+    "mp_m_freemode_01",
+    "mp_f_freemode_01",
+    "s_m_m_armoured_01",      -- Security guard
+    "s_m_m_autoshop_01",      -- Mechanic
+    "a_m_m_business_01",      -- Business person
 }
 ```
 
-* **skillUid**: Skill required to use this weight (or `false` for no requirement).
-* **boost**: XP multiplier for the weight.
-* **difficulty**: Minigame difficulty for the weight.
-
 ***
 
-## <mark style="color:yellow;">Server Configuration (</mark><mark style="color:yellow;">`configs/server.lua`</mark><mark style="color:yellow;">)</mark>
+#### **Implementing Custom Alarm System**
 
-### **XP System Integration**
+Example implementation for the `TriggerAlarm()` function:
 
-Awards XP to players after completing exercises if the skill tree system is enabled.
-
-<pre class="language-lua"><code class="lang-lua">Config = {}
--- You can add XP logic here if needed, for example:
-Config.AddXP = function(source, xp)
-   if Shared.DevhubSkillTreeEnabled then
-       exports['devhub_skillTree']:addXp('personal', xp, source)
+```lua
+function TriggerAlarm(coords)
+    -- Notify all online police officers
+    local xPlayers = ESX.GetExtendedPlayers('job', 'police')
+    
+    for _, xPlayer in pairs(xPlayers) do
+        xPlayer.showNotification('Truck robbery in progress!')
+        
+        -- Create a blip on the map
+        TriggerClientEvent('devhub_truckRobbery:createAlarmBlip', xPlayer.source, coords)
     end
-<strong>end
-</strong></code></pre>
-
-* **AddXP**: (Optional) Function to add XP to a player, using the skill tree system if enabled.
-
-***
-
-## <mark style="color:yellow;">Exercise Flow</mark>
-
-1. **Player approaches a gym prop** (e.g., kettlebell, punch bag).
-2. **Minigame starts** based on exercise type and weight.
-3. **Player completes reps**; XP is calculated and awarded.
-4. **Skill tree integration** (if enabled) grants XP to the appropriate skill.
+    
+    -- Send to dispatch system (example)
+    -- TriggerEvent('your_dispatch:sendAlert', {
+    --     coords = coords,
+    --     type = 'truck_robbery',
+    --     message = 'Truck robbery in progress'
+    -- })
+end
+```
 
 ***
 
-## <mark style="color:yellow;">Customization</mark>
+### <mark style="color:yellow;">Troubleshooting</mark>
 
-* Add or remove exercises in `shared.lua`.
-* Adjust minigame settings and difficulties in `client.lua`.
-* Integrate with other systems by modifying the XP function in `server.lua`.
-* Adjust prop spawn distance and menu offsets as needed.
+**Truck not spawning:**
+
+* Verify `Config.TruckSpawnCoords` contains valid coordinates
+* Check that the spawn area is clear of obstructions
+* Enable debug mode to see spawn-related messages
+* Ensure truck model is properly loaded
+
+**Delivery location not working:**
+
+* Check `Config.DesitnationCoords` coordinates are accessible
+* Verify the delivery zone trigger radius
+* Test coordinates in-game to ensure they're valid
+
+**NPCs not appearing:**
+
+* Verify ped models in `Config.PedModels` are valid
+* Ensure ped models are streamed properly
+* Try using default GTA V ped models first
+
+**Alarms not triggering:**
+
+* Implement the `TriggerAlarm()` function in `server.lua`
+* Verify your dispatch/police notification system is active
+* Check server console for Lua errors
+* Test the function with debug prints
+
+**Debug Mode:** Enable comprehensive debugging:
+
+```lua
+Shared.Debug = {
+    Enabled = true,
+    Levels = {
+        Info = true,
+        Success = true,
+        Warning = true
+    }
+}
+```
 
 ***
