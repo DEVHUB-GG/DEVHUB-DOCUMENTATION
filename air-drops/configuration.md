@@ -1,20 +1,24 @@
 ---
-description: This document describes all configuration options for the DevHub Gym resource.
+description: >-
+  This document describes all configuration options for the DevHub Air Drops
+  resource.
 ---
 
 # 🛠️ Configuration
 
+## 🛠️ Configuration
+
 ***
 
-## <mark style="color:yellow;">Shared Configuration (</mark><mark style="color:yellow;">`configs/shared.lua`</mark><mark style="color:yellow;">)</mark>
+### <mark style="color:yellow;">Shared Configuration (</mark><mark style="color:yellow;">`configs/shared.lua`</mark><mark style="color:yellow;">)</mark>
 
-### **Debug Configuration**
+#### **Debug Configuration**
 
-Controls debug output for the gym system.
+Controls debug output for the air drops system.
 
 ```lua
 Shared.Debug = {
-    Enabled = true, -- Set to false to disable all debug prints
+    Enabled = true,     -- Set to false to disable all debug prints
     Levels = {
         Info = true,    -- General information
         Success = true, -- Success operations
@@ -24,275 +28,429 @@ Shared.Debug = {
 ```
 
 * **Enabled**: Enables/disables all debug prints.
-* **Levels**: Controls specific debug message types.
+* **Levels**: Controls specific debug message types (Info, Success, Warning).
 
 ***
 
-### **DevHub Skill Tree Integration**
+#### **Drop Presets Configuration**
 
-Enable or disable integration with the DevHub Skill Tree system.
-
-```lua
-Shared.DevhubSkillTreeEnabled = true -- Set to false if you don't want to use devhub_skillTree
-```
-
-* **DevhubSkillTreeEnabled**: Set to `true` to use the skill tree system.
-
-***
-
-### **Exercises Configuration**
-
-Defines all available gym stations and their properties.
+Defines different categories of items that can be dropped in airdrops. Each preset contains a list of items with their spawn properties.
 
 ```lua
-Shared.Exercises = {
-    {
-        uid = "kettlebellswing",
-        maxReps = 10, -- Maximum number of reps for an exercise session
-        placeOnTheGround = true, -- Place the prop on the ground
-        propName = "devhub_gym_kettlebell_rack", -- Prop model name
-        propCoords = vec4(...), -- x, y, z, heading
-        playerCoords = vec4(...), -- x, y, z, heading (optional, for some exercises)
-        dontSpawnProp = true, -- Optional: If true, the prop will not be spawned, but the target will still be active
+Shared.DropPresets = {
+    ["food"] = { 
+        { name = "bread", amount = {min = 1, max = 3}, chance = 75 },
+        { name = "water", amount = {min = 1, max = 5}, chance = 20 },
+        -- { name = "canned_food", amount = {min = 1, max = 3}, chance = 5 }
     },
-    -- Add more exercise stations as needed
+    ["medical"] = {
+        { name = "bandage", amount = {min = 1, max = 5}, chance = 33 },
+        { name = "first_aid_kit", amount = {min = 1, max = 2}, chance = 33 },
+        { name = "painkiller", amount = {min = 1, max = 10}, chance = 34 }
+    },
+    ["weapons"] = {
+        { name = "weapon_pistol", amount = {min = 1, max = 1}, chance = 25 },
+        { name = "weapon_rifle", amount = {min = 1, max = 1}, chance = 25 },
+        { name = "ammo_9mm", amount = {min = 1, max = 150}, chance = 50 }
+    },
 }
 ```
 
-* **uid**: Unique identifier for the exercise type.
-* **maxReps**: Maximum repetitions per session.
-* **placeOnTheGround**: Whether to place the prop on the ground.
-* **propName**: The prop model name.
-* **propCoords**: World coordinates for the prop.
-* **playerCoords**: Where the player stands during the exercise (optional, required for some exercises).
-* **dontSpawnProp**: _(Optional)_ If set to `true`, the prop will **not be spawned**, but the **target interaction will remain active**, allowing players to still perform the exercise.
+**Structure Explanation:**
+
+* **name**: The item identifier/name (must match your inventory system).
+* **amount**: Min and max quantity range for the item.
+  * **min**: Minimum amount to spawn.
+  * **max**: Maximum amount to spawn.
+* **chance**: Percentage chance (0-100) for the item to spawn.
+
+**Note**: Each preset's chances should ideally sum to 100% for proper distribution.
 
 ***
 
-## <mark style="color:yellow;">Client Configuration (</mark><mark style="color:yellow;">`configs/client.lua`</mark><mark style="color:yellow;">)</mark>
+#### **Mission Drop Configuration**
 
-### **Blip Configuration**
-
-Controls the map blip for the gym.
+Defines special mission-based airdrops with specific loot tables and requirements.
 
 ```lua
-Config.Blip = {
-    sprite = 311,
-    scale = 0.8,
-    color = 5,
-    name = "Gym",
-    coords = vec2(-1204.3674, -1572.0725), -- Blip location
-    enabled = true, -- Enable/disable blip
-}
-```
-
-* **sprite**: Blip icon.
-* **scale**: Blip size.
-* **color**: Blip color.
-* **name**: Blip label.
-* **coords**: Blip coordinates.
-* **enabled**: Show/hide the blip.
-
-***
-
-### **Force Stop Key**
-
-Defines the key used to interrupt an ongoing exercise manually.
-
-```lua
-Config.ForceStopKey = 200 -- Key to force stop exercise (default is 200 = ESC)
-```
-
-*   **ForceStopKey**: The key code to cancel an exercise session. Common values include:
-
-    * `200` = ESC
-    * `177` = BACKSPACE
-    * `73` = X
-
-    Use [FiveM key mapping reference](https://docs.fivem.net/docs/game-references/controls/) to customize.
-
-***
-
-### **Player StateBag**
-
-### **`LocalPlayer.state.gymExercise`**
-
-Indicates whether the player is currently performing a gym activity.
-
-```lua
--- Example usage:
-if LocalPlayer.state.gymExercise then
-    -- Player is actively exercising
-else
-    -- Player is idle or not in an exercise session
-end
-```
-
-* **Type**: `boolean`
-* **Default**: `false`
-* **Description**:
-  * `true` — the player is currently doing an exercise.
-  * `false` — the player is not exercising.
-* **Usage**: This state can be checked to block certain actions during training or to trigger animations/UI elements.
-* **Reference**: [FiveM State Bags Documentation](https://docs.fivem.net/docs/scripting-manual/networking/state-bags/)
-
-***
-
-### **Minigames**
-
-Defines the available minigames and their settings for each difficulty.
-
-```lua
-Config.Minigames = {
-    ['minigame_1'] = {
-        settings = {
-            ['easy'] = { boxes = 3, moveSpeed = 2 },
-            ['medium'] = { boxes = 5, moveSpeed = 3 },
-            ['hard'] = { boxes = 8, moveSpeed = 5 },
+Shared.MissionDrop = {
+    { 
+        name = "food", 
+        chance = 50, 
+        amount = {min = 1, max = 5}, 
+        requiredItem = { 
+            ["crate_key"] = 3,
+            ["tools"] = 1
         }
     },
-    ['minigame_2'] = {
-        settings = {
-            ['easy'] = { boxes = 3, moveSpeed = 2 },
-            ['medium'] = { boxes = 5, moveSpeed = 3 },
-            ['hard'] = { boxes = 8, moveSpeed = 5 },
-        }
+    { 
+        name = "medical", 
+        chance = 30, 
+        amount = {min = 1, max = 5}, 
+        requiredItem = false 
     },
-    ['minigame_3'] = {
-        settings = {
-            ['easy'] = { time = 5, keysToPress = 2 },
-            ['medium'] = { time = 10, keysToPress = 4 },
-            ['hard'] = { time = 15, keysToPress = 6 },
-        }
+    { 
+        name = "weapons", 
+        chance = 20, 
+        amount = {min = 1, max = 5}, 
+        requiredItem = { 
+            ["crate_key"] = 1
+        } 
+    }
+}
+```
+
+**Structure Explanation:**
+
+* **name**: The drop preset category (references `Shared.DropPresets`).
+* **chance**: Percentage chance for this mission drop type to occur.
+* **amount**: Number of items from the preset to drop.
+  * **min**: Minimum number of items.
+  * **max**: Maximum number of items.
+* **requiredItem**: Items required to open the crate (false = no requirements).
+  * Key: Item name.
+  * Value: Required quantity.
+
+***
+
+### <mark style="color:yellow;">Client Configuration (</mark><mark style="color:yellow;">`configs/client.lua`</mark><mark style="color:yellow;">)</mark>
+
+#### **Guards Settings**
+
+Configures NPC guards that protect the air drop zones.
+
+```lua
+Config.GuardsSettings = {
+    amount = {
+        min = 5,  -- Minimum number of guards to spawn
+        max = 15  -- Maximum number of guards to spawn
     },
-    ['minigame_4'] = {
-        settings = {
-            ['easy'] = { zoneWidth = 20, hitSpeed = 0.5, reduceOnHit = 10, regainSpeed = 2, keySequence = {"A", "D"} },
-            ['medium'] = { zoneWidth = 20, hitSpeed = 0.75, reduceOnHit = 10, regainSpeed = 3, keySequence = {"A", "D"} },
-            ['hard'] = { zoneWidth = 15, hitSpeed = 1, reduceOnHit = 10, regainSpeed = 4, keySequence = {"A", "D"} },
-        }
+    modelsPresets = {
+        { "s_m_y_armymech_01", "s_m_m_armoured_02", "mp_s_m_armoured_01" },
+        { "s_m_y_blackops_01", "s_m_y_blackops_02", "s_m_y_blackops_03" },
+        { "s_m_m_highsec_01", "s_m_m_highsec_02", "a_m_y_hasjew_01", "a_m_m_hasjew_01" },
+        { "g_m_y_lost_02", "g_m_y_lost_01", "g_m_y_lost_03" },
+        { "s_m_m_marine_01", "s_m_y_marine_01", "s_m_m_marine_02", "s_m_y_marine_02", "s_m_y_marine_03" },
     },
-    ['minigame_5'] = {
-        settings = {
-            ['easy'] = { },
-            ['medium'] = { },
-            ['hard'] = { },
-        }
+    weapons = {
+        "WEAPON_PISTOL",
+        "WEAPON_ASSAULTRIFLE",
+        "WEAPON_SMG",
+        "WEAPON_CARBINERIFLE",
+        "WEAPON_COMBATPISTOL",
+        "WEAPON_MICROSMG",
+        "WEAPON_PUMPSHOTGUN",
+        "WEAPON_ASSAULTSHOTGUN",
+    }
+}
+```
+
+**Configuration Details:**
+
+* **amount**: Random number of guards spawned per air drop.
+  * **min**: Minimum guards (5).
+  * **max**: Maximum guards (15).
+* **modelsPresets**: Arrays of ped models for guard variety.
+  * Each array represents a thematic group (military, blackops, security, gang, marines).
+  * System randomly selects one preset per air drop for visual consistency.
+* **weapons**: List of weapons guards can be equipped with.
+  * Guards are randomly assigned weapons from this list.
+
+***
+
+### <mark style="color:yellow;">Server Configuration (</mark><mark style="color:yellow;">`configs/server.lua`</mark><mark style="color:yellow;">)</mark>
+
+#### **Air Drop Zones**
+
+Defines all possible locations where air drops can occur.
+
+```lua
+Config.AirDropZones = {
+    { coords = vec3(-1215.0327, -1550.9435, 4.3715), radius = 2.0 },
+}
+```
+
+* **coords**: vec3 coordinates (x, y, z) - the center point of the air drop zone.
+* **radius**: The spawn radius around the coordinates (in meters). The air drop will spawn at a random location within this radius from the center point.
+
+**To add more zones:**
+
+```lua
+Config.AirDropZones = {
+    { coords = vec3(-1215.0327, -1550.9435, 4.3715), radius = 60.0 },   -- 60m spawn radius
+    { coords = vec3(2500.0, 3700.0, 45.0), radius = 45.0 },  -- Sandy Shores - 45m radius
+    { coords = vec3(-2000.0, 2500.0, 5.0), radius = 35.5 },  -- Paleto Bay - 35.5m radius
+}
+```
+
+***
+
+#### **Air Drop Stats**
+
+Controls the behavior of falling air drops.
+
+```lua
+Config.AirDropStats = {
+    fallTime = {
+        min = 2000,  -- Minimum fall time in milliseconds
+        max = 5000,  -- Maximum fall time in milliseconds
+    }
+}
+```
+
+* **fallTime**: How long the air drop takes to fall from the sky.
+  * **min**: Minimum fall duration (2 seconds).
+  * **max**: Maximum fall duration (5 seconds).
+* **Note**: Actual fall time is randomized between min and max for each drop.
+
+***
+
+### <mark style="color:yellow;">Translation Configuration (</mark><mark style="color:yellow;">`configs/translation.lua`</mark><mark style="color:yellow;">)</mark>
+
+Customize all user-facing text in the resource.
+
+```lua
+Shared.Lang = {
+    ["weight_too_heavy"] = "Weight is too heavy for you, you need to unlock the skill first",
+}
+```
+
+* Modify these strings to change the language or customize messages.
+* Add your own language translations by following the same format.
+
+***
+
+### <mark style="color:yellow;">Customization</mark>
+
+#### **Adding New Drop Presets**
+
+Create custom loot categories for different scenarios:
+
+```lua
+Shared.DropPresets = {
+    -- Existing presets...
+    ["rare_items"] = {
+        { name = "diamond", amount = {min = 1, max = 3}, chance = 10 },
+        { name = "gold_bar", amount = {min = 2, max = 5}, chance = 30 },
+        { name = "rare_artifact", amount = {min = 1, max = 1}, chance = 60 }
+    },
+    ["tools"] = {
+        { name = "lockpick", amount = {min = 5, max = 15}, chance = 40 },
+        { name = "advanced_lockpick", amount = {min = 1, max = 5}, chance = 30 },
+        { name = "drill", amount = {min = 1, max = 2}, chance = 30 }
     },
 }
 ```
 
-* **settings**: Each minigame has settings for `easy`, `medium`, and `hard` difficulties.
-
 ***
 
-### **Exercise Types**
+#### **Adjusting Guard Difficulty**
 
-Maps each exercise to its minigames and skill tree XP rewards.
+**Easier (Fewer Guards):**
 
 ```lua
-Shared.ExercisesTypes = {
-    ["boxing"] = {
-        minigames = { 1, 2, 3, 4 }, -- Minigame IDs
-        skillTrees = { ["gym"] = 30 }, -- XP for gym skills uid
+Config.GuardsSettings = {
+    amount = {
+        min = 2,
+        max = 5
     },
-    -- ...other exercises...
+    -- Keep weapons list minimal
+    weapons = {
+        "WEAPON_PISTOL",
+        "WEAPON_COMBATPISTOL",
+    }
 }
 ```
 
-* **minigames**: List of minigame IDs for the exercise.
-* **skillTrees**: XP rewards for each skill tree.
-
-***
-
-### **Prop Spawn Distance**
-
-Controls how far from the player props will spawn.
+**Harder (More Guards & Better Weapons):**
 
 ```lua
-Config.PropSpawnDistance = 50.0 -- Distance from player to spawn props (do not exceed 75.0)
-```
-
-***
-
-### **Props Menu Offset**
-
-Offsets for the weight selection menu for each prop model.
-
-```lua
-Config.PropsMenuOffset = {
-    [`devhub_gym_punch_bag`] = vec3(-1.0, 0.0, 1.0),
-    [`devhub_gym_kettlebell_rack`] = vec3(0.0, -1.5, 0.0),
-    [`devhub_gym_jumping_box`] = vec3(0.0, -1.0, 0.4),
-    [`devhub_gym_barbell`] = vec3(1.5, 0.0, 0.4),
-    [`devhub_gym_dumbell2_rack`] = vec3(1.0, 0.0, 0.7),
-    [`devhub_gym_dumbell1_rack`] = vec3(1.0, 0.0, 0.7),
-    [`prop_barbell_02`] = vec3(1.5, 0.0, 0.4),
+Config.GuardsSettings = {
+    amount = {
+        min = 15,
+        max = 25
+    },
+    weapons = {
+        "WEAPON_ASSAULTRIFLE",
+        "WEAPON_CARBINERIFLE",
+        "WEAPON_SPECIALCARBINE",
+        "WEAPON_COMBATMG",
+        "WEAPON_ASSAULTSHOTGUN",
+    }
 }
 ```
 
-* **key**: Prop model hash.
-* **value**: Offset vector for menu display.
-
 ***
 
-### **Weight Boosts**
+#### **Modifying Drop Chances**
 
-Defines XP and difficulty scaling for different weights.
+Adjust the probability of different loot types:
+
+**High-Value Drops (More Weapons/Medical):**
 
 ```lua
-Config.WeightBoost = {
-    ["1"] = { skillUid = false, boost = 1.0, difficulty = "easy" },
-    ["5"] = { skillUid = "gym_weights_1", boost = 1.1, difficulty = "easy" },
-    ["10"] = { skillUid = "gym_weights_2", boost = 1.2, difficulty = "easy" },
-    ["12"] = { skillUid = "gym_weights_3", boost = 1.25, difficulty = "easy" },
-    ["15"] = { skillUid = "gym_weights_4", boost = 1.3, difficulty = "easy" },
-    ["20"] = { skillUid = "gym_weights_5", boost = 1.35, difficulty = "easy" },
-    ["30"] = { skillUid = "gym_weights_6", boost = 1.45, difficulty = "easy" },
-    ["40"] = { skillUid = "gym_weights_7", boost = 1.55, difficulty = "easy" },
-    ["50"] = { skillUid = "gym_weights_8", boost = 1.6, difficulty = "easy" },
+Shared.MissionDrop = {
+    { name = "food", chance = 10, amount = {min = 1, max = 3}, requiredItem = false },
+    { name = "medical", chance = 40, amount = {min = 2, max = 6}, requiredItem = false },
+    { name = "weapons", chance = 50, amount = {min = 1, max = 3}, requiredItem = { 
+            ["crate_key"] = 1
+        } 
+    }
 }
 ```
 
-* **skillUid**: Skill required to use this weight (or `false` for no requirement).
-* **boost**: XP multiplier for the weight.
-* **difficulty**: Minigame difficulty for the weight.
+**Balanced Drops:**
+
+```lua
+Shared.MissionDrop = {
+    { name = "food", chance = 33, amount = {min = 2, max = 5}, requiredItem = false },
+    { name = "medical", chance = 33, amount = {min = 2, max = 5}, requiredItem = false },
+    { name = "weapons", chance = 34, amount = {min = 1, max = 3}, requiredItem = { 
+            ["crate_key"] = 2
+        } 
+    }
+}
+```
 
 ***
 
-## <mark style="color:yellow;">Server Configuration (</mark><mark style="color:yellow;">`configs/server.lua`</mark><mark style="color:yellow;">)</mark>
+#### **Creating Locked vs Unlocked Crates**
 
-### **XP System Integration**
+Control which crates require items to open:
 
-Awards XP to players after completing exercises if the skill tree system is enabled.
+**All Crates Open (No Requirements):**
 
-<pre class="language-lua"><code class="lang-lua">Config = {}
--- You can add XP logic here if needed, for example:
-Config.AddXP = function(source, xp)
-   if Shared.DevhubSkillTreeEnabled then
-       exports['devhub_skillTree']:addXp('personal', xp, source)
-    end
-<strong>end
-</strong></code></pre>
+```lua
+Shared.MissionDrop = {
+    { name = "food", chance = 33, amount = {min = 1, max = 5}, requiredItem = false },
+    { name = "medical", chance = 33, amount = {min = 1, max = 5}, requiredItem = false },
+    { name = "weapons", chance = 34, amount = {min = 1, max = 5}, requiredItem = false }
+}
+```
 
-* **AddXP**: (Optional) Function to add XP to a player, using the skill tree system if enabled.
+**All Crates Locked:**
+
+```lua
+Shared.MissionDrop = {
+    { name = "food", chance = 33, amount = {min = 1, max = 5}, requiredItem = { 
+            ["crate_key"] = 1
+        } 
+    },
+    { name = "medical", chance = 33, amount = {min = 1, max = 5}, requiredItem = { 
+            ["crate_key"] = 1
+        } 
+    },
+    { name = "weapons", chance = 34, amount = {min = 1, max = 5}, requiredItem = { 
+            ["crate_key"] = 2,
+            ["advanced_tools"] = 1
+        } 
+    }
+}
+```
 
 ***
 
-## <mark style="color:yellow;">Exercise Flow</mark>
+### <mark style="color:yellow;">Advanced Configuration</mark>
 
-1. **Player approaches a gym prop** (e.g., kettlebell, punch bag).
-2. **Minigame starts** based on exercise type and weight.
-3. **Player completes reps**; XP is calculated and awarded.
-4. **Skill tree integration** (if enabled) grants XP to the appropriate skill.
+#### **Creating Themed Guard Presets**
+
+Customize guard appearance for different scenarios:
+
+```lua
+Config.GuardsSettings = {
+    amount = { min = 5, max = 15 },
+    modelsPresets = {
+        -- Military Theme
+        { "s_m_y_armymech_01", "s_m_m_armoured_02", "s_m_m_marine_01" },
+        
+        -- Police/SWAT Theme
+        { "s_m_y_swat_01", "s_m_y_cop_01", "s_m_m_fibsec_01" },
+        
+        -- Gang Theme
+        { "g_m_y_ballasout_01", "g_m_y_famca_01", "g_m_y_mexgang_01" },
+        
+        -- Private Security Theme
+        { "s_m_m_highsec_01", "s_m_m_highsec_02", "mp_m_securoguard_01" },
+    },
+    weapons = {
+        "WEAPON_ASSAULTRIFLE",
+        "WEAPON_CARBINERIFLE",
+        "WEAPON_SMG",
+    }
+}
+```
 
 ***
 
-## <mark style="color:yellow;">Customization</mark>
+#### **Dynamic Fall Time Based on Height**
 
-* Add or remove exercises in `shared.lua`.
-* Adjust minigame settings and difficulties in `client.lua`.
-* Integrate with other systems by modifying the XP function in `server.lua`.
-* Adjust prop spawn distance and menu offsets as needed.
+Adjust fall times for different scenarios:
+
+**Quick Drops (Low Altitude):**
+
+```lua
+Config.AirDropStats = {
+    fallTime = {
+        min = 1000,  -- 1 second
+        max = 2000,  -- 2 seconds
+    }
+}
+```
+
+**Realistic Drops (High Altitude):**
+
+```lua
+Config.AirDropStats = {
+    fallTime = {
+        min = 5000,  -- 5 seconds
+        max = 10000, -- 10 seconds
+    }
+}
+```
+
+**Cinematic Drops (Very Slow):**
+
+```lua
+Config.AirDropStats = {
+    fallTime = {
+        min = 8000,  -- 8 seconds
+        max = 15000, -- 15 seconds
+    }
+}
+```
+
+***
+
+### <mark style="color:yellow;">Troubleshooting</mark>
+
+**Air drops not spawning:**
+
+* ✅ Verify `Config.AirDropZones` contains valid coordinates.
+* Check server console for errors during resource start.
+* Ensure the triggering event/command is correctly configured.
+
+**Guards not spawning:**
+
+* Check `Config.GuardsSettings.amount` values are greater than 0.
+* Verify ped model names in `modelsPresets` are valid GTA V models.
+* Enable debug mode to see spawn messages.
+
+**Players can't open crates:**
+
+* Verify players have the required items defined in `Shared.MissionDrop.requiredItem`.
+* Check item names match your inventory system exactly (case-sensitive).
+* Ensure inventory has space for the dropped items.
+
+**Items not being received:**
+
+* ✅ Confirm items in `Shared.DropPresets` exist in your database/item configuration.
+* Check item names match exactly (case-sensitive).
+* Verify player inventory has sufficient weight capacity.
+* Enable debug mode to see item distribution logs.
+
+**Guards not attacking:**
+
+* Check weapon names in `Config.GuardsSettings.weapons` are valid.
+* Verify no conflicting resources affecting NPC behavior.
 
 ***
