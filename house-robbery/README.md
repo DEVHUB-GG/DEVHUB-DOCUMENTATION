@@ -1,7 +1,3 @@
----
-hidden: true
----
-
 # 🏠 House robbery
 
 ### Overview
