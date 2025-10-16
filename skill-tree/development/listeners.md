@@ -91,3 +91,43 @@ end)
 
 * `categoryUid` (string): Category name (e.g., 'personal')
 * `newLevel` (number): The new level achieved
+
+
+
+## <mark style="color:yellow;">Server Events</mark>
+
+### Skill Unlock Event
+
+Triggered when a player unlocks a new skill. **IT IS TRIGGERED ONLY ONCE ON FRIST SKILL UNLOCK**
+
+```lua
+RegisterNetEvent('devhub_skillTree:server:listener:skillUnlocked', function(source, categoryUid, skillUid)
+-- do your stuff
+end)
+```
+
+**Parameters:**
+
+* `source (number)` Player Id                       &#x20;
+* `categoryUid` (string): Category name (e.g., 'personal')
+* `skillUid` (string): Unique identifier of the unlocked skill
+
+***
+
+### Skill Reset Event
+
+Triggered when a player resets their skills in a category.
+
+```lua
+local effectApplied = true
+RegisterNetEvent('devhub_skillTree:server:listener:skillReset', function(source ,categoryUid)
+    if categoryUid == 'personal' then
+        effectApplied = false
+    end
+end)
+```
+
+**Parameters:**
+
+* `source (number)` Player Id
+* `categoryUid` (string): Category name (e.g., 'personal')

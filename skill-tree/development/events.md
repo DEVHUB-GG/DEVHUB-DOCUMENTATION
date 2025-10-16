@@ -2,7 +2,7 @@
 
 ## <mark style="color:yellow;">Server Events</mark>
 
-### Skill Unlock Event
+### Reset Skill Category
 
 Reset player skill tree category, clear all unlocked skills and return points,\
 <mark style="color:$warning;">**The event will skip all requirements for reset.**</mark>
@@ -24,7 +24,7 @@ TriggerServerEvent('devhub_skillTree:server:resetSkillCategory', 'personal')
 
 ***
 
-### Skill Unlock Event
+### Clear Skill Category
 
 Reset player skill tree category, clear all unlocked skills, <mark style="color:$danger;">**POINTS WILL NOT BE RETURNED**</mark>.
 
