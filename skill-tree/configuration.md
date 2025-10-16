@@ -68,7 +68,7 @@ Config.SkillReset = {
         Name = "cash",      -- Required item name
         Amount = 1000       -- Required item amount
     },
-    type = 'reset', -- string | "reset" or "clear" , reset = reset skills but points , clear = clear skills and points
+    type = 'reset', -- string | "reset" or "clear" , reset = reset skills but points , clear = clear skills, points, xp, level
 }
 ```
 

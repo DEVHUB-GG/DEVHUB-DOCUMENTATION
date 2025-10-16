@@ -26,7 +26,7 @@ TriggerServerEvent('devhub_skillTree:server:resetSkillCategory', 'personal')
 
 ### Clear Skill Category
 
-Reset player skill tree category, clear all unlocked skills, <mark style="color:$danger;">**POINTS WILL NOT BE RETURNED**</mark>.
+Reset player skill tree category, clear all unlocked skills , xp and level, <mark style="color:$danger;">**POINTS WILL NOT BE RETURNED**</mark>.
 
 #### Skill Reset Event will be triggered
 
