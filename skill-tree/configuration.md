@@ -62,12 +62,13 @@ Config.EarnXp = {
 ```lua
 Config.SkillReset = {
     Enabled = false,         -- Enable skill reset feature
-    PaymentType = false,     -- Payment method (cash/item/false)
+    PaymentType = false,     -- Payment method ("cash"/"item"/false)
     Cash = 1000,            -- Reset cost if using cash
     Item = {
         Name = "cash",      -- Required item name
         Amount = 1000       -- Required item amount
-    }
+    },
+    type = 'reset', -- string | "reset" or "clear" , reset = reset skills but points , clear = clear skills and points
 }
 ```
 
