@@ -2,7 +2,7 @@
 hidden: true
 ---
 
-# 📦 Air drops
+# 🏎️ Racing
 
 {% hint style="info" %}
 [Buy here](https://store.devhub.gg/product/6639832)
