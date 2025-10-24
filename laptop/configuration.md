@@ -125,12 +125,15 @@ Config.BrowserQuickLinks = {
 }
 ```
 
-* `Config.BrowserQuickLinks` (table): Quick access links shown on browser home page
-  * `title` (string): Display name for the quick link
-  * `url` (string): Target URL to open when clicked
-  * `icon` (string): Font Awesome icon class for the link button
-  * Add or remove entries to customize browser quick links
-  * Use Font Awesome 5 icon classes for icons
+*   `Config.BrowserQuickLinks` (table): Quick access links shown on browser home page
+
+    * `title` (string): Display name for the quick link
+    * `url` (string): Target URL to open when clicked
+    * `icon` (string): Font Awesome icon class for the link button
+    * Add or remove entries to customize browser quick links
+    * Use Font Awesome 5 icon classes for icons
+
+    _Keep in mind some websites might not work_
 
 ***
 
@@ -149,11 +152,14 @@ Config.RecommendedApps = {
 }
 ```
 
-* `Config.RecommendedApps` (table): Featured apps displayed prominently in the App Store
-  * `appId` (string): App ID that matches an entry in `Config.Apps`
-  * `bannerImage` (string): URL to banner image for the featured app
-  * Leave empty to disable recommended apps section
-  * Add entries to promote specific apps
+*   `Config.RecommendedApps` (table): Featured apps displayed prominently in the App Store
+
+    * `appId` (string): App ID that matches an entry in `Config.Apps`
+    * `bannerImage` (string): URL to banner image for the featured app
+    * Leave empty to disable recommended apps section
+    * Add entries to promote specific apps
+
+    Recommended Apps are beaing loaded from out external source, but by editing this config you can add your own apps.
 
 ### App Categories
 
@@ -177,7 +183,7 @@ Config.AppCategories = {
 * `Config.AppCategories` (table): Categories for organizing apps in the App Store
   * `label` (string): Display name for the category
   * `order` (number): Sort order (lower numbers appear first)
-  * **Required categories**: `system`, `premium`, `other` (system will add them if removed)
+  * **Required categories**: `system`, `premium`, `other` (script will add them if removed)
   * Add custom categories with unique keys and labels
 
 ### Apps Configuration
@@ -210,27 +216,6 @@ Each app in `Config.Apps` follows this structure:
             date = "2025-08-10"
         },
     },
-}
-```
-
-#### Premium App Example (Crime Traders)
-
-```lua
-['crimeTraders'] = {
-    label = "Crime Traders",
-    img = "https://cfx-nui-devhub_laptop/html/images/apps/crimeTraders.png",
-    path = "app_crimeTraders",
-    category = "premium",
-    rating = 5,
-    description = "Crime tracking application",
-    longDescription = "A comprehensive platform for monitoring...",
-    author = "DEVHUB",
-    size = 52,
-    downloads = 1000,
-    class = 'premium',
-    developerLogo = "https://upload.devhub.gg/dh_upload/devhubLogo.webp",
-    galleryImages = {},
-    reviews = {},
 }
 ```
 
@@ -305,7 +290,7 @@ reviews = {
 
 ## <mark style="color:yellow;">sh.crimeTraders.lua</mark>
 
-Configuration file for the Crime Traders premium app. This file is a work in progress and controls traders, shop items, XP requirements, and crime actions.
+Configuration file for the Crime Traders premium app. This file controls traders, shop items, XP requirements, and crime actions.
 
 ### Traders Configuration
 
@@ -380,7 +365,7 @@ shopItems = {
 }
 ```
 
-To give money instead of items, set `name = 'money'` and `amount` to the cash value.
+To give money instead of items, set `name = 'money'` and `amount` to the cash value. (**It will use Core.AddCash**)
 
 ### XP Requirements
 
@@ -417,8 +402,9 @@ Config.CrimeActions = {}
 ```
 
 * `Config.CrimeActions` (table): Defines available crime activities
-  * Currently empty (work in progress)
-  * Will contain crime job definitions and rewards
+  * Empty by default
+  * Crime actions are loaded from our external source or a script you own
+  * Contain crime job definitions and rewards
 
 ***
 
@@ -435,182 +421,3 @@ Config.Lang = {
     ['key'] = "Translated text",
 }
 ```
-
-### Translation Categories
-
-#### Error Messages
-
-```lua
-['error_no_laptop'] = "No laptop found",
-['error_app_not_installed'] = "App not installed",
-['error_invalid_app'] = "Invalid app name",
-['error_app_already_installed'] = "App already installed",
-```
-
-Used for system error messages and validation.
-
-#### Notifications
-
-```lua
-['notification_error_opening_app'] = "Error opening app: {error}",
-['notification_error_installing_app'] = "Error installing app: {error}",
-```
-
-Notification messages support variable substitution with `{variable}` syntax.
-
-#### Login Screen
-
-```lua
-['login_incorrect_password'] = "Incorrect password",
-['login_scanning_face'] = "Scanning Face",
-['login_face_scan_failed'] = "Face Scan Failed",
-['login_user'] = "User",
-['login_enter_password'] = "Enter password",
-['login_login'] = "Login",
-```
-
-Text displayed on the login screen and Face ID authentication.
-
-#### First Boot Setup
-
-```lua
-['setup_loading_devhub'] = "Loading DevhubOS Files",
-['setup_configure_profile'] = "Configure User Profile",
-['setup_username'] = "Username",
-['setup_avatar_selection'] = "Avatar Selection",
-['setup_wallpaper_selection'] = "Wallpaper Selection",
-['setup_security_settings'] = "Security Settings",
-['setup_complete'] = "Setup Complete!",
-```
-
-Text for the initial setup wizard when a laptop is used for the first time.
-
-#### Settings Screen
-
-```lua
-['settings_wifi'] = "Wifi",
-['settings_bluetooth'] = "Bluetooth",
-['settings_soundless'] = "Soundless",
-['settings_eco_mode'] = "ECO Mode",
-['settings_change_wallpaper'] = "Change Wallpaper",
-['settings_security_settings'] = "Security Settings",
-```
-
-Labels for settings options and configuration screens.
-
-#### App-Specific Translations
-
-Each app has its own translation keys:
-
-**Calculator**
-
-```lua
-['calculator_invalid_expression'] = "Invalid expression",
-```
-
-**CMD**
-
-```lua
-['cmd_welcome'] = "Welcome to DevhubOs CMD v1.0.0\nType 'help' to see available commands.",
-['cmd_help'] = "Available commands:\n help - Display this help message\n clear - Clear the terminal",
-['cmd_not_found'] = "%{command}: command not found",
-```
-
-CMD uses `%{variable}` syntax for variable substitution.
-
-**Notepad**
-
-```lua
-['notepad_untitled'] = "Untitled Note",
-['notepad_new_note'] = "New Note",
-['notepad_note_title'] = "Note title...",
-['notepad_write_notes'] = "Write your notes here...",
-['notepad_save'] = "Save",
-```
-
-**Clock**
-
-```lua
-['clock_sunday'] = "Sunday",
-['clock_monday'] = "Monday",
-['clock_tuesday'] = "Tuesday",
-['clock_hours_ahead'] = "%{hours} hour ahead",
-['clock_hours_ahead_plural'] = "%{hours} hours ahead",
-```
-
-**Browser**
-
-```lua
-['browser_enter_url'] = "Enter URL or search...",
-['browser_loading'] = "Loading...",
-['browser_page_error_title'] = "Page Not Available",
-['browser_page_error_desc'] = "The page you're trying to access cannot be reached.",
-```
-
-**Crime Traders**
-
-```lua
-['crimetraders_level_up'] = "Level up! {oldLevel} → {newLevel} for trader {traderId}",
-['crimetraders_not_enough_points'] = "Not enough crime points",
-['crimetraders_level_too_low'] = "Level requirement not met",
-['crimetraders_ui_tasks'] = "Tasks",
-['crimetraders_ui_traders'] = "Traders",
-['crimetraders_ui_purchase_item'] = "Purchase Item",
-```
-
-**App Store**
-
-```lua
-['appstore_search'] = "Search...",
-['appstore_download'] = "Download",
-['appstore_uninstall'] = "Uninstall",
-['appstore_premium_title'] = "Premium Experience Awaits",
-['appstore_class'] = "Class",
-['appstore_rating'] = "Rating",
-```
-
-### Variable Substitution
-
-Translation strings support dynamic variable replacement:
-
-#### Curly Brace Syntax
-
-```lua
-['crimetraders_level_up'] = "Level up! {oldLevel} → {newLevel} for trader {traderId}"
-```
-
-Used in most parts of the system.
-
-#### Percent Syntax
-
-```lua
-['cmd_not_found'] = "%{command}: command not found"
-['clock_hours_ahead'] = "%{hours} hour ahead"
-```
-
-Used primarily in CMD app and some clock translations.
-
-### Adding Custom Translations
-
-To add a new translation:
-
-1. Add a new key-value pair to `Config.Lang`
-2. Use descriptive keys with category prefixes
-3. Use lowercase with underscores for key names
-4. Include variable placeholders if needed
-
-Example:
-
-```lua
-['myapp_welcome_message'] = "Welcome, {username}!",
-['myapp_error_failed'] = "Operation failed: {reason}",
-```
-
-### Translation Best Practices
-
-* Use clear, descriptive key names
-* Group related translations by prefix (app name or category)
-* Keep text concise and user-friendly
-* Test variable substitution thoroughly
-* Maintain consistent terminology across translations
-* Document any special formatting requirements
