@@ -36,7 +36,7 @@ description: This guide explains how the racing system works from start to finis
 ### Player creates a race
 
 1. Player navigates to "MAPS" section in racing app.
-2. Selects a map from created/verified maps.
+2. Selects a map from created maps.
 3. Clicks "Create Race" button.
 4. Configures race parameters:
    * **Entry Fee**: Amount players must pay to join (cash/bank configurable).
@@ -45,7 +45,7 @@ description: This guide explains how the racing system works from start to finis
    * **Collisions**: Enable/disable player vehicle collisions.
    * **First Person View**: Force FPV during race.
    * **Laps**: Number of laps (for loop-type maps only).
-5. Race is created and becomes visible in "RACES" list.
+5. Race is created and becomes visible in "RACES" list and in game if it is the closest to start.
 
 ### Official races (automated)
 
@@ -116,10 +116,9 @@ description: This guide explains how the racing system works from start to finis
 ### Checkpoint progression
 
 1. Player drives through checkpoint trigger zones.
-2. Checkpoint passed sound effect plays.
-3. Next checkpoint blip updates.
-4. Lap counter increments (loop races only).
-5. Client function `CheckpointPassed` is triggered for custom logic.
+2. Next checkpoint blip updates.
+3. Lap counter increments (loop races only).
+4. Client function `CheckpointPassed` is triggered for custom logic.
 
 ### Race validation
 

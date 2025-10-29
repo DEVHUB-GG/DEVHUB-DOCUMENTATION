@@ -330,7 +330,6 @@ Config.SkillsList = {
 * **points**: Skill points required to unlock.
 * **effect**: Numeric value for percentage-based skills (e.g., +10% MMR).
 * **lines**: Connection lines to other skills in the tree (directional: top, bottom, left, right, etc.).
-* **unLockable**: Starting skill that's automatically unlocked.
 
 ### Skill Categories
 
@@ -502,5 +501,4 @@ CREATOR_PROPS = {
 6. **Entry fees**: Set entry fees appropriate to your server's economy.
 7. **Webhook testing**: Test Discord webhooks with a test channel before using production channels.
 8. **Skill tree integration**: Only enable if you have the DevHub Skill Tree resource installed.
-9. **Performance optimization**: Disable checkpoint markers on lower-end servers to improve performance.
-10. **Translation completeness**: Ensure all language strings are translated for consistent user experience.
+9. **Translation completeness**: Ensure all language strings are translated for consistent user experience.

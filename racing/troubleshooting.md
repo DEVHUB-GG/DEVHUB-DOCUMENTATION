@@ -46,18 +46,7 @@ description: >-
    * Mismatched brackets `{}`, `[]`
    * Unclosed strings `""`
    * Invalid Lua syntax
-2.  Common mistakes:
-
-    ```lua
-    -- WRONG: Missing comma
-    Config.Debug = true
-    Config.DevMode = false
-
-    -- CORRECT:
-    Config.Debug = true,
-    Config.DevMode = false,
-    ```
-3. Use a Lua syntax validator or IDE with Lua support to check files.
+2. Use a Lua syntax validator or IDE with Lua support to check files.
 
 ### Check File Permissions
 
@@ -91,10 +80,7 @@ description: >-
 2. Ensure players have money in correct account:
    * `'cash'` = money on hand
    * `'bank'` = bank account balance
-3. Check framework integration:
-   * ESX: Verify ESX is properly installed and player accounts work
-   * QBCore: Verify QBCore money system functions
-   * Test with `/givemoney` or equivalent command
+3. Ensure you have correctly configured [devhub\_lib-needed-for-each-script](../scripts/devhub_lib-needed-for-each-script/ "mention")
 
 #### Verify Vehicle Class Skills
 
@@ -171,10 +157,10 @@ description: >-
         ['editAnyMap'] = true,  -- Only admins edit any map
     }
     ```
-2. Ensure `devhub_lib` recognizes player as admin:
+2. Ensure [devhub\_lib-needed-for-each-script](../scripts/devhub_lib-needed-for-each-script/ "mention") recognizes player as admin:
    * Check admin system in your framework
    * Test with: `Core.IsPlayerAdmin(source)` function
-   * Verify ace permissions (if using ace system)
+   * Verify ace permissions
 
 ***
 
@@ -306,8 +292,7 @@ description: >-
     }
     ```
 2. Test prop models in-game:
-   * Use `/spawnprop prop_beachflag_01` (if available)
-   * Or spawn via F8 console developer commands
+   * Create spawn prop command example:`/spawnprop prop_beachflag_01`&#x20;
    * Verify model exists in game files
 3. Common issues:
    * Typo in prop name
@@ -330,7 +315,7 @@ description: >-
 2. Check logs in:
    * F8 console (client-side)
    * Server console (server-side)
-   * Browser console (F12 for NUI errors)
+   * Browser console (NUI errors)
 3. Look for specific error messages:
    * Script errors (Lua syntax)
    * Network errors (API calls failing)
@@ -361,9 +346,8 @@ description: >-
     -- Must match resource name exactly
     ```
 4. Test asset loading:
-   * Open browser console (F12 in game with NUI open)
+   * Open browser console (NUI devtools)
    * Check for 404 errors or loading failures
-   * Verify resource is built correctly (`npm run build` if using Vite)
 
 #### Restart in Correct Order
 
@@ -377,14 +361,16 @@ description: >-
     -- server.cfg (correct order)
     ensure devhub_lib
     ensure devhub_skillTree  # if skill tree enabled
+    ensure devhub_laptop
     ensure devhub_racing
     ```
 2.  **Server restart sequence:**
 
     ```
-    restart devhub_lib
-    restart devhub_skillTree
-    restart devhub_racing
+    ensure devhub_lib
+    ensure devhub_skillTree
+    ensure devhub_laptop
+    ensure devhub_racing
     ```
 3.  **Individual resource restart:**
 
@@ -407,10 +393,11 @@ description: >-
 
 **Solution:**
 
-1.  Check checkpoint marker settings:
+1.  Check checkpoint marker settings and devMode:
 
     ```lua
     Config.EnableCheckpointMarkers = true  -- Must be enabled
+    Config.DevMode = true
     ```
 2. Verify checkpoint placement in map:
    * Checkpoints too far apart
@@ -423,7 +410,6 @@ description: >-
 4. Recreate problematic checkpoints:
    * Edit map in map creator
    * Delete and re-place checkpoint
-   * Test with multiple vehicles
 
 #### Race Will Not Start
 
@@ -432,7 +418,7 @@ description: >-
 **Solution:**
 
 1. Check minimum player requirement:
-   * At least 1 player required (creator)
+   * At least 1 player required
    * Verify players are in waiting room state
 2.  Verify start time configuration:
 
@@ -483,7 +469,6 @@ description: >-
        showDistance = 10000.0,  -- 10km
        ```
 3. Check for blip sprite conflicts:
-   * Other scripts might be removing blips
    * Try different blip sprite IDs
    * Use unique blip sprites not used elsewhere
 
@@ -513,15 +498,11 @@ description: >-
 
 ### Racing App Not Opening
 
-**Problem:** Laptop/phone app doesn't display racing interface.
+**Problem:** Laptop app doesn't display racing interface.
 
 **Solution:**
 
-1. Verify NUI build is complete:
-   * Check `html/` folder exists
-   * Files: `index.html`, `assets/` folder with JS/CSS
-   * If missing, run: `npm run build` in Vue project folder
-2.  Check laptop integration:
+1.  Check laptop integration:
 
     ```lua
     Config.LaptopApp = {
@@ -529,10 +510,10 @@ description: >-
         -- Must match resource name
     }
     ```
-3. Test NUI directly:
+2. Test NUI directly:
    * F8 console: `loadnui https://cfx-nui-devhub_racing/html/index.html`
-   * Check browser console (F12) for errors
-4. Ensure laptop resource is compatible:
+   * Check NUI console for errors
+3. Ensure laptop resource is compatible:
    * Verify `devhub_laptop` is installed (if required)
    * Check laptop app registration
 
@@ -584,10 +565,7 @@ description: >-
 3. Player settings:
    * Press `G` in-game to toggle music
    * Check game audio settings (not muted)
-   * Test with different browsers (NUI uses CEF)
-4. Alternative: Use local audio files:
-   * Place MP3/OGG files in `public/sounds/`
-   * Modify music manager to use local files instead of YouTube
+   * Test with different browsers (NUI)
 
 ***
 
@@ -613,10 +591,6 @@ description: >-
    * Webhook must have permission to send messages
    * Channel must exist and be accessible
    * Webhook not rate-limited
-4. Verify message format:
-   * Check server console for HTTP errors
-   * Discord API might reject malformed embeds
-   * Test with simple message first
 
 #### Announcement Formatting Issues
 
@@ -640,60 +614,6 @@ description: >-
 
 ***
 
-## <mark style="color:yellow;">Performance Issues</mark>
-
-### Low FPS During Races
-
-**Problem:** Game stutters or has low FPS when racing.
-
-**Solution:**
-
-1.  Disable visual features in <mark style="color:yellow;">configs/sh.config.lua</mark>:
-
-    ```lua
-    Config.EnableCheckpointMarkers = false  -- Biggest performance impact
-    Config.RaceBlips.enabled = false
-    Config.CheckpointBlips.enabled = false
-    Config.RaceMusic.enabled = false
-    ```
-2.  Reduce sync frequency:
-
-    ```lua
-    Config.SyncPlayerPositionInterval = 2000  -- Less frequent updates
-    ```
-3. Optimize decorations:
-   * Use fewer decoration props in maps
-   * Remove complex prop models
-   * Test different prop combinations
-4. Server-side optimizations:
-   * Increase server tick rate
-   * Allocate more resources to server
-   * Check for conflicting scripts
-
-#### High Memory Usage
-
-**Problem:** Script uses excessive memory.
-
-**Solution:**
-
-1. Clear old race data:
-   * Database cleanup of finished races
-   * Remove old race history entries
-   * Prune unused maps
-2.  Adjust cache settings:
-
-    ```lua
-    Config.LeaderboardCacheTimeout = 60000 * 30  -- Cache longer
-    Config.MaxMmrHistory = 5  -- Store less history
-    Config.MaxRaceHistory = 3
-    ```
-3. Optimize prop spawning:
-   * Delete props after race ends
-   * Limit max decorations per map
-   * Use prop pooling if available
-
-***
-
 ## <mark style="color:yellow;">Database Issues</mark>
 
 ### Data Not Saving
@@ -709,11 +629,10 @@ description: >-
     ```
 2. Import SQL file if missing:
    * Locate `sql.sql` in resource folder
-   * Import via phpMyAdmin or command line
    * Restart server after import
 3. Check database permissions:
    * User must have INSERT, UPDATE, DELETE permissions
-   * Verify connection in `devhub_lib` config
+   * Verify connection in [devhub\_lib-needed-for-each-script](../scripts/devhub_lib-needed-for-each-script/ "mention") config
    * Test with simple query
 4. Look for SQL errors in console:
    * Check server console for MySQL errors
@@ -734,7 +653,6 @@ description: >-
 2. Force cache refresh:
    * Wait for cache timeout to expire
    * Restart resource: `restart devhub_racing`
-   * Clear cached data in database if stored
 3. Verify leaderboard query:
    * Check for database errors in console
    * Test query directly in database
@@ -746,13 +664,13 @@ description: >-
 
 Before reporting issues, verify:
 
-* [ ] All dependencies are installed and started
+* [ ] All dependencies are installed and started (devhub\_lib, devhub\_laptop)
 * [ ] Database tables are created from `sql.sql`
 * [ ] Config files have no syntax errors
 * [ ] Server and resource are fully restarted
 * [ ] Debug mode is enabled to see error messages
 * [ ] Console (F8 and server) checked for errors
-* [ ] Framework (ESX/QBCore) is working correctly
+* [ ] Your framework is working correctly and is configured in [devhub\_lib-needed-for-each-script](../scripts/devhub_lib-needed-for-each-script/ "mention")
 * [ ] No conflicting resources are running
 * [ ] Game cache is cleared (if using custom assets)
 * [ ] Server artifacts are up to date
@@ -760,12 +678,13 @@ Before reporting issues, verify:
 **If issues persist:**
 
 1. Enable debug mode for detailed logs
-2. Check both client (F8) and server console
+2. Check client (F8) , server and NUI console
 3. Test with minimal configuration (disable features one by one)
 4. Verify issue on clean server with only required resources
-5. Check for updates to `devhub_racing` and `devhub_lib`
+5. Check for updates to `devhub_racing` , `devhub_lib, devhub_laptop`&#x20;
 6. Contact DevHub support with:
    * Server console logs
    * Client console logs (F8)
-   * Config files (with sensitive data removed)
+   * NUI console logs (F8 NUI devtools)
+   * Config files (with sensitive data removed \[webhooks])
    * Steps to reproduce the issue
