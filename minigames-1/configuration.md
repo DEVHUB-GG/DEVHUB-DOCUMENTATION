@@ -355,7 +355,7 @@ local result = exports['devhub_minigames']:startMinigame(minigame, mode, overrid
 * **Parameters**:
   * `minigame` (string): The minigame type to start
   * `mode` (string): Mode
-  * overrideSettings (table) If you want to make settings dynamic you can add overwrite settings from config
+  * overrideSettings (table) If you want to make settings dynamic you can add override settings from config
 * **Returns**: Boolean indicating success or failure of the minigame
 * **Example Usage**:
 
