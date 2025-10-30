@@ -17,6 +17,7 @@ Config.ShowLogoInTheCenter = false -- If true, logo will be displayed in the cen
 
 Config.Name = "SERVER NAME" -- Name of your server, will be displayed in the top left corner
 
+
 Config.Background = {
     type = "images", -- "images" or "video"
     volume = 0.05, -- Default volume of the background sound or video (0.0 to 1.0)
@@ -28,9 +29,18 @@ Config.Background = {
     },
     imageChangeInterval = 10000, -- 10 seconds
     randomizeImages = true, -- If true, starting image will be random, otherwise it will start from the first image
-    sound = 'music.ogg', -- Set to false if you don't want to play sound in the background, for local files keep file size under 1.5MB for larger we recommend hosting and proving a URL
+    sound = 'nui://devhub_loadingscreen/html/music.ogg', -- Set to false if you don't want to play sound in the background. Hosted URL or Local File
+    -- Examples for sound:
+    -- Local file: 'music.ogg'   [RECOMMENDED]
+    -- Hosted URL: 'https://example.com/music.mp3'  
     -- if type is "video"
-    video = "https://www.youtube.com/watch?v=KWAHGy_eee4", -- YouTube URL
+    video = "nui://devhub_loadingscreen/html/video.mp4", -- Hosted URL or local video file
+    
+    -- Examples for video:
+    -- Local video file: 'nui://devhub_loadingscreen/html/video.mp4'
+    -- Hosted URL: 'https://example.com/video.mp4'
+
+    -- YOUTUBE VIDEOS ARE NOT SUPPORTED ANYMORE
 }
 
 Config.Lang = {
