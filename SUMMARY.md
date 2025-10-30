@@ -20,6 +20,7 @@
   * [👕 Clothing](scripts/devhub_lib/clothing.md)
   * [ℹ️ Logs](scripts/devhub_lib/logs.md)
   * [📡 SQL](scripts/devhub_lib/sql.md)
+  * [📦 Item Carry](scripts/devhub_lib-needed-for-each-script/item-carry.md)
   * [🎨 UI Color Customization](scripts/devhub_lib/ui-color-customization.md)
   * [🆘 Compatibility test](scripts/devhub_lib/compatibility-test.md)
 
