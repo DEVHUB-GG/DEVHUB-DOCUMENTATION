@@ -348,13 +348,14 @@ When Shared`.CommandEnabled` is set to `true`, you can use the following command
 ## <mark style="color:yellow;">**Export Function**</mark>
 
 ```lua
-local result = exports['devhub_minigames']:startMinigame(minigame, mode)
+local result = exports['devhub_minigames']:startMinigame(minigame, mode, overrideSettings)
 ```
 
 * **Description**: Programmatically start a minigame from another resource.
 * **Parameters**:
   * `minigame` (string): The minigame type to start
   * `mode` (string): Mode
+  * overrideSettings (table) If you want to make settings dynamic you can add overwrite settings from config
 * **Returns**: Boolean indicating success or failure of the minigame
 * **Example Usage**:
 
