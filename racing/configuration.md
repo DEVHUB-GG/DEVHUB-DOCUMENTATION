@@ -124,9 +124,11 @@ Config.SyncPlayerPositionInterval = 1000
 
 ```lua
 Config.DefaultRaceBucket = 2000
+Config.CreatorBucket = 3000
 ```
 
 * **DefaultRaceBucket**: Default routing bucket ID for races (adds server ID of first player for uniqueness).
+* **CreatorBucket** :  Default routing bucket for race creator mode, to make it unique for each creator session we are adding server id of the player (adds server ID).
 * Set to `false` to disable routing bucket system.
 * Routing buckets isolate players in different dimensions for collision-free racing.
 
@@ -247,6 +249,20 @@ Config.LaptopApp = {
 * **path**: NUI path to the racing interface.
 * **category**: App category in laptop store.
 * **rating/description/reviews**: Metadata for laptop app display.
+
+### Checkpoint Waypoints and Highlights
+
+```lua
+-- Waypoint and Checkpoint Highlighting
+Config.NextCheckpointWaypoint = {
+    enabled = true, -- Enable/disable automatic waypoint setting to next checkpoint
+}
+
+Config.NextCheckpointHighlight = {
+    enabled = true, -- Enable/disable highlighting next checkpoint props with outline
+    outlineColor = {r = 255, g = 255, b = 0}, -- RGB color for the outline (yellow by default)
+}
+```
 
 ***
 
