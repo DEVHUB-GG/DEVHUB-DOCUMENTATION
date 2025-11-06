@@ -1,7 +1,3 @@
----
-hidden: true
----
-
 # 💻 Laptop
 
 {% hint style="info" %}

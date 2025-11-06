@@ -1,7 +1,3 @@
----
-hidden: true
----
-
 # 🏎️ Racing
 
 {% hint style="info" %}

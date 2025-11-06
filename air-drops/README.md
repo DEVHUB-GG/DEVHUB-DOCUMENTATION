@@ -1,7 +1,3 @@
----
-hidden: true
----
-
 # 📦 Air drops
 
 {% hint style="info" %}

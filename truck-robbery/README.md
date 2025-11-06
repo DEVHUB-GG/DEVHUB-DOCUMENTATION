@@ -1,7 +1,3 @@
----
-hidden: true
----
-
 # 🚛 Truck robbery
 
 {% hint style="info" %}
