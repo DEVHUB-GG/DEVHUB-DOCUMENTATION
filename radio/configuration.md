@@ -6,6 +6,28 @@ description: >-
 
 # 🛠️ Configuration
 
+### <mark style="color:red;">⚠️ REQUIRED STEPS BEFORE USE</mark>
+
+<mark style="color:red;">**1. pma-voice Configuration in server.cfg**</mark>
+
+Make sure that `voice_enableRadioAnim` in `server.cfg` is set to `0`. If it doesn't exist, add to `server.cfg`:
+
+```
+setr voice_enableRadioAnim 0
+```
+
+<mark style="color:red;">**2. pma-voice Export**</mark>
+
+Add this to the bottom of `pma-voice/client/module/radio.lua`:
+
+```lua
+exports("getRadioData", function()
+    return radioData
+end)
+```
+
+***
+
 <mark style="color:yellow;">Shared Configuration (</mark><mark style="color:yellow;">`configs/shared.lua`</mark><mark style="color:yellow;">)</mark>
 
 **Reserved Channels System**
