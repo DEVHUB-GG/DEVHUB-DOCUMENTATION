@@ -129,6 +129,7 @@
   * [⚙️ Configuration](racing/configuration.md)
   * [🌊 Script Flow](racing/script-flow.md)
   * [⚠️ Troubleshooting](racing/troubleshooting.md)
+  * [SQL Conversion](racing/sql-conversion.md)
 * [💻 Laptop](laptop/README.md)
   * [💻 Installation](laptop/installation.md)
   * [⚙️ Configuration](laptop/configuration.md)
