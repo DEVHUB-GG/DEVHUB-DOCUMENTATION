@@ -3,7 +3,7 @@
 
 
 {% hint style="info" %}
-[Buy here](https://store.devhub.gg/product/6639832)
+[Buy here](https://store.devhub.gg/product/6719154)
 {% endhint %}
 
 {% hint style="warning" %}
