@@ -1,5 +1,5 @@
 # 🚛 Truck robbery
 
 {% hint style="info" %}
-[Buy here](https://store.devhub.gg/product/6639832)
+[Buy here](https://store.devhub.gg/product/7091905)
 {% endhint %}
