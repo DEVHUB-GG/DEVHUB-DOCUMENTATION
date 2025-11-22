@@ -7,5 +7,5 @@ The DEVHUB Gym System allows players to interact with various gym equipment, per
 ***
 
 {% hint style="info" %}
-[Buy here](https://store.devhub.gg/product/6639832)
+[Buy here](https://store.devhub.gg/product/6789437)
 {% endhint %}
