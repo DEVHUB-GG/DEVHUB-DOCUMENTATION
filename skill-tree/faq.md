@@ -189,8 +189,7 @@ A: Check:
 
 <summary>Q: When I join server my unlocked skills are not working, or skill tree is not opening?</summary>
 
-A: Most likely you haven't configured devhub\_lib playerLoaded event. Make sure to properly configure your framework's playerLoaded event in devhub\_lib. This is required for the skill tree to initialize properly when a player joins the server.\
-
+A: Most likely you haven't configured devhub\_lib playerLoaded event. Make sure to properly configure your framework's playerLoaded event in devhub\_lib. This is required for the skill tree to initialize properly when a player joins the server.<br>
 
 </details>
 

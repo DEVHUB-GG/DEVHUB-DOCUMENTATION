@@ -6,7 +6,7 @@ description: >-
 
 # 🛠️ Configuration
 
-### <mark style="color:red;">⚠️ REQUIRED STEPS BEFORE USE</mark>
+## <mark style="color:red;">⚠️ REQUIRED STEPS BEFORE USE</mark>
 
 <mark style="color:red;">**1. pma-voice Configuration in server.cfg**</mark>
 

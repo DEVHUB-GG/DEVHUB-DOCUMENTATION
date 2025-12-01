@@ -123,7 +123,6 @@
 * [🏠 House robbery](house-robbery/README.md)
   * [💻 Installation](house-robbery/installation.md)
   * [🛠️ Configuration](house-robbery/configuration.md)
-  * [🛠️ Copy of Configuration](house-robbery/copy-of-configuration.md)
 * [🏎️ Racing](racing/README.md)
   * [💻 Installation](racing/installation.md)
   * [⚙️ Configuration](racing/configuration.md)
