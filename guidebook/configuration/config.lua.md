@@ -47,80 +47,39 @@ Config.Book.Content = {
         label = "Jobs",
         icon = "fa-solid fa-suitcase", -- https://fontawesome.com/icons
         pages = {
-            -- {
-            --     title = "How to become a miner",
-            --     description =
-            --     "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.", -- can be nil
-            --     image =
-            --     "https://wiki.highliferoleplay.net/uploads/images/gallery/2023-05/soapymining.png",                                                                                                                                                                                                                                                                                 -- can be nil                                                                                                                                                                                                                                                                        -- link to image or false
-            --     steps = {                                                                                                                                                                                                                                                                                                                                                           -- can be nil
-            --         {
-            --             title = "Step 1",
-            --             text =
-            --             "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam "
-            --         },
-            --         {
-            --             title = "Step 2",
-            --             text =
-            --             "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam "
-            --         }
-            --     },
-            --     customButtons = { -- can be nil
-            --         {
-            --             title = "Example Button",
-            --             style = "primary", -- "primary" or "secondary"
-            --             func = function()
-            --                 -- your code
-            --                 print("TEST")
-            --                 return tru
-            --             end
-            --         },
-            --         {
-            --             title = "Example Button 2",
-            --             style = "secondary", -- "primary" or "secondary"
-            --             func = function()
-            --                 -- your code
-            --                 print("TEST2")
-            --                 return true
-            --             end
-            --         }
-            --     }
-            -- }
-            {
-                title = "How to become a Miner",
-                description = "As a miner, your job is to extract raw ores from designated mining areas. Once you've gathered enough ores, you transport them to a smelting facility where they are refined into bars. After refining, take the bars to the jeweler, who will purchase them from you.",
-                image = "http://upload.devhub.gg/dh_upload/guidebook/miner.png",
-                steps = {
-                    {
-                        title = "Step 1 - Talk to the Miner NPC",
-                        text = "Head to the mining area and speak with the Miner Job NPC to open the job menu. From here you can view your level, select a uniform, rent a vehicle, and start your mining shift."
-                    },
-                    {
-                        title = "Step 2 - Equip and Start the Job",
-                        text = "Choose your miner outfit, rent a work vehicle, and press 'Start Job' to begin. You will receive a drill tool and your task will be to collect ores like Diamond, Emerald, Gold, Silver, Steel, or Ruby."
-                    },
-                    {
-                        title = "Step 3 - Mine the Ores",
-                        text = "Drive to the mining zone and look for ore deposits. Use your drill on the ores and complete the minigame to successfully extract them. Collect the required amount shown in your task list."
-                    },
-                    {
-                        title = "Step 4 - Smelt the Ores",
-                        text = "Once you have collected enough ores, follow your GPS to the Smelting location. Interact with the smelter and complete the minigame to refine your ores into ingots."
-                    },
-                    {
-                        title = "Step 5 - Sell the Ingots",
-                        text = "After smelting, drive to the Selling location marked on your GPS. Sell your ingots to complete the job and receive your XP and cash rewards. Complete quests for bonus rewards!"
-                    }
+            title = "How to become a miner",
+            description =
+            "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.", -- can be nil
+            image =
+            "https://wiki.highliferoleplay.net/uploads/images/gallery/2023-05/soapymining.png",                                                                                                                                                                                                                                                                                 -- can be nil                                                                                                                                                                                                                                                                        -- link to image or false
+            steps = {                                                                                                                                                                                                                                                                                                                                                           -- can be nil
+                {
+                    title = "Step 1",
+                    text =
+                    "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam "
                 },
-                customButtons = {
-                    {
-                        title = "Go to Start Location",
-                        style = "primary",
-                        func = function()
-                            SetEntityCoords(PlayerPedId(), 2832.3860, 2798.6382, 57.4497)
-                            return true
-                        end
-                    }
+                {
+                    title = "Step 2",
+                    text =
+                    "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam "
+                }
+            },
+            customButtons = { -- can be nil
+                {
+                    title = "Example Button",
+                    style = "primary", -- "primary" or "secondary"
+                    func = function()
+                        -- your code
+                        return true
+                    end
+                },
+                {
+                    title = "Example Button 2",
+                    style = "secondary", -- "primary" or "secondary"
+                    func = function()
+                        -- your code
+                        return true
+                    end
                 }
             },
         },
