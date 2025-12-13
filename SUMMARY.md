@@ -4,6 +4,7 @@
 * [🐌 Download purchased assets](download-purchased-assets.md)
 * [⁉️ Error: "You lack the required entitlement to use"](error-you-lack-the-required-entitlement-to-use.md)
 * [⁉️ Error: syntax error near '<\1>'](error-syntax-error-near-less-than-1-greater-than.md)
+* [⚠️ Troubleshooting](troubleshooting.md)
 * [💾 Partnered FiveM Hosting](partnered-fivem-hosting.md)
 
 ## 💾 SCRIPTS
@@ -140,6 +141,11 @@
 * [🚛 Truck robbery](truck-robbery/README.md)
   * [💻 Installation](truck-robbery/installation.md)
   * [🛠️ Configuration](truck-robbery/configuration.md)
+* [📙 Guidebook](guidebook/README.md)
+  * [💻 Installation](guidebook/installation.md)
+  * [🛠️ Configuration](guidebook/configuration/README.md)
+    * [config.lua](guidebook/configuration/config.lua.md)
+    * [config\_translation.lua](guidebook/configuration/config_translation.lua.md)
 * [📱 Radio](radio/README.md)
   * [💻 Installation](radio/installation.md)
   * [🛠️ Configuration](radio/configuration.md)
