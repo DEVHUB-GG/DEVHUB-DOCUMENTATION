@@ -1,5 +1,5 @@
 # 📙 Guidebook
 
 {% hint style="info" %}
-[Buy here](https://store.devhub.gg/product/7091905)
+[Buy here](https://store.devhub.gg/)
 {% endhint %}
