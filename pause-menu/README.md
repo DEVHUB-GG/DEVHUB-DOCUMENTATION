@@ -1,7 +1,3 @@
----
-hidden: true
----
-
 # 📙 Pause menu
 
 {% hint style="info" %}
