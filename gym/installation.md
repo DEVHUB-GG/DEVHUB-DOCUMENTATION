@@ -14,6 +14,14 @@ git clone https://github.com/DEVHUB-GG/devhub_lib.git
 {% endstep %}
 
 {% step %}
+### Install xsound
+
+Download [https://github.com/Xogy/xsound/archive/refs/tags/1.4.3.zip](https://github.com/Xogy/xsound/archive/refs/tags/1.4.3.zip)
+
+_Other sound systems are also possible to use but they will require configuration in devhub\_lib_ [sound-systme.md](../scripts/devhub_lib/sound-systme.md "mention")
+{% endstep %}
+
+{% step %}
 ### Install resources from keymaster
 
 * Download the <mark style="color:red;">GYM</mark> script file from keymaster.&#x20;
@@ -24,10 +32,10 @@ git clone https://github.com/DEVHUB-GG/devhub_lib.git
 
 Move the files to the `resources` folder on your server and add the following lines to your server.cfg in the correct order:
 
-```javascript
-ensure devhub_lib
-ensure devhub_gym
-```
+<pre class="language-javascript"><code class="lang-javascript"><strong>ensure xsound
+</strong><strong><a data-footnote-ref href="#user-content-fn-1">ensure </a>devhub_lib
+</strong>ensure devhub_gym
+</code></pre>
 {% endstep %}
 
 {% step %}
@@ -46,3 +54,5 @@ DO NOT CHANGE RESOURCE NAME
 {% content-ref url="../download-purchased-assets.md" %}
 [download-purchased-assets.md](../download-purchased-assets.md)
 {% endcontent-ref %}
+
+[^1]: 
