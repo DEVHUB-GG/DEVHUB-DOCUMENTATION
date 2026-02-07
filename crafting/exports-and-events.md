@@ -4,9 +4,7 @@ description: >-
   resource.
 ---
 
-# ⚙️ Exports
-
-## 📤 Exports & Events
+# ⚙️ Exports & Events
 
 ### <mark style="color:yellow;">Client Exports</mark>
 
@@ -82,79 +80,6 @@ AddEventHandler("devhub_crafting:server:communityProjectCompleted", function(pro
         {["Content-Type"] = "application/json"}
     )
 end)
-```
-
-***
-
-### <mark style="color:yellow;">Client Callbacks (NUI)</mark>
-
-The following NUI callbacks are available for UI communication:
-
-#### Crafting Operations
-
-| Callback       | Parameters                     | Description                        |
-| -------------- | ------------------------------ | ---------------------------------- |
-| `startCraft`   | uid, amount, craftingId        | Start crafting an item             |
-| `claimCraft`   | craftId                        | Claim a completed craft from queue |
-| `reorderQueue` | craftId, direction, craftingId | Move item up/down in queue         |
-| `closeUI`      | -                              | Close the crafting interface       |
-
-#### Blueprint Operations
-
-| Callback          | Parameters  | Description                   |
-| ----------------- | ----------- | ----------------------------- |
-| `unlockBlueprint` | blueprintId | Attempt to unlock a blueprint |
-
-#### Weapon Attachments
-
-| Callback                 | Parameters                                          | Description                |
-| ------------------------ | --------------------------------------------------- | -------------------------- |
-| `showWeaponPreview`      | weapon                                              | Show 3D weapon preview     |
-| `hideWeaponPreview`      | -                                                   | Hide weapon preview        |
-| `previewAttachment`      | attachment                                          | Toggle attachment preview  |
-| `rotateWeapon`           | deltaX, deltaY                                      | Rotate weapon with mouse   |
-| `zoomWeapon`             | delta                                               | Zoom weapon preview        |
-| `applyWeaponAttachments` | weapon, weaponSlot, attachments, categoriesToRemove | Save attachments to weapon |
-
-#### Community Projects
-
-| Callback               | Parameters                  | Description             |
-| ---------------------- | --------------------------- | ----------------------- |
-| `depositCommunityItem` | projectId, itemName, amount | Donate items to project |
-
-#### Settings
-
-| Callback             | Parameters | Description                       |
-| -------------------- | ---------- | --------------------------------- |
-| `saveDiscordWebhook` | webhook    | Save player's Discord webhook URL |
-
-#### Admin Operations (Development Mode)
-
-| Callback            | Parameters       | Description                       |
-| ------------------- | ---------------- | --------------------------------- |
-| `saveConfig`        | configType, data | Save configuration to file        |
-| `addAllIngredients` | uid              | Dev: Add all required ingredients |
-
-***
-
-### <mark style="color:yellow;">Server Callbacks</mark>
-
-Server callbacks use the `devhub_lib` callback system:
-
-#### Apply Weapon Attachments
-
-```lua
-Core.TriggerServerCallback('devhub_crafting:applyWeaponAttachments', function(result)
-    -- result.success: boolean
-    -- result.metadata: updated weapon metadata
-end, {
-    weaponModel = "WEAPON_ASSAULTRIFLE",
-    weaponSlot = 1,
-    attachments = {
-        { category = "scope", component = "COMPONENT_AT_SCOPE_MACRO", itemName = "attachment_scope" }
-    },
-    categoriesToRemove = { "suppressor" }
-})
 ```
 
 ***

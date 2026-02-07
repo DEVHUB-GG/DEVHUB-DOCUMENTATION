@@ -162,7 +162,7 @@
   * [💻 Installation](crafting/installation.md)
   * [🛠️ Configuration](crafting/configuration.md)
   * [📜 Description](crafting/description.md)
-  * [⚙️ Exports](crafting/exports.md)
+  * [⚙️ Exports & Events](crafting/exports-and-events.md)
   * [🎨 UI Color Customization](crafting/ui-color-customization.md)
 * [♟️ Props](props/README.md)
   * [🎃 Halloween Food Pack](props/halloween-food-pack.md)

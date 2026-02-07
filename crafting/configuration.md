@@ -485,5 +485,5 @@ local rarities = {
 6. **Queue sizes**: Balance queue slots with server economy (VIP perks, etc.)
 7. **Attachment items**: Decide which attachments require items vs. free (default clips)
 8. **Community projects**: Set realistic material goals based on player population
-9. **Image URLs**: Use reliable image hosting (devhub upload, imgur, etc.)
+9. **Image URLs**: Use reliable image hosting
 10. **Development mode**: Always disable `DevelopmentMode` in production

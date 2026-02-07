@@ -23,8 +23,10 @@ DevHub Crafting is an advanced, feature-rich crafting system designed for FiveM 
 
 ## Supported Frameworks
 
-* **ESX** (Legacy & 1.x)
+* **ESX**
 * **QBCore**
+* **QBOX**
+* **VRP**
 * **Custom frameworks** via devhub\_lib bridge
 
 ## Supported Inventories
@@ -33,6 +35,7 @@ DevHub Crafting is an advanced, feature-rich crafting system designed for FiveM 
 * qb-inventory
 * qs-inventory
 * esx\_inventoryhud
+* and more...
 * Custom inventories via devhub\_lib
 
 ***
