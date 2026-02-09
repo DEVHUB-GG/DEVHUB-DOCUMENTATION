@@ -1,6 +1,6 @@
 # 🆘 Compatibility test
 
-To ensure the framework configuration is working correctly, run a compatibility test
+To ensure the server configuration is working correctly, run a compatibility test
 
 {% stepper %}
 {% step %}
@@ -26,10 +26,22 @@ To ensure the framework configuration is working correctly, run a compatibility 
 {% step %}
 ### Check the server console for the test results
 {% endstep %}
+
+{% step %}
+### In the devhub\_lib files, you will find file with test results. Please send them if requested by devhub support.
+
+
+{% endstep %}
 {% endstepper %}
 
 {% hint style="info" %}
-During the test, you will need to use an item, revive yourself, and then you will be kicked from the server. Results will be shown in **server console** within 20 seconds after being kicked.
+During the test, you will need to follow on-screen guides and perform specific actions, such as using an item and reviving yourself. Afterward, you will be kicked from the server. Results will be displayed in the server console within 10 seconds of being kicked.
 {% endhint %}
 
-<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+
+{% hint style="warning" %}
+At the end of a test, if any scenario fails, you will see tips and a to-do list with the exact file path you need to open to adjust the functionality to work with your server requirements.
+{% endhint %}
+
+<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>

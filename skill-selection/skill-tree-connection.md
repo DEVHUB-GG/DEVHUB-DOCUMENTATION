@@ -12,7 +12,7 @@ In **Config.Abilities** connect skill **category** and skill **uid.**
 
 Script automatically detects unlocked skills and will display locked icon on skill that are not yet unlockd.
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## <mark style="color:yellow;">Example</mark>
 
