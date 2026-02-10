@@ -131,6 +131,7 @@
   * [⚠️ Troubleshooting](racing/troubleshooting.md)
   * [SQL Conversion](racing/sql-conversion.md)
   * [🎨 UI Color Customization](racing/ui-color-customization.md)
+  * [Exports](racing/exports.md)
 * [💻 Laptop](laptop/README.md)
   * [💻 Installation](laptop/installation.md)
   * [⚙️ Configuration](laptop/configuration.md)
