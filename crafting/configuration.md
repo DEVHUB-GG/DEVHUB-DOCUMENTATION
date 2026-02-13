@@ -348,16 +348,31 @@ Config.ServerFunctions = {
     ["OnBlueprintUnlocked"] = function(source, blueprintId)
         -- Called when player successfully unlocks a blueprint
     end,
+    ["OnCraftCompleted"] = function(source, stationId, recipeId, amount, resultItem, resultAmount)
+        -- Called when a craft finishes (timer reaches 0), before the player claims it
+        -- resultItem = item name, resultAmount = total amount to be given
+    end,
+    ["CanClaimItem"] = function(source, stationId, recipeId, amount, resultItem, resultAmount)
+        -- Custom validation before claiming a finished craft
+        -- Return true to allow, false to deny
+        return true
+    end,
+    ["OnItemClaimed"] = function(source, stationId, recipeId, amount, resultItem, resultAmount)
+        -- Called after the player successfully claims a crafted item
+    end,
 }
 ```
 
-| Function               | Parameters                                          | Description                                |
-| ---------------------- | --------------------------------------------------- | ------------------------------------------ |
-| `OnCraftStart`         | source, stationId, recipeId, amount                 | Server-side hook when crafting starts      |
-| `CanCraft`             | source, stationId, recipeId, amount                 | Validate craft permission (return boolean) |
-| `OnAttachmentsApplied` | source, weaponModel, weaponSlot, attachmentsApplied | Hook when attachments are saved            |
-| `CanUnlockBlueprint`   | source, blueprintId                                 | Validate blueprint unlock (return boolean) |
-| `OnBlueprintUnlocked`  | source, blueprintId                                 | Hook when blueprint is unlocked            |
+| Function               | Parameters                                                    | Description                                   |
+| ---------------------- | ------------------------------------------------------------- | --------------------------------------------- |
+| `OnCraftStart`         | source, stationId, recipeId, amount                           | Server-side hook when crafting starts         |
+| `CanCraft`             | source, stationId, recipeId, amount                           | Validate craft permission (return boolean)    |
+| `OnAttachmentsApplied` | source, weaponModel, weaponSlot, attachmentsApplied           | Hook when attachments are saved               |
+| `CanUnlockBlueprint`   | source, blueprintId                                           | Validate blueprint unlock (return boolean)    |
+| `OnBlueprintUnlocked`  | source, blueprintId                                           | Hook when blueprint is unlocked               |
+| `OnCraftCompleted`     | source, stationId, recipeId, amount, resultItem, resultAmount | Hook when craft timer finishes (before claim) |
+| `CanClaimItem`         | source, stationId, recipeId, amount, resultItem, resultAmount | Validate claim permission (return boolean)    |
+| `OnItemClaimed`        | source, stationId, recipeId, amount, resultItem, resultAmount | Hook when player claims crafted item          |
 
 #### Community Project Completion Event
 
