@@ -159,6 +159,10 @@ Config.OfficialRaceGenerator = {
 * **fpv**: Force first-person view during the race.
 * **laps**: Number of laps for loop-type race maps.
 
+{% hint style="info" %}
+Set  `Config.OfficialRaceGenerator = false`  to disable automatic official race generation
+{% endhint %}
+
 ### Vehicle and Traffic Settings
 
 ```lua
