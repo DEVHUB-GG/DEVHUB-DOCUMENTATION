@@ -18,6 +18,10 @@ Shared.DevelopmentMode = false
 
 * **DevelopmentMode**: Enables the in-game admin panel for configuration editing. Set to `true` only during development/setup.
 
+{% hint style="info" %}
+To open the admin menu in-game, use the command `/craftingadmin` (admin only).
+{% endhint %}
+
 ***
 
 #### Categories Configuration
