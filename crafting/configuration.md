@@ -18,8 +18,65 @@ Shared.DevelopmentMode = false
 
 * **DevelopmentMode**: Enables the in-game admin panel for configuration editing. Set to `true` only during development/setup.
 
+***
+
+## 🛡️ Admin Command — `/craftingadmin`
+
+{% hint style="warning" %}
+**Admin-only command.** This command is only available to players with admin permissions and only works when `Shared.DevelopmentMode = true` is set in `configs/shared.lua`.
+{% endhint %}
+
+### What is `/craftingadmin`?
+
+The `/craftingadmin` command opens the **in-game Admin Panel** — a powerful, real-time configuration editor that lets server administrators manage the entire crafting system without touching any configuration files. All changes made through the panel take effect immediately, without requiring a server restart.
+
+### How to Enable
+
+**Step 1:** Open `configs/shared.lua` and set:
+
+```lua
+Shared.DevelopmentMode = true
+```
+
+**Step 2:** Restart the `devhub_crafting` resource or the entire server.
+
+**Step 3:** In-game, type the following command in the chat:
+
+```
+/craftingadmin
+```
+
+{% hint style="danger" %}
+**Always set `Shared.DevelopmentMode = false` in production!** Leaving Development Mode enabled on a live server exposes the admin panel to all admin-level players and may have performance implications.
+{% endhint %}
+
+### Admin Panel Features
+
+Once opened, the Admin Panel provides full control over the following sections:
+
+| Section                | What you can do                                                                             |
+| ---------------------- | ------------------------------------------------------------------------------------------- |
+| **Categories**         | Add, edit, or remove crafting categories. Set labels, FontAwesome icons, and display order. |
+| **Blueprints**         | Create and edit blueprints. Configure rarity, images, required ingredients, and unlock conditions. |
+| **Crafts / Recipes**   | Add or modify crafting recipes. Set ingredients, output items, crafting time, queue limits, and rarity. |
+| **Crafting Stations**  | Define new workbenches. Configure world coordinates, 3D props, camera angles, queue sizes, and map blips. |
+
+### Step-by-Step Usage
+
+1. Set `Shared.DevelopmentMode = true` in `configs/shared.lua`
+2. Restart the resource: `ensure devhub_crafting`
+3. Join the server as an admin
+4. Open chat and run `/craftingadmin`
+5. The Admin Panel UI will open — make your changes live
+6. When finished, **export/save** the configuration to the appropriate config files
+7. Set `Shared.DevelopmentMode = false` and restart the resource for production
+
+### Permissions
+
+The command checks the player's permission level through `devhub_lib`. Only players recognised as **admins** by the configured framework (ESX group `admin`/`superadmin`, QBCore `god`/`admin`, etc.) can execute `/craftingadmin`. All other players will receive an access-denied notification.
+
 {% hint style="info" %}
-To open the admin menu in-game, use the command `/craftingadmin` (admin only).
+Permission handling is managed by `devhub_lib`. Refer to the [devhub\_lib documentation](../scripts/devhub_lib-needed-for-each-script/) to configure admin groups for your framework.
 {% endhint %}
 
 ***
