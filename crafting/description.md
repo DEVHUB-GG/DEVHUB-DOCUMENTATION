@@ -17,7 +17,7 @@ DevHub Crafting is an advanced, feature-rich crafting system designed for FiveM 
 * **Weapon Attachment System** - Full 3D preview with real-time attachment management (suppressors, scopes, grips, magazines, tints)
 * **Community Projects** - Server-wide collaborative goals where players contribute materials
 * **Statistics Tracking** - Comprehensive player statistics including crafted items, time spent, and leaderboards
-* **Admin Panel** - In-game configuration editor for categories, blueprints, crafts, and workbenches
+* **Admin Panel** - In-game configuration editor for categories, blueprints, crafts, and workbenches. Admins can open the admin menu using the `/craftingadmin` command.
 * **Queue System** - Time-based crafting with queue management and reordering
 * **Discord Integration** - Personal webhook notifications when crafts complete
 
