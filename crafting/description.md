@@ -147,17 +147,6 @@ Place and configure crafting workbenches in the world.
 * Enable/disable the Weapon Attachments tab per station
 * Add an optional map blip (name, sprite, size, colour)
 
-### Permissions
-
-Access to `/craftingadmin` is controlled by `devhub_lib`'s permission system. The following groups are typically recognised as admins:
-
-| Framework  | Admin groups                  |
-| ---------- | ----------------------------- |
-| **ESX**    | `admin`, `superadmin`         |
-| **QBCore** | `god`, `admin`                |
-| **QBOX**   | `god`, `admin`                |
-| **VRP**    | Configured via `devhub_lib`   |
-
 Players outside these groups will receive an access-denied notification when attempting to run the command.
 
 {% hint style="info" %}
