@@ -28,33 +28,14 @@ Shared.DevelopmentMode = false
 
 ### What is `/craftingadmin`?
 
-The `/craftingadmin` command opens the **in-game Admin Panel** — a powerful, real-time configuration editor that lets server administrators manage the entire crafting system without touching any configuration files. All changes made through the panel take effect immediately, without requiring a server restart.
-
-### How to Use
-
-In-game, type the following command in the chat:
-
-```
-/craftingadmin
-```
-
-### Admin Panel Features
-
-Once opened, the Admin Panel provides full control over the following sections:
-
-| Section                | What you can do                                                                             |
-| ---------------------- | ------------------------------------------------------------------------------------------- |
-| **Categories**         | Add, edit, or remove crafting categories. Set labels, FontAwesome icons, and display order. |
-| **Blueprints**         | Create and edit blueprints. Configure rarity, images, required ingredients, and unlock conditions. |
-| **Crafts / Recipes**   | Add or modify crafting recipes. Set ingredients, output items, crafting time, queue limits, and rarity. |
-| **Crafting Stations**  | Define new workbenches. Configure world coordinates, 3D props, camera angles, queue sizes, and map blips. |
+The `/craftingadmin` command opens the **in-game Admin Panel,** a powerful, real-time configuration editor that lets server administrators manage the entire crafting system without touching any configuration files.
 
 ### Step-by-Step Usage
 
 1. Join the server as an admin
 2. Open chat and run `/craftingadmin`
-3. The Admin Panel UI will open — make your changes live
-4. When finished, **export/save** the configuration to the appropriate config files
+3. The Admin Panel UI will open, make your changes live
+4. **Save** the configuration and restart script!
 
 ### Permissions
 
