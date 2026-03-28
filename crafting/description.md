@@ -17,7 +17,7 @@ DevHub Crafting is an advanced, feature-rich crafting system designed for FiveM 
 * **Weapon Attachment System** - Full 3D preview with real-time attachment management (suppressors, scopes, grips, magazines, tints)
 * **Community Projects** - Server-wide collaborative goals where players contribute materials
 * **Statistics Tracking** - Comprehensive player statistics including crafted items, time spent, and leaderboards
-* **Admin Panel** - Full in-game configuration editor for categories, blueprints, crafts, and workbenches. Open it with the `/craftingadmin` command (admin only, requires `DevelopmentMode = true`).
+* **Admin Panel** - Full in-game configuration editor for categories, blueprints, crafts, and workbenches. Open it with the `/craftingadmin` command (admin only).
 * **Queue System** - Time-based crafting with queue management and reordering
 * **Discord Integration** - Personal webhook notifications when crafts complete
 
@@ -94,27 +94,15 @@ The Admin Panel is one of the most powerful features of DevHub Crafting. It give
 
 ### Requirements
 
-{% hint style="warning" %}
-This command requires **admin permissions** and **Development Mode** to be active.
-
-Set the following in `configs/shared.lua` before using the command:
-
-```lua
-Shared.DevelopmentMode = true
-```
-{% endhint %}
-
-{% hint style="danger" %}
-**Disable Development Mode on production servers!** Set `Shared.DevelopmentMode = false` once you finish configuring to prevent unintended access and ensure optimal performance.
+{% hint style="info" %}
+This command requires **admin permissions** only. No additional configuration is needed — just make sure you are logged in as an admin on your server.
 {% endhint %}
 
 ### How to Open the Admin Panel
 
-1. In `configs/shared.lua`, set `Shared.DevelopmentMode = true`
-2. Restart the resource: `ensure devhub_crafting`
-3. Join the server with an **admin account**
-4. Open the chat and type `/craftingadmin`
-5. The Admin Panel will open immediately in-game
+1. Join the server with an **admin account**
+2. Open the chat and type `/craftingadmin`
+3. The Admin Panel will open immediately in-game
 
 ### What Can You Configure
 
@@ -173,12 +161,10 @@ Access to `/craftingadmin` is controlled by `devhub_lib`'s permission system. Th
 Players outside these groups will receive an access-denied notification when attempting to run the command.
 
 {% hint style="info" %}
-See the [devhub\_lib documentation](../scripts/devhub_lib-needed-for-each-script/) to adjust which permission groups are treated as admins for your framework.
+See the [Admin System documentation](../scripts/devhub_lib/admin.md) to adjust which permission groups are treated as admins for your framework.
 {% endhint %}
 
 ### Best Practices
 
-* Use the Admin Panel **only during initial server setup or maintenance windows**
-* Always **disable `DevelopmentMode`** before opening the server to regular players
 * After making changes in the panel, **export your configuration** to the relevant `configs/` files so they persist after a resource restart
 * Test each new recipe/station **on a development server** before pushing to production
