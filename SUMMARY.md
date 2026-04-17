@@ -25,6 +25,7 @@
   * [🎨 UI Color Customization](scripts/devhub_lib/ui-color-customization.md)
   * [🆘 Compatibility test](scripts/devhub_lib/compatibility-test.md)
   * [🛡️ Admin System](scripts/devhub_lib/admin.md)
+  * [devhub\_lib FOR DEVS ONLY](scripts/devhub_lib-needed-for-each-script/devhub_lib-for-devs-only.md)
 
 ***
 
