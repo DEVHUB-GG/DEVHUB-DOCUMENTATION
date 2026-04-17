@@ -4,11 +4,7 @@ hidden: true
 
 # devhub\_lib FOR DEVS ONLY
 
-## devhub\_lib — Developer Documentation
-
-***
-
-
+## devhub\_lib — Developer documentation
 
 ***
 
@@ -578,7 +574,7 @@ Gets global item info (not player-specific).
 ```lua
 local data = Core.GetItemData('bread')
 -- data.label  (string) "Bread"
--- data.img    (string) "nui://ox_inventory/web/images/bread.png"
+-- data.img    (string) "nui://inventory_script/web/images/bread.png"
 ```
 
 ***
