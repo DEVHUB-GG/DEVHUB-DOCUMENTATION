@@ -115,7 +115,7 @@ Core.ShowStaticMessage(false) -- hide
 Control button prompts on screen. Pass `false` to hide.
 
 ```lua
-Core.ShowControlButtons("[E] Open  [G] Close")
+Core.ShowControlButtons("<kbd>E</kbd> Open  <kbd>G</kbd> Close")
 Core.ShowControlButtons(false) -- hide
 ```
 
