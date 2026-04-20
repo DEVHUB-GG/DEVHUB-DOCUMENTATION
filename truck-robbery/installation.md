@@ -31,6 +31,12 @@ ensure devhub_truckRobbery
 {% endstep %}
 
 {% step %}
+### \[OPTIONAL] Add free laptop&#x20;
+
+[https://devhub.gg/product/7054272](https://devhub.gg/product/7054272)
+{% endstep %}
+
+{% step %}
 ### Restart your server
 {% endstep %}
 {% endstepper %}

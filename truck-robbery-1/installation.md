@@ -16,7 +16,7 @@ git clone https://github.com/DEVHUB-GG/devhub_lib.git
 {% step %}
 ### Install resources from keymaster
 
-* Download the <mark style="color:red;">AIR DROPS</mark> script file from keymaster.&#x20;
+* Download the <mark style="color:red;">CRIME SCENES AND GRID</mark> script file from keymaster.&#x20;
 {% endstep %}
 
 {% step %}
@@ -26,8 +26,13 @@ Move the files to the `resources` folder on your server and add the following li
 
 ```javascript
 ensure devhub_lib
-ensure devhub_airDrops
+ensure devhub_grid
+ensure devhub_crimeScenes
 ```
+{% endstep %}
+
+{% step %}
+### Add items from items folder
 {% endstep %}
 
 {% step %}
