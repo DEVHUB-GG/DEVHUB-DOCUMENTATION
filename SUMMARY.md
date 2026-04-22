@@ -114,6 +114,7 @@
 * [🏋️ Gym](gym/README.md)
   * [💻 Installation](gym/installation.md)
   * [🛠️ Configuration](gym/configuration.md)
+  * [💪 Equipment Setup Guide](gym/equipment-setup-guide.md)
 * [👨‍💻 Hacking Minigames 1](hacking-minigames-1/README.md)
   * [💻 Installation](hacking-minigames-1/installation.md)
   * [🛠️ Configuration](hacking-minigames-1/configuration.md)
