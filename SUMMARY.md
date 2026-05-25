@@ -64,7 +64,7 @@
   * [❔ FAQ](skill-tree/faq.md)
   * [🩸 Degradation](skill-tree/degradation.md)
   * [🛡️ Admin Panel](skill-tree/admin-panel.md)
-  * [Youtube Tutorial V3](skill-tree/youtube-tutorial-v3.md)
+  * [📺 Youtube Tutorial V3](skill-tree/youtube-tutorial-v3.md)
 * [⛏️ Miner Job](miner-job/README.md)
   * [💻 Installation](miner-job/installation.md)
   * [🛠️ Configuration](miner-job/configuration/README.md)
