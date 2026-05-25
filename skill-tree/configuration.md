@@ -1,8 +1,8 @@
 # 🛠️ Configuration
 
-## <mark style="color:yellow;">Main Configuration (sh.main.lua)</mark>
+### <mark style="color:yellow;">Main Configuration (sh.main.lua)</mark>
 
-### Basic Settings
+#### Basic Settings
 
 ```lua
 Config.MenuCommand = "skill"  -- Command to open menu (string or false)
@@ -13,7 +13,17 @@ Config.Item = false          -- Item required to open menu (string or false)
 
 ***
 
-### XP Settings
+#### Theme
+
+Sets the visual theme used by the UI.
+
+```lua
+Config.Theme = "modern" -- string | "legacy" | "modern" | "zombie" | "fantasy"
+```
+
+***
+
+#### XP Settings
 
 ```lua
 Config.XpBoost = 1.0         -- XP multiplier
@@ -28,7 +38,7 @@ end
 
 ***
 
-### System Settings
+#### System Settings
 
 ```lua
 Config.CloseUiOnDeath = true         -- Close UI on player death
@@ -40,24 +50,151 @@ Config.DisableXpEarnWhileDead = false  -- Disable XP earning while dead
 
 ***
 
-### XP Earning Activities
+#### XP Earning Activities
+
+{% hint style="warning" %}
+**Format changed in v3.** The amount of XP is now defined directly in `addTo` as the value. The old top-level `xp` field is no longer read. If you keep the v2 format (`addTo = {['personal'] = true}`), the script will silently fall back to **5 XP** per tick.
+{% endhint %}
 
 ```lua
+Config.EarnXpTick = 1000 -- int | Tick interval in ms (keep >= 1000)
+
 Config.EarnXp = {
-    ['running'] = {
-        xp = 5,              -- XP awarded
-        timeout = 10000,     -- Cooldown before next award
-        addTo = {            -- Which skill trees receive XP
-            ['personal'] = true
-        }
+    ['running']      = { timeout = 10000, addTo = { ['personal'] = 5 } },
+    ['swimming']     = { timeout = 10000, addTo = { ['personal'] = 5 } },
+    ['melee']        = { timeout = 10000, addTo = { ['personal'] = 5 } },
+    ['shooting']     = { timeout = 10000, addTo = { ['personal'] = 5 } },
+    ['driving']      = { timeout = 10000, addTo = { ['personal'] = 5 } },
+    -- new in v3
+    ['climbing']     = { timeout = 10000, addTo = { ['personal'] = 5 } },
+    ['parachuting']  = { timeout = 15000, addTo = { ['personal'] = 5 } },
+    ['flying']       = { timeout = 10000, addTo = { ['personal'] = 5 } },
+    ['boating']      = { timeout = 10000, addTo = { ['personal'] = 5 } },
+    ['reloading']    = { timeout = 10000, addTo = { ['personal'] = 5 } },
+    ['takingDamage'] = { timeout = 15000, addTo = { ['personal'] = 5 } },
+}
+```
+
+To disable an activity, simply remove it from the table.
+
+***
+
+#### Daily XP Limit
+
+Caps how much XP a player can earn per day in each category. Resets at the configured hour in server-local time. Set `Config.DailyXpLimit = nil` (or remove the block) to disable entirely.
+
+```lua
+Config.DailyXpLimit = {
+    ResetHour = 0,         -- int (0-23) | Hour when the daily XP resets (0 = midnight)
+    Limits = {
+        -- ['personal'] = 5000,
     },
-    -- Similar settings for: swimming, melee, shooting, driving
+    DefaultLimit = 0,      -- int | Default limit for categories not listed above (0 = unlimited)
 }
 ```
 
 ***
 
-### Reset System
+#### Skill Degradation
+
+Optional per-skill mechanic. When enabled on a skill, the player must continuously earn XP in that category to keep the skill effect active. Set `Config.SkillDegradation = nil` to disable the system entirely.
+
+```lua
+Config.SkillDegradation = {
+    CycleInterval   = 1,   -- float | Cycle interval in days (1 = every 24h)
+    MaxMissedCycles = 30,  -- int   | Max cycles applied at once when reconnecting after offline time
+    Categories      = {},  -- per-category overrides
+}
+```
+
+***
+
+#### Premium Currency
+
+Optional global secondary currency for unlocking skills. Each skill in the generator can specify a `premiumCurrency` amount.
+
+* `type = "optional"` → if the player pays the premium currency, `points` and `UnlockHandlerForSkills` checks are skipped
+* `type = "required"` → premium currency is an additional requirement on top of points / unlock handlers
+
+```lua
+Config.PremiumCurrency = {
+    type = "optional",   -- "optional" or "required"
+    label = "PC",
+    icon = "fas fa-coin",
+    handler = function(amount, categoryUid, skillUid, source)
+        -- Check if player has enough currency, deduct it, return true on success
+        if not Helpers.HasEnoughMoney(source, amount) then return false end
+        Helpers.RemoveMoney(source, amount)
+        return true
+    end,
+}
+```
+
+{% hint style="info" %}
+The handler runs **server-side** and receives `(amount, categoryUid, skillUid, source)`. It MUST return `true` on success or `false` on failure.
+{% endhint %}
+
+Set `Config.PremiumCurrency = nil` to disable the system.
+
+***
+
+#### Trigger Events On Skill Unlock
+
+Automatically fire your own events whenever a player unlocks a specific skill — no listener boilerplate required.
+
+```lua
+Config.TriggerOnSkillUnlock = {
+    ['personal'] = {
+        ['runFaster_1'] = {
+            client = 'myResource:client:onRunFasterUnlock',
+            server = 'myResource:server:onRunFasterUnlock',
+        },
+    },
+}
+```
+
+* **client** event is triggered with `(category, skillUid, effect)`
+* **server** event is triggered with `(source, category, skillUid, effect)`
+
+Both `client` and `server` are optional — set only the one you need.
+
+***
+
+#### Disabled Listeners
+
+Disable specific listener events for optimization. If no other resource listens to a given event, you can disable it to reduce network traffic.
+
+```lua
+Config.DisabledListeners = {
+    newXp                  = { client = true },
+    levelUp                = { client = false },
+    skillUnlocked          = { client = false, server = false },
+    skillReset             = { server = false }, -- client listener always stays enabled
+    skillDegraded          = { client = false, server = false },
+    skillDegradedRecovered = { client = false, server = false },
+    -- Legacy event names (dh_skillTree:* prefix)
+    oldSkillUnlocked       = { client = true },
+    oldSkillReset          = { client = true },
+}
+```
+
+***
+
+#### Config Backup System
+
+{% hint style="info" %}
+This setting only has effect in the <mark style="color:green;">**exclusive version**</mark> because backups are tied to generator saves.
+{% endhint %}
+
+```lua
+Config.MaxBackups = 5 -- int | Maximum number of config backups to keep (0 = unlimited)
+```
+
+Automatic backups are created before each generator save. Manual backups can also be created from the admin panel. When the limit is reached, the oldest backup is removed automatically.
+
+***
+
+#### Reset System
 
 ```lua
 Config.SkillReset = {
@@ -74,7 +211,7 @@ Config.SkillReset = {
 
 ***
 
-### Level & Skills Configuration
+#### Level & Skills Configuration
 
 ```lua
 Config.MaxLevel = {
@@ -108,12 +245,12 @@ Config.DisableDefaultSkillEffects = {
 
 Config.DisableRefreshOnPedOrPidChanged = false
 
-Config.XpCacheLimit = 20 -- int | Used for xp virtualization in all categories from Config.EarnXp, how many ticks should be cached before sending to server
+Config.XpCacheLimit = 15 -- int | Used for xp virtualization in all categories from Config.EarnXp, how many ticks should be cached before sending to server
 -- How it works? When player earns xp, it is cached in client side and sent to server only when player has enough ticks to send
 
 ```
 
-### **Custom Skill Unlock Requirements**
+#### **Custom Skill Unlock Requirements**
 
 ```lua
 Config.UnlockHandlerForSkills = {
@@ -142,7 +279,7 @@ Config.UnlockHandlerForSkills = {
 
 ***
 
-## <mark style="color:yellow;">Language Configuration (sh.lang.lua)</mark>
+### <mark style="color:yellow;">Language Configuration (sh.lang.lua)</mark>
 
 The language file contains all text strings used in the UI. Each string can be customized:
 
@@ -156,9 +293,22 @@ Config.Lang = {
 
 ***
 
-## <mark style="color:yellow;">Server Configuration (s.main.lua)</mark>
+### <mark style="color:yellow;">Server Configuration (s.main.lua)</mark>
 
-### Category visibility
+#### Admin Commands
+
+{% hint style="info" %}
+Enabled by default in v3 (commented out in v2). Permission is checked via `Core.IsPlayerAdmin(source)` from `devhub_lib`.
+{% endhint %}
+
+```lua
+-- /addXp <playerId> <categoryUid> <amount>
+-- /addPoints <playerId> <categoryUid> <amount>
+```
+
+You can also use the in-game admin panel for a UI-driven workflow.
+
+#### Category visibility
 
 ```lua
 Config.CategoryVisibilityHandler = {
@@ -170,7 +320,7 @@ Config.CategoryVisibilityHandler = {
 
 ```
 
-### Logging Configuration
+#### Logging Configuration
 
 ```lua
 Config.Logs = {
@@ -187,7 +337,7 @@ Config.Logs = {
 }
 ```
 
-### Security Settings
+#### Security Settings
 
 {% hint style="warning" %}
 It is highly advised to keep this option enabled and transition scripts to utilize server-side exports only.
@@ -197,7 +347,7 @@ It is highly advised to keep this option enabled and transition scripts to utili
 Config.DisableSensitiveClientExports = true  -- Disable client-side sensitive exports
 ```
 
-#### Suspicious Activity Handler
+**Suspicious Activity Handler**
 
 ```lua
 Config.SuspiciousActivity = function(source, privateReason, priority)
@@ -208,7 +358,7 @@ Config.SuspiciousActivity = function(source, privateReason, priority)
 } 
 ```
 
-### Enable Unclock Skill Export
+#### Enable Unclock Skill Export
 
 ```lua
 Config.TurnOnUnlockSkillExport = false -- bool
@@ -218,9 +368,25 @@ Turn on export for unlocking skills, this will allow you to unlock skills from o
 
 ***
 
-## <mark style="color:yellow;">Skills Configuration (sh.skills.lua)</mark>
+### <mark style="color:yellow;">Skills Configuration (sh.skills.lua)</mark>
 
-The skills configuration defines all available skills and their properties. Each skill is defined with:
+#### Categories
+
+```lua
+Config.SkillsCategory = {
+    { skill = 'personal', title = 'Personal', group = nil, icon = nil },
+    -- { skill = 'police',  title = 'Police',   group = 'Jobs', icon = 'fas fa-shield' },
+}
+```
+
+* `skill` (string): category UID
+* `title` (string): display name
+* `group` (string | nil): _**v3**_ — categories sharing the same `group` string are visually grouped under one tab in the menubar
+* `icon` (string | nil): _**v3**_ — optional FontAwesome icon class displayed next to the category name
+
+#### Skills
+
+Each skill is defined with:
 
 * `uid`: Unique identifier
 * `title`: Display name
@@ -230,7 +396,8 @@ The skills configuration defines all available skills and their properties. Each
 * `points`: Points required to unlock
 * `img`: Preview image/gif URL
 * `lines`: Connection lines to other skills
-* `index`: Position in skill grid (171 total slots in 9x19 grid)
+* `index`: Position in skill grid (19 columns, rows are dynamic — minimum 9, auto-expands)
+* `degradation` _(v3, optional)_: per-skill degradation overrides — see Skill Degradation
 
 Example skill entry:
 
@@ -245,12 +412,55 @@ Example skill entry:
     title = "Speed Boost I",
     index = 139,
     effect = 1,
+    -- optional v3 degradation override
+    -- degradation = {
+    --     maxDegradationXp = 1000,      -- Maximum degradation XP (starts full on unlock)
+    --     removePerCycle = 100,         -- XP removed each cycle
+    --     reactivationThreshold = 500,  -- XP needed to reactivate after depletion
+    -- },
 }
 ```
 
 ***
 
-## <mark style="color:yellow;">Ui Configuration (config.js)</mark>
+### <mark style="color:yellow;">Helpers (s.helpers.lua)</mark>
+
+{% hint style="info" %}
+New in v3. Server-side global utility functions available inside `Config.UnlockHandlerForSkills`, `Config.CategoryVisibilityHandler`, `Config.PremiumCurrency.handler`, and any other server-side hook.
+{% endhint %}
+
+```lua
+Helpers.CheckJob(source, job, grade)            -- bool : has job (and optional minimum grade)
+Helpers.HasItem(source, item, amount)           -- bool : has at least `amount` of item (defaults to 1)
+Helpers.CheckIdentifier(source, identifier)     -- bool : player identifier matches
+Helpers.IsAdmin(source)                         -- bool : admin permission
+Helpers.HasEnoughMoney(source, amount)          -- bool : has enough cash
+Helpers.CheckUnlockedSkill(source, cat, skill)  -- bool : skill already unlocked
+Helpers.RemoveItem(source, item, amount)        -- void : removes item (defaults to 1)
+Helpers.RemoveMoney(source, amount)             -- void : removes cash
+```
+
+Example — using helpers in an unlock handler:
+
+```lua
+Config.UnlockHandlerForSkills = {
+    ['personal'] = {
+        ['runFaster_1'] = {
+            unlockRequirementMessage = 'You need to be a police officer and have an energy drink.',
+            handler = function(source)
+                if not Helpers.CheckJob(source, 'police', 2) then return false end
+                if not Helpers.HasItem(source, 'energy_drink', 1) then return false end
+                Helpers.RemoveItem(source, 'energy_drink', 1)
+                return true
+            end,
+        },
+    },
+}
+```
+
+***
+
+### <mark style="color:yellow;">Ui Configuration (config.js)</mark>
 
 {% hint style="info" %}
 W**here to find:** html/config.js
@@ -265,7 +475,7 @@ window.config = {
 
 ***
 
-## <mark style="color:yellow;">Used Natives (c.natives.lua)</mark>
+### <mark style="color:yellow;">Used Natives (c.natives.lua)</mark>
 
 ```lua
 -- In this file you can add your anti-cheat exports or switch used native to an export that is used in your other scripts.

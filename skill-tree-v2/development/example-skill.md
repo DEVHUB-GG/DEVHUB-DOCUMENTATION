@@ -1,8 +1,8 @@
 # Example skill
 
-### <mark style="color:yellow;">Adding XP to Skills</mark>
+## <mark style="color:yellow;">Adding XP to Skills</mark>
 
-#### Client Side
+### Client Side
 
 ```lua
 -- Add XP to specific category
@@ -16,7 +16,7 @@ end)
 
 ***
 
-#### Server Side
+### Server Side
 
 ```lua
 -- Add XP to player's skill
@@ -32,9 +32,9 @@ end)
 
 ***
 
-### <mark style="color:yellow;">Checking Skill Status</mark>
+## <mark style="color:yellow;">Checking Skill Status</mark>
 
-#### Client Side
+### Client Side
 
 ```lua
 -- Check if player has unlocked specific skill
@@ -50,7 +50,7 @@ print('Speed boost multiplier:', effect)
 
 ***
 
-#### Server Side
+### Server Side
 
 ```lua
 -- Check if player has unlocked specific skill
@@ -66,9 +66,9 @@ print('Add more xp:', effect)
 
 ***
 
-### <mark style="color:yellow;">Event Listeners</mark>
+## <mark style="color:yellow;">Event Listeners</mark>
 
-#### Basic Health Boost System
+### Basic Health Boost System
 
 ```lua
 RegisterNetEvent('devhub_skillTree:client:listener:skillUnlocked', function(skill, uid)
@@ -83,7 +83,7 @@ end)
 
 ***
 
-#### Progressive Running Speed System
+### Progressive Running Speed System
 
 ```lua
 local baseSpeed = 1.0
@@ -100,9 +100,9 @@ end)
 
 ***
 
-### <mark style="color:yellow;">Skill Checks</mark>
+## <mark style="color:yellow;">Skill Checks</mark>
 
-#### Basic Bank Access
+### Basic Bank Access
 
 ```lua
 RegisterCommand('bank', function()
@@ -117,9 +117,9 @@ end)
 
 ***
 
-### <mark style="color:yellow;">XP and Points</mark>
+## <mark style="color:yellow;">XP and Points</mark>
 
-#### XP Reward System
+### XP Reward System
 
 ```lua
 -- Reward XP for successful robberies
@@ -138,7 +138,7 @@ end)
 
 ***
 
-#### Points Distribution System
+### Points Distribution System
 
 ```lua
 -- Award skill points for completing missions
@@ -156,11 +156,11 @@ end)
 
 ***
 
-### <mark style="color:yellow;">Complete Systems</mark>
+## <mark style="color:yellow;">Complete Systems</mark>
 
-#### Using Listener
+### Using Listener
 
-Progressive Weapon Handling System
+Progressive Weapon Handling System&#x20;
 
 ```lua
 local weaponSkills = {
@@ -191,9 +191,9 @@ end
 
 ***
 
-#### Using Exports
+### Using Exports
 
-Swimming Skill Progression System
+Swimming Skill Progression System&#x20;
 
 ```lua
 local swimLevel = 0
@@ -241,43 +241,11 @@ end)
 
 ***
 
-### <mark style="color:yellow;">Trigger your own events on unlock (v3)</mark>
-
-If you only need to fire a single event when a specific skill is unlocked, you can skip the listener boilerplate and use `Config.TriggerOnSkillUnlock` instead:
-
-```lua
--- configs/sh.main.lua
-Config.TriggerOnSkillUnlock = {
-    ['personal'] = {
-        ['moreMaxHp_1'] = {
-            client = 'myResource:client:moreMaxHpUnlocked',
-            server = 'myResource:server:moreMaxHpUnlocked',
-        },
-    },
-}
-```
-
-Then react to it like any other event:
-
-```lua
--- in your script (client)
-RegisterNetEvent('myResource:client:moreMaxHpUnlocked', function(category, skillUid, effect)
-    SetEntityMaxHealth(PlayerPedId(), 200 + effect)
-end)
-
--- in your script (server)
-RegisterNetEvent('myResource:server:moreMaxHpUnlocked', function(source, category, skillUid, effect)
-    print(GetPlayerName(source) .. ' unlocked ' .. skillUid)
-end)
-```
-
-***
-
-### <mark style="color:yellow;">Ensure correct skill trigger order</mark>
+## <mark style="color:yellow;">Ensure correct skill trigger order</mark>
 
 In certain situations, it's essential to ensure that skills are triggered in the correct order. For example, when adding more HP to a player, you might use one of the following design patterns.
 
-#### Using Config.SkillLoadingOrder
+### Using Config.SkillLoadingOrder&#x20;
 
 This configuration allows you to define a custom order for loading events when a player first joins the server. Since player data is stored as a hashmap in the database, the loading order of events cannot be naturally controlled.
 
@@ -294,13 +262,13 @@ Config.SkillLoadingOrder = {
 
 ***
 
-#### Skill-Based Incremental Effect Pattern
+### Skill-Based Incremental Effect Pattern
 
-**Overview**
+#### Overview
 
 This pattern is designed to streamline the process of applying skill effects dynamically without requiring explicit values for each skill level. Instead of defining fixed values per skill tier (e.g., `more_hp_1` → +120 HP, `more_hp_2` → +140 HP), we apply a consistent incremental effect across all levels of the same skill category.
 
-**Benefits**
+#### Benefits
 
 * **Scalability:** New skill levels can be added without modifying the logic.
 * **Simplicity:** Eliminates the need for redundant configuration per skill level.
@@ -308,7 +276,7 @@ This pattern is designed to streamline the process of applying skill effects dyn
 
 This pattern is particularly useful for **stat-based skill progression**, where effects scale in a linear or predictable manner.
 
-**Example Usage**
+#### Example Usage
 
 ```lua
 local currentHp = 100
@@ -330,3 +298,4 @@ applySkill("more_hp_1")
 
 print(currentHp) -- Output: 180
 ```
+

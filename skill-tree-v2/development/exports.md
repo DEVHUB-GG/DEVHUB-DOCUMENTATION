@@ -1,6 +1,6 @@
 # Exports
 
-### <mark style="color:yellow;">Parameter Types</mark>
+## <mark style="color:yellow;">Parameter Types</mark>
 
 Common parameters used across exports:
 
@@ -11,9 +11,9 @@ Common parameters used across exports:
 
 ***
 
-### <mark style="color:yellow;">Client Side Exports</mark>
+## <mark style="color:yellow;">Client Side Exports</mark>
 
-#### Reload Default Skills
+### Reload Default Skills
 
 Reloads all skills in the 'personal' category to their default states. Can be useful for some people after ambulance respawn.
 
@@ -23,7 +23,7 @@ exports['devhub_skillTree']:reloadDefaultSkills()
 
 ***
 
-#### Close Skill Tree
+### Close Skill  Tree
 
 Programmatically closes the skill tree UI.
 
@@ -33,7 +33,7 @@ exports['devhub_skillTree']:closeSkillTree()
 
 ***
 
-#### Get Config
+### Get Config
 
 Returns current configuration of skills and categories.
 
@@ -52,21 +52,21 @@ exports['devhub_skillTree']:getConfig()
 
 ***
 
-#### Set Pre Made Xp Earning Status
+### Set Pre Made Xp Earning Status
 
 Enable or disable pre-made ways of earning XP. You can use this to disable XP earning temporarily while a player is engaged in another activity.
 
 _status_ **false -** xp will be disabled
 
-_status_ **true -** xp will be enabled (default set by skill tree script)
+_status_ **true  -** xp will be enabled (default set by skill tree script)
 
 ```lua
 exports['devhub_skillTree']:setPreMadeXpEarningStatus(status)
 ```
 
-### <mark style="color:yellow;">Server Side Exports</mark>
+## <mark style="color:yellow;">Server Side Exports</mark>
 
-#### Get Player Level
+### Get Player Level
 
 Gets the player's level in a specific skill category.
 
@@ -90,7 +90,7 @@ print('Player level:', level)
 
 ***
 
-#### Get Player Xp
+### Get Player Xp
 
 Gets the player's current XP in a specific skill.
 
@@ -114,7 +114,7 @@ print('Current XP:', xp)
 
 ***
 
-#### Get Player Points
+### Get Player Points
 
 Gets the player's available points for a specific skill.
 
@@ -138,7 +138,7 @@ print('Available points:', points)
 
 ***
 
-#### Get Player Total Xp
+### Get Player Total Xp
 
 Gets the player's total accumulated XP in a specific skill.
 
@@ -162,7 +162,7 @@ print('Total XP earned:', totalXp)
 
 ***
 
-#### Get Player Global Stats
+### Get Player Global Stats
 
 Gets the player's global statistics across all skills.
 
@@ -194,7 +194,7 @@ print('Total levels:', stats.totalLevel)
 
 ***
 
-#### Get Unlocked Skills
+### Get Unlocked Skills
 
 Gets all skills unlocked by the player.
 
@@ -221,7 +221,7 @@ end
 
 ***
 
-#### Remove Xp
+### Remove Xp
 
 ```lua
 exports['devhub_skillTree']:removeXp(categoryUid, amount, source)
@@ -230,7 +230,7 @@ exports['devhub_skillTree']:removeXp(categoryUid, amount, source)
 Removes XP from a specific skill category.
 
 {% hint style="danger" %}
-It works only within current level. It will **never** decrease level and will **never** remove unlocked skills.
+&#x20;It works only within current level. It will **never** decrease level and will **never** remove unlocked skills.
 {% endhint %}
 
 **Parameters:**
@@ -247,7 +247,7 @@ exports['devhub_skillTree']:removeXp('personal', 100, source)
 
 ***
 
-#### Remove Points
+### Remove Points
 
 ```lua
 exports['devhub_skillTree']:removePoints(categoryUid, amount, source)
@@ -269,7 +269,7 @@ exports['devhub_skillTree']:removePoints('personal', 1, source)
 
 ***
 
-#### Unlock Skill
+### Unlock Skill
 
 ```lua
 exports['devhub_skillTree']:unlockSkill(categoryUid, skillUid, source)
@@ -297,11 +297,11 @@ To use unlockSkill export set Config.TurnOnUnlockSkillExport = true
 
 ***
 
-### <mark style="color:yellow;">Shared Exports</mark>
+## <mark style="color:yellow;">Shared Exports</mark>
 
 These exports work on both client and server side.
 
-#### Has Unlocked Skill
+### Has Unlocked Skill
 
 Checks if a player has unlocked a specific skill.
 
@@ -329,7 +329,7 @@ local hasSkill = exports['devhub_skillTree']:hasUnlockedSkill('personal', 'swimm
 
 ***
 
-#### Add Xp
+### Add Xp
 
 Adds XP to a specific skill.
 
@@ -359,7 +359,7 @@ If **Config.DisableSensitiveClientExports** is set to true, this export will <ma
 
 ***
 
-#### Add Points
+### Add Points
 
 Adds skill points to a specific category.
 
@@ -389,7 +389,7 @@ If **Config.DisableSensitiveClientExports** is set to true, this export will <ma
 
 ***
 
-#### Get Skill Effect
+### Get Skill Effect
 
 Gets the effect value of a specific skill.
 

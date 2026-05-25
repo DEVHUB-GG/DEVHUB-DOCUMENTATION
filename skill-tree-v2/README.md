@@ -2,9 +2,10 @@
 description: >-
   This script introduces a customizable skill tree system to your FiveM server,
   allowing players to earn and invest skill points to enhance their characters.
+hidden: true
 ---
 
-# 💪 Skill Tree
+# 💪 Skill Tree v2
 
 ## <mark style="color:yellow;">**Version Comparison**</mark>
 

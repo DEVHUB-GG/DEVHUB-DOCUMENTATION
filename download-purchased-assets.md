@@ -39,6 +39,4 @@ Press the blue "Download" button to download the asset.
 {% endstep %}
 {% endstepper %}
 
-
-
-<figure><img src=".gitbook/assets/keymaster (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/keymaster.png" alt=""><figcaption></figcaption></figure>

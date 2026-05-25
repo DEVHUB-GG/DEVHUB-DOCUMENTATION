@@ -1,8 +1,6 @@
 # ❔ FAQ
 
-## ❔ FAQ
-
-### <mark style="color:yellow;">General Questions</mark>
+## <mark style="color:yellow;">General Questions</mark>
 
 <details>
 
@@ -78,7 +76,7 @@ A: SURE, Create a ticket on our discord and we will give you a discount code for
 
 </details>
 
-### <mark style="color:yellow;">Technical Questions</mark>
+## <mark style="color:yellow;">Technical Questions</mark>
 
 <details>
 
@@ -159,87 +157,9 @@ This feature is useful for creating mutually exclusive skill paths or preventing
 A: Yes, you can do it using Config.UnlockHandlerForSkills in configs/sh.main.lua\
 More on that you can find [here](https://docs.devhub.gg/skill-tree-1/configuration#custom-skill-unlock-requirements)
 
-You can also use the new Helpers (v3) to simplify item/job/money checks.
-
 </details>
 
-<details>
-
-<summary>Q: What is skill degradation? (v3)</summary>
-
-A: An optional per-skill mechanic — players must keep earning XP to maintain unlocked skills. If a player stops earning XP in a category, that category's skills slowly lose "stamina" each cycle (default 1 day). When stamina hits 0 the skill effect is disabled until the player earns enough XP to reactivate it.
-
-Configurable via `Config.SkillDegradation` and per-skill `degradation = {...}` blocks. Disable entirely with `Config.SkillDegradation = nil`.
-
-</details>
-
-<details>
-
-<summary>Q: What is the daily XP limit and how do I disable it? (v3)</summary>
-
-A: `Config.DailyXpLimit` caps how much XP a player can earn per day in each category. By default `DefaultLimit = 0` which means **unlimited**, so the system is effectively off out of the box. To fully disable the system (skip even the reset timer), set `Config.DailyXpLimit = nil`.
-
-</details>
-
-<details>
-
-<summary>Q: What is the premium currency? (v3)</summary>
-
-A: A global secondary currency you can require (or accept) to unlock skills — useful for donor/VIP currencies. Configured via `Config.PremiumCurrency` with a server-side `handler` that checks and deducts the currency. Skills opt-in by specifying a `premiumCurrency` amount via the generator. See the Premium Currency section in the configuration.
-
-</details>
-
-<details>
-
-<summary>Q: How do I switch themes? (v3)</summary>
-
-A: Set `Config.Theme` in `configs/sh.main.lua` to one of `"legacy"`, `"modern"`, `"zombie"`, or `"fantasy"` and restart the resource.
-
-</details>
-
-<details>
-
-<summary>Q: How do I open the admin panel? (v3)</summary>
-
-A: Open the skill tree menu while logged in as an admin — the admin button appears in the top right. Permission is checked via `Core.IsPlayerAdmin(source)` from `devhub_lib`, so make sure your framework's admin detection is configured.
-
-</details>
-
-### <mark style="color:yellow;">Common Issues</mark>
-
-<details>
-
-<summary>Q: I upgraded from v2 and players only earn 5 XP per action — what happened?</summary>
-
-A: The `Config.EarnXp` format changed in v3. The XP amount moved from a top-level `xp = N` field into the value of `addTo`. The old format still runs, but `addTo = {['personal'] = true}` is no longer a number, so it silently falls back to **5 XP**.
-
-**Old (v2):**
-
-```lua
-['running'] = { xp = 10, timeout = 10000, addTo = { ['personal'] = true } }
-```
-
-**New (v3):**
-
-```lua
-['running'] = { timeout = 10000, addTo = { ['personal'] = 10 } }
-```
-
-</details>
-
-<details>
-
-<summary>Q: Database error after v3 upgrade — missing column 'data' or 'name'</summary>
-
-A: v3 adds two new columns to the `dh_skilltree` table. Run the SQL migration:
-
-```sql
-ALTER TABLE `dh_skilltree`
-ADD COLUMN IF NOT EXISTS `data` LONGTEXT DEFAULT NULL,
-ADD COLUMN IF NOT EXISTS `name` VARCHAR(255) DEFAULT NULL;
-```
-
-</details>
+## <mark style="color:yellow;">Common Issues</mark>
 
 <details>
 
@@ -277,11 +197,24 @@ A: Most likely you haven't configured devhub\_lib playerLoaded event. Make sure 
 
 <summary>Q: How do I block certain skills based on jobs?</summary>
 
-A: Edit CategoryVisibilityHandler in generator
+A: Use the CategoryVisibilityHandler in server configuration:
+
+To use framework remember to first register it on top of file.
+
+Then configure the visibility:
+
+```lua
+Config.CategoryVisibilityHandler = {
+    ['personal'] = function(source)
+        local job = ESX.GetPlayerFromId(source).job.name
+        return job == "police" -- returns false for non-police
+    end,
+}
+```
 
 </details>
 
-### <mark style="color:yellow;">Performance Questions</mark>
+## <mark style="color:yellow;">Performance Questions</mark>
 
 <details>
 
@@ -300,8 +233,7 @@ A: The impact is minimal because:
 
 <summary>Q: How many skills can I add?</summary>
 
-In v1 and v2 each category supports up to 171 slots (9x19 grid)\
-In v3 there are no limits
+A: Each category supports up to 171 slots (9x19 grid).
 
 </details>
 
@@ -313,7 +245,7 @@ A: Yes, through devhub\_lib which provides framework configuration. Configure yo
 
 </details>
 
-### <mark style="color:yellow;">Support</mark>
+## <mark style="color:yellow;">Support</mark>
 
 <details>
 
