@@ -40,6 +40,12 @@ ensure devhub_licenses
 {% endstep %}
 
 {% step %}
+### Database Setup
+
+Import the `sql.sql` file into your database.
+{% endstep %}
+
+{% step %}
 ### Restart your server
 {% endstep %}
 {% endstepper %}

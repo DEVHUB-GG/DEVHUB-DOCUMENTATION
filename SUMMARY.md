@@ -198,6 +198,7 @@
     * [sh.lang.lua](id-card-and-license/configuration/sh.lang.lua.md)
     * [sh.main.lua](id-card-and-license/configuration/sh.main.lua.md)
   * [⚙️ Exports & Events](id-card-and-license/exports-and-events.md)
+  * [🌊 Script Flow](id-card-and-license/script-flow.md)
   * [🎨 UI Color Customization](id-card-and-license/ui-color-customization.md)
 * [♟️ Props](props/README.md)
   * [🎃 Halloween Food Pack](props/halloween-food-pack.md)
