@@ -12,7 +12,7 @@ file is documented on its own page:
 * [**sh.main.lua**](sh.main.lua.md) — shared gameplay settings: pickup NPC, usage triggers, item
   shops, hideout, fake ID stations and mission, laptop integration.
 * [**s.main.lua**](s.main.lua.md) — server-only settings: Discord logging webhook, avatar
-  screenshot upload method, and the license data fields.
+  photo hosting settings, and the license data fields.
 * [**sh.lang.lua**](sh.lang.lua.md) — all translatable text (notifications, NPC dialog, UI labels).
 
 {% hint style="info" %}

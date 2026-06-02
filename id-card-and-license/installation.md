@@ -14,14 +14,6 @@ git clone https://github.com/DEVHUB-GG/devhub_lib.git
 {% endstep %}
 
 {% step %}
-### Install screenshot-basic
-
-The license system uses `screenshot-basic` to capture player avatars for licenses.
-
-Download [https://github.com/citizenfx/screenshot-basic](https://github.com/citizenfx/screenshot-basic)
-{% endstep %}
-
-{% step %}
 ### Install resources from keymaster
 
 Download the <mark style="color:red;">LICENSE SYSTEM</mark> script file from keymaster.
@@ -34,9 +26,12 @@ Move the files to the `resources` folder on your server and add the following li
 
 ```javascript
 ensure devhub_lib
-ensure screenshot-basic
 ensure devhub_licenses
 ```
+
+{% hint style="info" %}
+On its **first** start the license system automatically sets up its built-in image API (used to host license avatar photos on your server). FiveM's built-in `yarn` resource installs the required Node dependencies for you — this can add a few seconds to the first start and needs **no** manual `npm install`. Following starts are instant.
+{% endhint %}
 {% endstep %}
 
 {% step %}
