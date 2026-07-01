@@ -88,6 +88,10 @@ commands needed). See [Exports](exports.md).
 [commands.md](commands.md)
 {% endcontent-ref %}
 
+{% content-ref url="adding-props.md" %}
+[adding-props.md](adding-props.md)
+{% endcontent-ref %}
+
 {% content-ref url="exports.md" %}
 [exports.md](exports.md)
 {% endcontent-ref %}
